@@ -1,17 +1,14 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   AVAPRO — Cookie Consent & Tracking Manager
-   avansproiect.online
+   NUTRISIB — Cookie Consent & Tracking Manager
    ═══════════════════════════════════════════════════════════════════════════
    
    INSTALARE:
-   1. Urcă acest fișier pe server: https://avansproiect.online/cookies.js
-   2. Adaugă în FIECARE pagină HTML (index_RO.html, index_EN.html etc.),
-      imediat înainte de </body>:
-      <script src="https://avansproiect.online/cookies.js"></script>
-   3. ȘTERGE din <head> scripturile vechi de GA4 (dacă există):
-      <script async src="...gtag/js?id=G-6F5QQZ0C1C"></script>
-      <script>window.dataLayer=...gtag('config','G-6F5QQZ0C1C');</script>
-      (cookies.js le înlocuiește și le încarcă DOAR dacă utilizatorul acceptă)
+   1. Urcă acest fișier pe server (ex: https://nutrisib.club/cookies.js)
+   2. Adaugă în FIECARE pagină, înainte de </body>:
+      <script src="https://nutrisib.club/cookies.js"></script>
+   3. ȘTERGE din <head> scripturile vechi de GA4:
+      <script async src="...gtag/js?id=G-1TQP0TLWC5"></script>
+      <script>window.dataLayer=...gtag('config','G-1TQP0TLWC5');</script>
    
    Ce face scriptul:
    - Pe PAGINA PRINCIPALĂ: arată banner cookie + încarcă tracking (dacă e consimțit)
@@ -27,13 +24,13 @@
    └──────────────────────────────────────────────────────────┘ */
 
 var CONFIG = {
-    GA_ID:     'G-6F5QQZ0C1C',            // ✅ Google Analytics 4 — ID-ul tău AVAPRO
-    FB_PIXEL:  '',                          // ⬜ Lasă gol dacă nu folosești Meta Pixel
-                                            //    Sau pune ID-ul numeric din Meta Events Manager
-    COOKIE_NAME: 'avapro_consent',
+    GA_ID:     'G-1TQP0TLWC5',          // Google Analytics 4
+    FB_PIXEL:  '351919528248445',          // Facebook Pixel NutriSib
+    COOKIE_NAME: 'nutrisib_consent',
     COOKIE_DAYS: 365,
     // Pagini pe care apare bannerul automat (la prima vizită)
-    HOMEPAGE_PATHS: ['/', '/index.html', '/index_RO.html', '/index_EN.html']
+    // Gol = doar homepage ('/')
+    HOMEPAGE_PATHS: ['/', '/index.html']
 };
 
 
@@ -79,7 +76,7 @@ function loadGA4() {
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', CONFIG.GA_ID, { anonymize_ip: true });
-    console.log('[AVAPRO Cookies] ✅ GA4 activ');
+    console.log('[NutriSib Cookies] ✅ GA4 activ');
 }
 
 function loadFBPixel() {
@@ -95,7 +92,7 @@ function loadFBPixel() {
 
     fbq('init', CONFIG.FB_PIXEL);
     fbq('track', 'PageView');
-    console.log('[AVAPRO Cookies] ✅ FB Pixel activ');
+    console.log('[NutriSib Cookies] ✅ FB Pixel activ');
 }
 
 function loadAllTracking(consent) {
@@ -105,24 +102,24 @@ function loadAllTracking(consent) {
 
 
 /* ┌──────────────────────────────────────────────────────────┐
-   │  FUNCȚII DE TRACKING CONVERSII (apelabile din orice pagină) │
+   │  FUNCȚII DE CONVERSII (apelabile din orice pagină)       │
    └──────────────────────────────────────────────────────────┘ */
 
-/* Tracking trimitere formular contact */
-window.trackFormSubmit = function(motiv) {
+window.trackConversion = function(type, value) {
     var c = getCookie(CONFIG.COOKIE_NAME);
     if (c && c.analytics && window.gtag) {
         gtag('event', 'generate_lead', {
-            event_category: 'contact_form',
-            event_label: motiv || 'formular_contact',
-            value: 0,
-            currency: 'RON'
+            event_category: 'lead', event_label: type, value: value || 0, currency: 'RON'
         });
     }
     if (c && c.marketing && window.fbq) {
-        fbq('track', 'Lead', { content_name: motiv || 'formular_contact', value: 0, currency: 'RON' });
+        fbq('track', 'Lead', { content_name: type, value: value || 0, currency: 'RON' });
     }
-    console.log('[AVAPRO Cookies] 📊 Conversie tracked:', motiv);
+};
+
+window.trackProgramare = function(serviciu, valoare) {
+    trackConversion('programare_' + serviciu, valoare);
+    if (window.fbq) fbq('track', 'Schedule', { content_name: serviciu, value: valoare || 0, currency: 'RON' });
 };
 
 
@@ -135,7 +132,7 @@ function injectCSS() {
     var style = document.createElement('style');
     style.id = 'ncc-styles';
     style.textContent = '\
-/* ── AVAPRO Cookie Consent ── */\
+/* ── NutriSib Cookie Consent ── */\
 .ncc-overlay {\
     position:fixed;inset:0;background:rgba(0,0,0,0.55);\
     backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);\
@@ -347,12 +344,14 @@ function injectHTML() {
 <div class="ncc-inner">\
     <div class="ncc-head">\
         <div class="ncc-head-icon">' + SHIELD_SVG + '</div>\
-        <h3>Respectăm confidențialitatea ta</h3>\
+        <h3>Protejăm datele tale</h3>\
     </div>\
     <div class="ncc-body">\
-        Folosim cookies analitice pentru a înțelege cum este utilizat site-ul nostru \
-        și pentru a-l îmbunătăți continuu. Poți alege ce permiți. \
-        <a href="#" onclick="event.preventDefault();">Politica de confidențialitate</a>\
+        Folosim cookies analitice și de marketing pentru a înțelege cum folosești site-ul \
+        și pentru a-ți arăta conținut relevant. \
+        Alegi tu ce permiți. \
+        <a href="#" onclick="event.preventDefault(); \
+            if(typeof toggleModal===\'function\') toggleModal(\'privacyModal\',true);">Politica de confidențialitate</a>\
     </div>\
     <div class="ncc-cats" id="nccCats">\
         <div class="ncc-cat">\
@@ -503,13 +502,8 @@ function init() {
     var consent = getCookie(CONFIG.COOKIE_NAME);
 
     if (!consent) {
-        // Niciun consimțământ încă
-        if (isHomepage()) {
-            // Pe pagina principală: arată bannerul
-            setTimeout(showBanner, 900);
-        }
-        // Pe alte pagini: nu se încarcă nimic, nu se arată nimic
-        // (doar butonul 🍪 apare dacă vrea să seteze manual)
+        // Niciun consimțământ — arată bannerul pe ORICE pagină
+        setTimeout(showBanner, 900);
     } else {
         // Consimțământ existent: încarcă tracking-ul pe ORICE pagină
         loadAllTracking(consent);
