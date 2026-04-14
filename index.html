@@ -1,1210 +1,259 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-       <!-- ========== META SEO ========== -->
     <meta charset="UTF-8" />
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6F5QQZ0C1C"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-6F5QQZ0C1C');
-	</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <title>Asociația Avans Proiect (AVAPRO) — Evoluăm împreună. În profunzime, cu sens.</title>
-    <meta name="description" content="Asociația Avans Proiect (AVAPRO) conectează educația cu realitățile socio-economice prin proiecte de formare, dezvoltare personală, incluziune socială și cultură. Sibiu, România." />
-    <meta name="keywords" content="AVAPRO, Avans Proiect, asociatie, educatie, formare profesionala, dezvoltare personala, incluziune sociala, Sibiu, ONG Romania, proiecte educationale, mindfulness, antreprenoriat" />
-    <meta name="author" content="Asociația Avans Proiect" />
-    <meta name="robots" content="index, follow" />
+    <title>Asociația Avans Proiect (AVAPRO)</title>
+    <meta name="description" content="Asociația Avans Proiect (AVAPRO) — Sibiu, România. Alegeți limba / Choose your language." />
     <link rel="canonical" href="https://avansproiect.online/" />
+    <link rel="alternate" hreflang="ro" href="https://avansproiect.online/index_RO.html" />
+    <link rel="alternate" hreflang="en" href="https://avansproiect.online/index_EN.html" />
+    <link rel="alternate" hreflang="x-default" href="https://avansproiect.online/" />
 
-    <!-- ========== OPEN GRAPH ========== -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.avansproiect.online/" />
-    <meta property="og:title" content="Asociația Avans Proiect (AVAPRO) — Evoluăm împreună. În profunzime, cu sens." />
-    <meta property="og:description" content="ONG non-profit din Sibiu care construiește punți între educație, cultură, sănătate și realitățile socio-economice. Proiecte de formare, dezvoltare personală și incluziune socială." />
-    <meta property="og:image" content="https://avansproiect.online/imagini/siglaavapro.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="ro_RO" />
-    <meta property="og:site_name" content="Asociația Avans Proiect — AVAPRO" />
+    <link href="avapro.css" rel="stylesheet" />
 
-    <!-- ========== TWITTER CARD ========== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Asociația Avans Proiect (AVAPRO)" />
-    <meta name="twitter:description" content="Conectăm educația cu realitățile socio-economice prin proiecte inovatoare de formare și incluziune." />
-    <meta name="twitter:image" content="https://avansproiect.online/imagini/siglaavapro.png" />
+    <style>
+        /* ── Splash-specific layout ── */
+        body {
+            background: var(--gradient-hero);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
 
-    <!-- ========== STRUCTURED DATA — Organization ========== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "NGO",
-      "name": "Asociația Avans Proiect",
-      "alternateName": "AVAPRO",
-      "url": "https://www.avansproiect.online",
-      "logo": "https://avansproiect.online/imagini/siglaavapro.png",
-      "description": "Asociație non-profit care contribuie la crearea de punți de legătură între educație, cultură, sănătate și realitățile socio-economice actuale.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Sibiu",
-        "addressLocality": "Sibiu",
-        "postalCode": "550000",
-        "addressCountry": "RO"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+40770276406",
-        "email": "contact@avansproiect.online",
-        "contactType": "Customer Service"
-      },
-      "foundingDate": "2026",
-      "taxID": "xxxxxxxx",
-      "areaServed": "RO",
-      "slogan": "Evoluăm împreună. În profunzime, cu sens."
-    }
-    </script>
+        /* Fundal decorativ */
+        .bg-orbs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+        .bg-orbs span {
+            position: absolute;
+            border-radius: 50%;
+            animation: drift ease-in-out infinite;
+        }
+        .bg-orbs span:nth-child(1) { width:200px; height:200px; top:6%;  left:7%;  background:rgba(61,139,55,0.12); animation-duration:20s; }
+        .bg-orbs span:nth-child(2) { width:140px; height:140px; top:72%; left:83%; background:rgba(197,160,33,0.08); animation-duration:26s; animation-delay:-9s; }
+        .bg-orbs span:nth-child(3) { width:260px; height:260px; top:82%; left:4%;  background:rgba(30,77,158,0.08); animation-duration:30s; animation-delay:-13s; }
+        .bg-orbs span:nth-child(4) { width: 80px; height: 80px; top:35%; left:91%; background:rgba(95,173,65,0.10); animation-duration:17s; animation-delay:-5s; }
 
-    <!-- ========== FONTS ========== -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        @keyframes drift {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50%       { transform: translateY(-28px) scale(1.05); }
+        }
 
-    <!-- ========== CSS ========== -->
-    <link rel="stylesheet" href="avapro.css" />
+        /* Card principal */
+        .splash-card {
+            position: relative;
+            z-index: 10;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 24px;
+            padding: 3rem 3.5rem 3.5rem;
+            max-width: 540px;
+            width: calc(100% - 2rem);
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.06);
+        }
+
+        /* Logo */
+        .splash-logo {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 1.5rem;
+            filter: drop-shadow(0 8px 24px rgba(95,173,65,0.40));
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-10px); }
+        }
+
+        /* Titlu */
+        .splash-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+        .splash-name em {
+            font-style: normal;
+            color: var(--color-green-accent);
+        }
+
+        .splash-tagline {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 0.92rem;
+            color: var(--color-gold);
+            margin-top: 0.4rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Separator */
+        .splash-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.4rem;
+        }
+        .splash-divider::before,
+        .splash-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.15);
+        }
+        .splash-divider span {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            white-space: nowrap;
+        }
+
+        /* Butoane limbă */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .lang-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 1.35rem 1rem;
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(255,255,255,0.07);
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1),
+                        box-shadow 0.25s ease,
+                        border-color 0.25s ease,
+                        background 0.25s ease;
+        }
+        .lang-btn:hover {
+            background: var(--gradient-green);
+            border-color: var(--color-green-accent);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: var(--shadow-green), 0 12px 30px rgba(0,0,0,0.25);
+        }
+        .lang-btn:active {
+            transform: translateY(-1px) scale(1.01);
+        }
+        /* Hint vizual pentru preferința anterioară — fără redirect */
+        .lang-btn.prev-choice {
+            border-color: rgba(123,199,77,0.45);
+            background: rgba(123,199,77,0.10);
+        }
+
+        .lang-flag { font-size: 2.4rem; line-height: 1; }
+        .lang-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.04em;
+        }
+        .lang-hint {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.45);
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        .splash-foot {
+            margin-top: 2rem;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.28);
+        }
+        .splash-foot a {
+            color: rgba(255,255,255,0.35);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .splash-foot a:hover { color: var(--color-green-accent); }
+
+        @media (max-width: 480px) {
+            .splash-card  { padding: 2rem 1.5rem 2.5rem; }
+            .splash-name  { font-size: 1.3rem; }
+            .splash-logo  { width: 100px; height: 100px; }
+            .lang-flag    { font-size: 2rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- ================================================
-     BANDA INFO TOP
-     ================================================ -->
-<div class="info-band" role="banner">
-    <p>
-        <span>CIF: 54392841</span> &nbsp;·&nbsp;
-        Registrul Național ONG: <span>nr. 18/I/A/2026</span> &nbsp;·&nbsp;
-        CAEN: <span>8559 – Alte forme de învățământ</span> &nbsp;·&nbsp;
-        📍 Sibiu, România
-    </p>
-</div>
-
-<!-- ================================================
-     NAVIGARE STICKY
-     ================================================ -->
-<header class="nav-wrapper" role="navigation" aria-label="Navigare principală">
-    <nav class="nav-bar">
-        <a href="#acasa" class="nav-brand" aria-label="Pagina principală AVAPRO">
-            <img src="https://avansproiect.online/imagini/siglaavapro.png"
-                 alt="Sigla Asociației Avans Proiect AVAPRO"
-                 width="48" height="48"
-                 onerror="this.style.display='none'" />
-            <div class="nav-brand-text">
-                <span class="nav-brand-name">AVAPRO</span>
-                <span class="nav-brand-tagline">Avans Proiect</span>
-            </div>
-        </a>
-
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Deschide meniu" aria-expanded="false" aria-controls="navLinks">
-            ☰
-        </button>
-
-        <div class="nav-links" id="navLinks" role="menubar">
-            <a href="#despre" role="menuitem">Despre noi</a>
-            <a href="#valori" role="menuitem">Valori</a>
-            <a href="#scop" role="menuitem">Scop</a>
-            <a href="#activitati" role="menuitem">Activități</a>
-            <a href="#domenii" role="menuitem">Domenii</a>
-            <a href="#programe" role="menuitem">Programe</a>
-            <a href="#parteneriate" role="menuitem">Parteneriate</a>
-            <a href="#membri" role="menuitem">Alătură-te</a>
-            <a href="#contact" class="nav-cta" role="menuitem">Contact</a>
-        </div>
-    </nav>
-</header>
-
-
-<!-- ================================================
-     HERO
-     ================================================ -->
-<main id="acasa">
-<section class="hero-section" aria-labelledby="heroTitle">
-    <div class="hero-inner container-main">
-
-        <div class="hero-content">
-            <div class="hero-badge">
-                🌱 ONG non-profit · Sibiu, România
-            </div>
-            <h1 class="hero-title" id="heroTitle">
-                Asociația<br />
-                <span>Avans</span> Proiect
-            </h1>
-            <p class="hero-tagline">
-                „Evoluăm împreună. În profunzime, cu sens."
-            </p>
-            <p class="hero-subtitle">
-                Construim punți între educație, cultură, sănătate și realitățile socio-economice.
-                Sprijinim dezvoltarea armonioasă a fiecărui individ și a comunităților prin proiecte
-                inovatoare, parteneriate și intervenții cu impact real.
-            </p>
-            <div class="hero-buttons">
-                <a href="#activitati" class="btn" aria-label="Descoperă activitățile AVAPRO">
-                    🔍 Descoperă activitățile
-                </a>
-                <a href="#membri" class="btn-outline" aria-label="Alătură-te asociației">
-                    👐 Alătură-te nouă
-                </a>
-            </div>
-
-            <div class="hero-stats" aria-label="Statistici asociație">
-                <div class="hero-stat">
-                    <div class="hero-stat-num">2026</div>
-                    <div class="hero-stat-label">Fondată în</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">10+</div>
-                    <div class="hero-stat-label">Domenii de activitate</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">3</div>
-                    <div class="hero-stat-label">Direcții de scop</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-num">∞</div>
-                    <div class="hero-stat-label">Durată nedeterminată</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-logo-wrap">
-            <img src="https://avansproiect.online/imagini/siglaavapro.png"
-                 alt="Sigla Asociației Avans Proiect — Una, penitus cum proposito, evolvimus"
-                 width="220" height="220" />
-            <p style="font-family:'Lora',serif; font-style:italic; color:rgba(255,255,255,0.55); font-size:0.78rem; text-align:center; margin-top:0.75rem; line-height:1.5;">
-                Una, penitus cum proposito, evolvimus
-            </p>
-        </div>
-
+    <div class="bg-orbs" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
     </div>
-</section>
 
+    <div class="splash-card">
 
-<!-- ================================================
-     QUOTE / MOTTO
-     ================================================ -->
-<section class="section" style="padding-top:3rem; padding-bottom:1.5rem;" aria-label="Motto asociație">
-    <div class="container-main">
-        <div class="quote-box reveal">
-            <p class="quote-text">
-                „Construim o societate în care educația este conectată organic la realitățile și provocările
-                socio-economice, oferind fiecărei persoane șansa de a se dezvolta armonios și de a contribui
-                activ la progresul comunității."
-            </p>
-            <p class="quote-author">— Viziunea Asociației Avans Proiect</p>
-        </div>
-    </div>
-</section>
+        <img
+            src="imagini/siglaavapro.png"
+            alt="Logo AVAPRO"
+            class="splash-logo"
+            onerror="this.style.display='none'"
+        />
 
+        <div class="splash-name">Asociația <em>Avans Proiect</em></div>
+        <div class="splash-tagline">Evoluăm împreună. În profunzime, cu sens.</div>
 
-<!-- ================================================
-     DESPRE NOI — MISIUNE & VIZIUNE
-     ================================================ -->
-<section class="section" id="despre" aria-labelledby="despreTitle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label">🏛️ Cine suntem</div>
-            <h2 class="section-title center" id="despreTitle">Misiune și Viziune</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                O asociație independentă, apolitică, nonprofit, neguvernamentală, dedicată
-                construirii de punți reale între educație și viață.
-            </p>
-        </header>
-
-        <div class="split-grid">
-            <div class="mission-card reveal reveal-delay-1">
-                <div class="mission-icon">🎯</div>
-                <h3>Misiunea noastră</h3>
-                <p>
-                    Contribuim la crearea de punți de legătură între educație, cultură, sănătate
-                    (mentală / fizică / spirituală) și realitățile socio-economice actuale.
-                    Prin proiecte, parteneriate și intervenții, sprijinim <strong>dezvoltarea armonioasă
-                    a indivizilor</strong>, incluziunea socială și profesională și reducem decalajul
-                    dintre sistemul educațional și cerințele mediului social și de afaceri.
-                </p>
-            </div>
-
-            <div class="mission-card green reveal reveal-delay-2">
-                <div class="mission-icon">🌍</div>
-                <h3>Viziunea noastră</h3>
-                <p>
-                    Aspirăm să devenim un actor important în transformarea educației din România,
-                    prin inițiative care facilitează colaborarea, inovația și echitatea în accesul
-                    la oportunități relevante. Credem într-o societate în care educația, cultura și
-                    <strong>echilibrul interior al individului</strong> contribuie sinergic la formarea
-                    unor comunități sustenabile, incluzive și prospere.
-                </p>
-            </div>
+        <div class="splash-divider">
+            <span>Alegeți limba &nbsp;/&nbsp; Choose language</span>
         </div>
 
-        <!-- Card ONG Info -->
-        <div class="content-card reveal" style="margin-top:1.5rem; display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; align-items:center;">
-            <div style="text-align:center; padding:1rem;">
-                <div style="font-size:2rem; margin-bottom:0.5rem;">📋</div>
-                <div style="font-family:'Montserrat',sans-serif; font-weight:800; color:var(--color-navy); font-size:1.1rem;">CIF 54392841</div>
-                <div style="font-size:0.82rem; color:var(--color-text-light); margin-top:0.25rem;">Cod Unic de Identificare</div>
-            </div>
-            <div style="text-align:center; padding:1rem;">
-                <div style="font-size:2rem; margin-bottom:0.5rem;">🏢</div>
-                <div style="font-family:'Montserrat',sans-serif; font-weight:800; color:var(--color-navy); font-size:1.1rem;">Reg. ONG nr. 18/I/A/2026</div>
-                <div style="font-size:0.82rem; color:var(--color-text-light); margin-top:0.25rem;">Registrul Național ONG</div>
-            </div>
-            <div style="text-align:center; padding:1rem;">
-                <div style="font-size:2rem; margin-bottom:0.5rem;">📍</div>
-                <div style="font-family:'Montserrat',sans-serif; font-weight:800; color:var(--color-navy); font-size:1.1rem;">Sibiu, jud. Sibiu</div>
-                <div style="font-size:0.82rem; color:var(--color-text-light); margin-top:0.25rem;">www.avansproiect.online</div>
-            </div>
-            <div style="text-align:center; padding:1rem;">
-                <div style="font-size:2rem; margin-bottom:0.5rem;">📚</div>
-                <div style="font-family:'Montserrat',sans-serif; font-weight:800; color:var(--color-navy); font-size:1.1rem;">CAEN 8559</div>
-                <div style="font-size:0.82rem; color:var(--color-text-light); margin-top:0.25rem;">Alte forme de învățământ n.c.a.</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ================================================
-     VALORI AVAPRO
-     ================================================ -->
-<section class="section section-alt" id="valori" aria-labelledby="valoriTitle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label">💚 Valorile noastre</div>
-            <h2 class="section-title center" id="valoriTitle">Valorile AVAPRO</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                Fiecare literă din numele nostru reflectă un set de valori fundamentale care
-                ghidează fiecare proiect, parteneriat și acțiune a asociației.
-            </p>
-        </header>
-
-        <div class="values-grid">
-
-            <div class="value-card reveal reveal-delay-1">
-                <div class="value-letter">A</div>
-                <h4>Aliniere și Autenticitate</h4>
-                <p>
-                    Ne angajăm să contribuim la o aliniere reală între oferta sistemului educațional
-                    și necesitățile din mediul socio-economic. Proiectele noastre orientează spre
-                    crearea unei punți între învățare și aplicabilitate concretă, cu sinceritate și
-                    integritate în toate demersurile noastre.
-                </p>
-            </div>
-
-            <div class="value-card reveal reveal-delay-2">
-                <div class="value-letter">V</div>
-                <h4>Viabilitate și Viziune</h4>
-                <p>
-                    Propunem soluții sustenabile, adaptate contextului local și național,
-                    integrate în sistemul european. Credem în inițiative care generează valoare
-                    pe termen lung și pot fi replicate eficient. Privim spre viitor cu responsabilitate,
-                    adaptabilitate și gândire strategică.
-                </p>
-            </div>
-
-            <div class="value-card reveal reveal-delay-3">
-                <div class="value-letter">A</div>
-                <h4>Adaptabilitate și Armonie</h4>
-                <p>
-                    Încurajăm flexibilitatea și capacitatea de adaptare în educație și pe piața muncii,
-                    promovând învățarea continuă și dezvoltarea armonioasă pe toate planurile —
-                    fizic, mental, emoțional, profesional — împotriva oricăror criterii discriminatorii.
-                </p>
-            </div>
-
-            <div class="value-card reveal reveal-delay-1">
-                <div class="value-letter">P</div>
-                <h4>Parteneriate și Proiecte</h4>
-                <p>
-                    Succesul unui sistem educațional eficient depinde de colaborarea strânsă între
-                    toți actorii relevanți. Ne implicăm activ în proiecte comune cu instituții educaționale,
-                    autorități publice, companii și ONG-uri, implementând soluții inovative și sustenabile.
-                </p>
-            </div>
-
-            <div class="value-card reveal reveal-delay-2">
-                <div class="value-letter">R</div>
-                <h4>Relevanță și Responsabilitate</h4>
-                <p>
-                    Fiecare demers al asociației este fundamentat pe nevoi reale și pe date concrete.
-                    Ne asigurăm că intervențiile noastre aduc valoare adăugată acolo unde este cu
-                    adevărat nevoie, asumându-ne rolul activ în transformarea educațională, personală
-                    și socială a fiecărui beneficiar.
-                </p>
-            </div>
-
-            <div class="value-card reveal reveal-delay-3">
-                <div class="value-letter">O</div>
-                <h4>Orientare și Oportunitate</h4>
-                <p>
-                    Ne definim succesul prin impactul generat. Urmărim obiective clare și măsurabile,
-                    cu efect direct asupra beneficiarilor: elevi, studenți, profesori, angajatori și
-                    comunități. Creăm contexte favorabile învățării, incluziunii și inovației.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- ================================================
-     SCOP — 3 DIRECȚII
-     ================================================ -->
-<section class="section" id="scop" aria-labelledby="scopTitle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label navy">🧭 Direcțiile noastre</div>
-            <h2 class="section-title center" id="scopTitle">Scopul Asociației</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                Asociația activează pe trei mari direcții complementare, care acoperă
-                spectrul complet al dezvoltării umane și sociale.
-            </p>
-        </header>
-
-        <div class="scope-grid">
-
-            <article class="scope-card reveal reveal-delay-1">
-                <div class="scope-card-img">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80"
-                         alt="Dezvoltare umană integrală — munte, natură, stare de bine"
-                         loading="lazy" />
-                    <div class="scope-card-img-overlay"></div>
-                </div>
-                <div class="scope-card-body">
-                    <div class="scope-number">01</div>
-                    <h3>Dezvoltare umană integrală</h3>
-                    <p>
-                        Promovăm o abordare integrată a dezvoltării personale și profesionale,
-                        care susține echilibrul între corp, minte și spirit. Credem că progresul
-                        real pornește din cultivarea stării de bine fizice, mentale și emoționale,
-                        ca fundament pentru învățare, creativitate și implicare activă în societate.
-                    </p>
-                    <ul class="lista-oferta">
-                        <li>Autocunoaștere și sănătate mintală</li>
-                        <li>Programe de echilibru interior</li>
-                        <li>Stil de viață activ și sănătos</li>
-                        <li>Reziliență și stare de bine</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="scope-card reveal reveal-delay-2">
-                <div class="scope-card-img">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80"
-                         alt="Educație, lectură, cărți, instruire — direcție cultural-educațională"
-                         loading="lazy" />
-                    <div class="scope-card-img-overlay"></div>
-                </div>
-                <div class="scope-card-body">
-                    <div class="scope-number">02</div>
-                    <h3>Cultural-educațional</h3>
-                    <p>
-                        Contribuim la modernizarea și adaptarea continuă a sistemului educațional
-                        la cerințele actuale. Promovăm dezvoltarea personală și învățarea continuă
-                        de-a lungul vieții prin proiecte educaționale, culturale, sportive și
-                        parteneriate cu instituții din mediu educațional și economic.
-                    </p>
-                    <ul class="lista-oferta">
-                        <li>Proiecte educaționale inovative</li>
-                        <li>Formare continuă pe tot parcursul vieții</li>
-                        <li>Cultură și sport ca parte a educației</li>
-                        <li>Conexiunea educație — piața muncii</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="scope-card reveal reveal-delay-3">
-                <div class="scope-card-img">
-                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=700&q=80"
-                         alt="Comunitate, sprijin social, incluziune, solidaritate"
-                         loading="lazy" />
-                    <div class="scope-card-img-overlay"></div>
-                </div>
-                <div class="scope-card-body">
-                    <div class="scope-number">03</div>
-                    <h3>Socio-umanitar</h3>
-                    <p>
-                        Utilizăm resursele pentru a sprijini integrarea socială și profesională
-                        a persoanelor vulnerabile, contribuind la reducerea inegalităților.
-                        Ne implicăm în proiecte care promovează incluziunea socială și echitatea
-                        prin accesul la educație și oportunități de dezvoltare.
-                    </p>
-                    <ul class="lista-oferta">
-                        <li>Sprijin pentru grupuri dezavantajate</li>
-                        <li>Accesul la educație și formare</li>
-                        <li>Îmbunătățirea calității vieții</li>
-                        <li>Reducerea inegalităților sociale</li>
-                    </ul>
-                </div>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- ================================================
-     OBIECTIVE
-     ================================================ -->
-<section class="section section-alt" id="obiective" aria-labelledby="obiectiveTitle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label">🎯 Ce urmărim</div>
-            <h2 class="section-title center" id="obiectiveTitle">Obiectivele noastre</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                Obiective clare, măsurabile, cu impact direct asupra beneficiarilor
-                și a comunităților în care activăm.
-            </p>
-        </header>
-
-        <div class="objectives-grid">
-
-            <div class="obj-card reveal reveal-delay-1">
-                <div class="obj-icon">🧠</div>
-                <div>
-                    <h4>Echilibru corp–minte–spirit</h4>
-                    <p>
-                        Creșterea nivelului de conștientizare asupra importanței echilibrului holistic.
-                        Facilitarea accesului la programe de autocunoaștere, sănătate mintală și
-                        stil de viață sănătos prin activități experiențiale și educație non-formală.
-                    </p>
-                </div>
-            </div>
-
-            <div class="obj-card reveal reveal-delay-2">
-                <div class="obj-icon">📖</div>
-                <div>
-                    <h4>Educație continuă inovativă</h4>
-                    <p>
-                        Susținerea și promovarea învățării pe tot parcursul vieții prin tehnici moderne
-                        și alternative. Consolidarea conexiunii dintre mediul educațional și cel
-                        socio-economic și reducerea decalajului dintre cerere și ofertă.
-                    </p>
-                </div>
-            </div>
-
-            <div class="obj-card reveal reveal-delay-3">
-                <div class="obj-icon">💼</div>
-                <div>
-                    <h4>Integrare profesională</h4>
-                    <p>
-                        Facilitarea accesului la educație și formare continuă adaptate cerințelor
-                        pieței muncii. Sprijin pentru formare / conversie / reconversie profesională
-                        și creșterea adaptabilității în mediu socio-economic dinamic.
-                    </p>
-                </div>
-            </div>
-
-            <div class="obj-card reveal reveal-delay-4">
-                <div class="obj-icon">🤝</div>
-                <div>
-                    <h4>Incluziune și echitate socială</h4>
-                    <p>
-                        Facilitarea accesului persoanelor vulnerabile la educație și formare.
-                        Creșterea nivelului de incluziune socială și ocupare profesională.
-                        Reducerea inegalităților sociale prin inițiative concrete de sprijin activ.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- ================================================
-     ACTIVITĂȚI
-     ================================================ -->
-<section class="section" id="activitati" aria-labelledby="activitatiTitle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label navy">⚡ Ce facem</div>
-            <h2 class="section-title center" id="activitatiTitle">Activitățile asociației</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                Organizăm și derulăm o gamă largă de activități fizice și online,
-                în țară și în străinătate, pentru toate categoriile de beneficiari.
-            </p>
-        </header>
-
-        <div class="activities-grid">
-
-            <article class="activity-card reveal reveal-delay-1">
-                <div class="activity-card-img">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&q=80"
-                         alt="Conferință, seminar, masă rotundă — formare profesională" loading="lazy" />
-                    <span class="activity-tag">Formare</span>
-                </div>
-                <div class="activity-card-body">
-                    <h4>Cursuri, Conferințe &amp; Seminarii</h4>
-                    <p>
-                        Organizăm mese rotunde, simpozioane, conferințe, seminarii, ateliere de
-                        lucru, dezbateri, forumuri și sesiuni de formare pentru toate nivelurile
-                        de experiență, fizic sau online.
-                    </p>
-                    <a href="#contact" class="btn-card">Află mai mult →</a>
-                </div>
-            </article>
-
-            <article class="activity-card reveal reveal-delay-2">
-                <div class="activity-card-img">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80"
-                         alt="Retreat tematic, tabără educațională, natură" loading="lazy" />
-                    <span class="activity-tag">Experiențe</span>
-                </div>
-                <div class="activity-card-body">
-                    <h4>Cluburi &amp; Retreats Tematice</h4>
-                    <p>
-                        Cluburi și tabere tematice / educaționale cu focus pe dezvoltare personală,
-                        sănătate mentală, mindfulness, echilibru și conectare cu natura.
-                        Experiențe transformatoare pentru corp, minte și spirit.
-                    </p>
-                    <a href="#contact" class="btn-card">Află mai mult →</a>
-                </div>
-            </article>
-
-            <article class="activity-card reveal reveal-delay-3">
-                <div class="activity-card-img">
-                    <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&q=80"
-                         alt="Vizite de studiu, excursii de documentare, schimburi internaționale" loading="lazy" />
-                    <span class="activity-tag">Studiu</span>
-                </div>
-                <div class="activity-card-body">
-                    <h4>Vizite &amp; Schimburi Internaționale</h4>
-                    <p>
-                        Vizite, excursii și expediții de studiu și documentare în țară și
-                        străinătate. Schimburi culturale și științifice care lărgesc orizonturile
-                        și creează rețele valoroase de colaborare.
-                    </p>
-                    <a href="#contact" class="btn-card">Află mai mult →</a>
-                </div>
-            </article>
-
-            <article class="activity-card reveal reveal-delay-1">
-                <div class="activity-card-img">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80"
-                         alt="Activități sportive, recreație, competiții" loading="lazy" />
-                    <span class="activity-tag">Sport</span>
-                </div>
-                <div class="activity-card-body">
-                    <h4>Activități Sportiv-Recreative</h4>
-                    <p>
-                        Activități sportiv-recreative inclusiv competiții sportive care promovează
-                        spiritul de echipă, disciplina, sănătatea fizică și bucuria mișcării ca
-                        parte integrativă a unui stil de viață echilibrat.
-                    </p>
-                    <a href="#contact" class="btn-card">Află mai mult →</a>
-                </div>
-            </article>
-
-            <article class="activity-card reveal reveal-delay-2">
-                <div class="activity-card-img">
-                    <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=600&q=80"
-                         alt="Spectacole, concerte, campanii culturale" loading="lazy" />
-                    <span class="activity-tag">Cultură</span>
-                </div>
-                <div class="activity-card-body">
-                    <h4>Spectacole, Concerte &amp; Campanii</h4>
-                    <p>
-                        Organizăm spectacole, concerte, campanii de promovare culturală și
-                        campanii umanitare. Cultura ca instrument de coeziune socială, incluziune
-                        și comunicare a valorilor comune.
-                    </p>
-                    <a href="#contact" class="btn-card">Află mai mult →</a>
-                </div>
-            </article>
-
-            <article class="activity-card reveal reveal-delay-3">
-                <div class="activity-card-img">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80"
-                         alt="Resurse educaționale digitale, podcasts, webinarii online" loading="lazy" />
-                    <span class="activity-tag">E-learning</span>
-                </div>
-                <div class="activity-card-body">
-                    <h4>Resurse Educaționale Digitale</h4>
-                    <p>
-                        Dezvoltăm ghiduri, podcasturi și webinarii în domeniile de activitate.
-                        Conținut educațional de calitate, accesibil oricui, oriunde, ori de câte ori
-                        doresc să învețe și să crească.
-                    </p>
-                    <a href="#contact" class="btn-card">Află mai mult →</a>
-                </div>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- ================================================
-     DOMENII TEMATICE
-     ================================================ -->
-<section class="section section-alt" id="domenii" aria-labelledby="domeniititle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label">🌿 Tematici</div>
-            <h2 class="section-title center" id="domeniititle">Domeniile noastre tematice</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                Acoperim un spectru larg de tematici interdisciplinare, de la educație formală
-                la wellness, de la antreprenoriat la competențe digitale.
-            </p>
-        </header>
-
-        <div class="domains-flex reveal">
-            <span class="domain-tag green"><span class="tag-icon">💼</span> Dezvoltare profesională</span>
-            <span class="domain-tag navy"><span class="tag-icon">🔄</span> Formare / Reconversie profesională</span>
-            <span class="domain-tag green"><span class="tag-icon">🌱</span> Dezvoltare personală</span>
-            <span class="domain-tag navy"><span class="tag-icon">💪</span> Reziliență &amp; Autocunoaștere</span>
-            <span class="domain-tag green"><span class="tag-icon">♻️</span> Dezvoltare durabilă</span>
-            <span class="domain-tag navy"><span class="tag-icon">🌀</span> Dezvoltare holistică</span>
-            <span class="domain-tag green"><span class="tag-icon">🎓</span> Educație specială</span>
-            <span class="domain-tag navy"><span class="tag-icon">🥗</span> Educație nutrițională</span>
-            <span class="domain-tag green"><span class="tag-icon">🏃</span> Stil de viață activ și sănătos</span>
-            <span class="domain-tag navy"><span class="tag-icon">🤸</span> Educație somatică</span>
-            <span class="domain-tag green"><span class="tag-icon">🧠</span> Sănătate mentală</span>
-            <span class="domain-tag navy"><span class="tag-icon">🧘</span> Mindfulness &amp; Meditație</span>
-            <span class="domain-tag green"><span class="tag-icon">😌</span> Relaxare &amp; Stare de bine</span>
-            <span class="domain-tag navy"><span class="tag-icon">🚀</span> Educație antreprenorială</span>
-            <span class="domain-tag green"><span class="tag-icon">💰</span> Educație financiară</span>
-            <span class="domain-tag navy"><span class="tag-icon">🌐</span> Competențe lingvistice</span>
-            <span class="domain-tag green"><span class="tag-icon">💻</span> Competențe digitale</span>
-            <span class="domain-tag navy"><span class="tag-icon">📢</span> Comunicare profesională</span>
-            <span class="domain-tag green"><span class="tag-icon">📚</span> Meditații academice</span>
-            <span class="domain-tag navy"><span class="tag-icon">🤲</span> Incluziune socială</span>
-            <span class="domain-tag green"><span class="tag-icon">🎭</span> Cultură &amp; Arte</span>
-            <span class="domain-tag navy"><span class="tag-icon">⚽</span> Sport &amp; Recreație</span>
-        </div>
-    </div>
-</section>
-
-
-<!-- ================================================
-     IMPACT
-     ================================================ -->
-<section class="section section-dark" aria-label="Impactul asociației">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label" style="background:rgba(95,173,65,0.2); color:var(--color-green-accent); border-color:rgba(95,173,65,0.3);">📊 Impactul nostru</div>
-            <h2 class="section-title center white">Creăm impact real</h2>
-            <div class="title-underline" style="margin:0.75rem auto 0;"></div>
-            <p class="section-desc center white">
-                Măsurăm succesul prin schimbările pozitive generate în viața beneficiarilor
-                și a comunităților în care activăm.
-            </p>
-        </header>
-
-        <div class="impact-grid">
-            <div class="impact-card reveal reveal-delay-1">
-                <div class="impact-icon">🎓</div>
-                <div class="impact-num">500+</div>
-                <div class="impact-label">Beneficiari direcți în programe de formare</div>
-            </div>
-            <div class="impact-card reveal reveal-delay-2">
-                <div class="impact-icon">🤝</div>
-                <div class="impact-num">30+</div>
-                <div class="impact-label">Parteneriate active naționale și internaționale</div>
-            </div>
-            <div class="impact-card reveal reveal-delay-3">
-                <div class="impact-icon">📋</div>
-                <div class="impact-num">20+</div>
-                <div class="impact-label">Proiecte personale derulate cu succes din</div>
-            </div>
-            <div class="impact-card reveal reveal-delay-4">
-                <div class="impact-icon">🌍</div>
-                <div class="impact-num">+25</div>
-                <div class="impact-label">Ani de activitate continuă în educație ale fondatorilor</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ================================================
-     PROGRAME SPECIALE
-     ================================================ -->
-<section class="section" id="programe" aria-labelledby="programeTitle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label navy">🌟 Programe cheie</div>
-            <h2 class="section-title center" id="programeTitle">Programe specializate</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                Pachete tematice integrate care acoperă nevoile specifice ale
-                diferitelor categorii de beneficiari, de la tineri la profesioniști.
-            </p>
-        </header>
-
-        <div class="programs-grid">
-
-            <article class="program-card reveal reveal-delay-1">
-                <div class="program-card-img">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80"
-                         alt="Atelier de lucru pentru dezvoltare profesională și formare" loading="lazy" />
-                </div>
-                <div class="program-card-body">
-                    <span class="program-badge">Carieră</span>
-                    <h4>Formare &amp; Reconversie Profesională</h4>
-                    <p>
-                        Program integrat care sprijină tranzițiile de carieră prin cursuri acreditate,
-                        mentorat, orientare profesională și conectare cu angajatori.
-                    </p>
-                    <ul class="program-list">
-                        <li>Evaluarea competențelor actuale</li>
-                        <li>Cursuri de formare acreditate ANC</li>
-                        <li>Orientare și consiliere în carieră</li>
-                        <li>Conexiuni cu piața muncii locală</li>
-                    </ul>
-                    <a href="#contact" class="btn-card">Înscrie-te →</a>
-                </div>
-            </article>
-
-            <article class="program-card reveal reveal-delay-2">
-                <div class="program-card-img">
-                    <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&q=80"
-                         alt="Wellness, mindfulness, sănătate mintală, echilibru interior" loading="lazy" />
-                </div>
-                <div class="program-card-body">
-                    <span class="program-badge">Wellness</span>
-                    <h4>Sănătate Mintală &amp; Echilibru Interior</h4>
-                    <p>
-                        Programe de mindfulness, meditație, educație somatică și sănătate mentală
-                        pentru o viață echilibrată, reziliență și stare de bine autentică.
-                    </p>
-                    <ul class="program-list">
-                        <li>Ateliere de mindfulness și meditație</li>
-                        <li>Educație somatică și corporalitate</li>
-                        <li>Consiliere psihologică în grup</li>
-                        <li>Retreats tematice de regenerare</li>
-                    </ul>
-                    <a href="#contact" class="btn-card">Înscrie-te →</a>
-                </div>
-            </article>
-
-            <article class="program-card reveal reveal-delay-3">
-                <div class="program-card-img">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80"
-                         alt="Antreprenoriat, start-up, educație economică, finanțe" loading="lazy" />
-                </div>
-                <div class="program-card-body">
-                    <span class="program-badge">Business</span>
-                    <h4>Educație Antreprenorială &amp; Financiară</h4>
-                    <p>
-                        Programe practice care cultivă spiritul antreprenorial, gândirea economică
-                        și alfabetizarea financiară pentru tineri și adulți dornici de independență.
-                    </p>
-                    <ul class="program-list">
-                        <li>Fundamente de educație financiară</li>
-                        <li>Idei de afaceri și validare</li>
-                        <li>Marketing și comunicare digitală</li>
-                        <li>Rețele de mentorat antreprenorial</li>
-                    </ul>
-                    <a href="#contact" class="btn-card">Înscrie-te →</a>
-                </div>
-            </article>
-
-            <article class="program-card reveal reveal-delay-4">
-                <div class="program-card-img">
-                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&q=80"
-                         alt="Incluziune socială, sprijin persoane vulnerabile, comunitate" loading="lazy" />
-                </div>
-                <div class="program-card-body">
-                    <span class="program-badge">Incluziune</span>
-                    <h4>Incluziune Socială &amp; Sprijin Comunitar</h4>
-                    <p>
-                        Programe dedicate persoanelor vulnerabile pentru accesul la educație,
-                        formare continuă și reintegrare profesională cu demnitate și autonomie.
-                    </p>
-                    <ul class="program-list">
-                        <li>Evaluare nevoie individuală</li>
-                        <li>Formare adaptată grupurilor dezavantajate</li>
-                        <li>Sprijin psihosocial și orientare</li>
-                        <li>Rețea de voluntari comunitari</li>
-                    </ul>
-                    <a href="#contact" class="btn-card">Înscrie-te →</a>
-                </div>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- ================================================
-     PARTENERIATE
-     ================================================ -->
-<section class="section section-alt" id="parteneriate" aria-labelledby="parteneriateTitle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label">🌐 Colaborăm</div>
-            <h2 class="section-title center" id="parteneriateTitle">Parteneriate &amp; Colaborări</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                Credem profund că schimbarea reală se construiește împreună.
-                Suntem deschiși la parteneriate cu orice actor relevant, din țară sau din afara ei.
-            </p>
-        </header>
-
-        <div class="partners-strip reveal">
-            <p style="font-family:'Lora',serif; font-style:italic; font-size:1.1rem; color:var(--color-text-medium); margin:0 0 0.5rem 0; max-width:700px; margin-left:auto; margin-right:auto;">
-                „Suntem convinși că succesul depinde de colaborarea strânsă între toți actorii relevanți.
-                Fiecare parteneriat, fiecare nou proiect reprezintă o oportunitate de a crea un impact real și durabil."
-            </p>
-            <p style="font-size:0.82rem; color:var(--color-green-primary); font-weight:700; text-transform:uppercase; letter-spacing:0.1em;">— Statutul Asociației Avans Proiect</p>
-        </div>
-
-        <div class="partners-categories">
-
-            <div class="partner-cat reveal reveal-delay-1">
-                <div class="partner-cat-icon">🏫</div>
-                <h4>Instituții de Educație</h4>
-                <p>Școli, licee, universități, centre de formare profesională acreditate din țară și din Europa</p>
-            </div>
-
-            <div class="partner-cat reveal reveal-delay-2">
-                <div class="partner-cat-icon">🏛️</div>
-                <h4>Autorități Publice</h4>
-                <p>Consilii județene și locale, inspectorate școlare, agenții de ocupare a forței de muncă</p>
-            </div>
-
-            <div class="partner-cat reveal reveal-delay-3">
-                <div class="partner-cat-icon">🏢</div>
-                <h4>Sectorul Privat</h4>
-                <p>Companii, start-up-uri, asociații de angajatori dornice să contribuie la formarea resurselor umane</p>
-            </div>
-
-            <div class="partner-cat reveal reveal-delay-4">
-                <div class="partner-cat-icon">🤝</div>
-                <h4>ONG-uri &amp; Fundații</h4>
-                <p>Organizații neguvernamentale locale și internaționale cu misiuni complementare în social și educație</p>
-            </div>
-
-            <div class="partner-cat reveal reveal-delay-1">
-                <div class="partner-cat-icon">🧠</div>
-                <h4>Psihologi &amp; Psihoterapeuți</h4>
-                <p>Specialiști în sănătate mintală și consiliere psihologică pentru susținerea programelor comunitare</p>
-            </div>
-
-            <div class="partner-cat reveal reveal-delay-2">
-                <div class="partner-cat-icon">🎨</div>
-                <h4>Instituții Culturale</h4>
-                <p>Muzee, teatre, case de cultură, asociații artistice care îmbogățesc programele educaționale</p>
-            </div>
-
-            <div class="partner-cat reveal reveal-delay-3">
-                <div class="partner-cat-icon">⚽</div>
-                <h4>Organizații Sportive</h4>
-                <p>Cluburi sportive, federații, centre de sănătate și wellness pentru programe integrate de activitate fizică</p>
-            </div>
-
-            <div class="partner-cat reveal reveal-delay-4">
-                <div class="partner-cat-icon">🔬</div>
-                <h4>Cercetare &amp; Știință</h4>
-                <p>Institute de cercetare, laboratoare universitare, rețele de inovație pentru proiecte cu impact științific</p>
-            </div>
-
-        </div>
-
-        <div style="text-align:center; margin-top:2.5rem;" class="reveal">
-            <a href="#contact" class="btn" style="font-size:1rem; padding:0.85rem 2.5rem;">
-                🤝 Propune un parteneriat
+        <div class="lang-grid">
+            <a href="index_RO.html" class="lang-btn" id="btn-ro" onclick="saveLang('ro')">
+                <span class="lang-flag">🇷🇴</span>
+                <span class="lang-name">Română</span>
+                <span class="lang-hint">Versiunea română</span>
+            </a>
+            <a href="index_EN.html" class="lang-btn" id="btn-en" onclick="saveLang('en')">
+                <span class="lang-flag">🇬🇧</span>
+                <span class="lang-name">English</span>
+                <span class="lang-hint">English version</span>
             </a>
         </div>
+
+        <p class="splash-foot">
+            &copy; <script>document.write(new Date().getFullYear())</script>
+            Asociația Avans Proiect &mdash;
+            <a href="mailto:office@avansproiect.online">office@avansproiect.online</a>
+        </p>
+
     </div>
-</section>
 
+    <script>
+        function saveLang(lang) {
+            try { localStorage.setItem('avapro_lang', lang); } catch(e) {}
+        }
 
-<!-- ================================================
-     ALĂTURĂ-TE / MEMBERSHIP
-     ================================================ -->
-<section class="section" id="membri" aria-labelledby="membriTitle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label navy">👐 Comunitatea noastră</div>
-            <h2 class="section-title center" id="membriTitle">Alătură-te asociației</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                Indiferent dacă ești persoană fizică sau juridică, există un loc în AVAPRO
-                pentru tine. Contribuie la schimbarea pe care vrei s-o vezi în educație și societate.
-            </p>
-        </header>
-
-        <div class="membership-grid">
-
-            <div class="member-card reveal reveal-delay-1">
-                <div class="member-icon">😊</div>
-                <h3>Membru Simpatizant</h3>
-                <p class="member-desc">
-                    Pentru orice persoană fizică sau juridică, indiferent de vârstă, studii sau cetățenie,
-                    care dorește să contribuie ca voluntar la activitățile asociației.
-                </p>
-                <ul class="member-benefits">
-                    <li>Participare la activitățile asociației</li>
-                    <li>Acces la resurse și materiale educaționale</li>
-                    <li>Rețea de contacte și conexiuni</li>
-                    <li>Fără cotizație obligatorie</li>
-                </ul>
-                <a href="#contact" class="btn-green-light">Înscrie-te →</a>
-            </div>
-
-            <div class="member-card featured reveal reveal-delay-2">
-                <div class="member-icon">⭐</div>
-                <h3>Membru Activ</h3>
-                <p class="member-desc">
-                    Persoane fizice sau juridice care se angajează prin propria activitate
-                    să contribuie și să sprijine realizarea scopurilor asociației.
-                </p>
-                <ul class="member-benefits">
-                    <li>Drept de vot în Adunarea Generală</li>
-                    <li>Eligibil pentru organele de conducere</li>
-                    <li>Acces prioritar la toate programele</li>
-                    <li>Implicare directă în proiecte</li>
-                    <li>Rețea de colaborare exclusivă</li>
-                </ul>
-                <a href="#contact" class="btn">Devino Membru Activ →</a>
-            </div>
-
-            <div class="member-card reveal reveal-delay-3">
-                <div class="member-icon">🏆</div>
-                <h3>Membru de Onoare</h3>
-                <p class="member-desc">
-                    Calitate acordată de Adunarea Generală persoanelor cu contribuții deosebite
-                    la dezvoltarea sistemului educațional sau la atingerea scopurilor asociației.
-                </p>
-                <ul class="member-benefits">
-                    <li>Recunoaștere publică în evidențele asociației</li>
-                    <li>Invitat de onoare la Adunarea Generală anuală</li>
-                    <li>Ambasador al valorilor AVAPRO</li>
-                    <li>Titlu onorific pe durată nedeterminată</li>
-                </ul>
-                <a href="#contact" class="btn-navy">Propune o nominalizare →</a>
-            </div>
-
-        </div>
-
-        <!-- Cum devii membru -->
-        <div class="content-card reveal" style="margin-top:2rem;">
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:2rem; align-items:start;">
-                <div>
-                    <div style="font-size:2rem; margin-bottom:0.75rem;">📝</div>
-                    <h4 style="font-family:'Montserrat',sans-serif; font-weight:800; color:var(--color-navy); font-size:1rem; margin:0 0 0.4rem;">1. Depune o adeziune</h4>
-                    <p style="font-size:0.88rem; color:var(--color-text-light); margin:0;">
-                        Completează o cerere scrisă sau electronică adresată Consiliului Director cu informații despre tine și motivul aderării.
-                    </p>
-                </div>
-                <div>
-                    <div style="font-size:2rem; margin-bottom:0.75rem;">✅</div>
-                    <h4 style="font-family:'Montserrat',sans-serif; font-weight:800; color:var(--color-navy); font-size:1rem; margin:0 0 0.4rem;">2. Aprobare CD</h4>
-                    <p style="font-size:0.88rem; color:var(--color-text-light); margin:0;">
-                        Consiliul Director analizează cererea. Calitatea de membru se dobândește prin aprobarea adeziunii de către CD.
-                    </p>
-                </div>
-                <div>
-                    <div style="font-size:2rem; margin-bottom:0.75rem;">🎉</div>
-                    <h4 style="font-family:'Montserrat',sans-serif; font-weight:800; color:var(--color-navy); font-size:1rem; margin:0 0 0.4rem;">3. Bun venit în AVAPRO!</h4>
-                    <p style="font-size:0.88rem; color:var(--color-text-light); margin:0;">
-                        Ești acum parte din comunitatea noastră și poți contribui activ la misiunea asociației.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ================================================
-     CONTACT
-     ================================================ -->
-<section class="contact-section" id="contact" aria-labelledby="contactTitle">
-    <div class="container-main">
-        <header class="section-header-center" style="position:relative;z-index:1;">
-            <div class="section-label" style="background:rgba(95,173,65,0.2); color:var(--color-green-accent); border-color:rgba(95,173,65,0.3);">📬 Contactează-ne</div>
-            <h2 class="section-title center white" id="contactTitle">Hai să vorbim!</h2>
-            <div class="title-underline" style="margin:0.75rem auto 0;"></div>
-            <p class="section-desc center white" style="max-width:600px;">
-                Suntem deschiși oricărei idei, propuneri de proiect, parteneriat sau pur și simplu
-                dacă vrei să afli mai multe despre ce facem. Scrie-ne!
-            </p>
-        </header>
-
-        <div class="contact-grid">
-
-            <div class="contact-item">
-                <div class="contact-item-icon">📞</div>
-                <h4>Telefon</h4>
-                <a href="tel:+40770276406">+40 770 276 406</a>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-item-icon">📧</div>
-                <h4>E-mail</h4>
-                <a href="mailto:contact@avansproiect.online">contact@avansproiect.online</a>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-item-icon">📍</div>
-                <h4>Adresă</h4>
-                <p>Sibiu, jud. Sibiu, 550000</p>
-            </div>
-
-        </div>
-
-        <div style="text-align:center; margin-top:2.5rem; position:relative;z-index:1;">
-            <a href="mailto:contact@avansproiect.online" class="btn" style="font-size:1.05rem; padding:0.95rem 2.8rem;">
-                ✉️ Trimite un mesaj
-            </a>
-            &nbsp;&nbsp;
-            <a href="tel:+40770276406" class="btn-outline" style="font-size:1.05rem; padding:0.93rem 2.8rem;">
-                📞 Sună-ne
-            </a>
-        </div>
-    </div>
-</section>
-
-</main>
-
-
-<!-- ================================================
-     FOOTER
-     ================================================ -->
-<footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-        <div class="footer-grid">
-
-            <div class="footer-brand">
-               <img src="https://avansproiect.online/imagini/siglaavapro.png"
-                     alt="Sigla Asociația Avans Proiect AVAPRO"
-                     width="60" height="60"
-                     onerror="this.style.display='none'" />
-                <p>
-                    Asociația <strong style="color:#ecf0f1;">Avans Proiect</strong> — organizație
-                    non-profit dedicată educației, dezvoltării personale și incluziunii sociale.
-                    Activăm cu impact real în comunitate!
-                </p>
-                <p style="margin-top:0.75rem; font-size:0.8rem; color:rgba(255,255,255,0.4);">
-                    <em>„Una, penitus cum proposito, evolvimus."</em>
-                </p>
-            </div>
-
-            <div class="footer-col">
-                <h5>Asociația</h5>
-                <ul class="footer-links">
-                    <li><a href="#despre">Despre noi</a></li>
-                    <li><a href="#valori">Valorile AVAPRO</a></li>
-                    <li><a href="#scop">Scopul &amp; Misiunea</a></li>
-                    <li><a href="#obiective">Obiective</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h5>Activitate</h5>
-                <ul class="footer-links">
-                    <li><a href="#activitati">Activități</a></li>
-                    <li><a href="#domenii">Domenii tematice</a></li>
-                    <li><a href="#programe">Programe</a></li>
-                    <li><a href="#parteneriate">Parteneriate</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h5>Comunitate</h5>
-                <ul class="footer-links">
-                    <li><a href="#membri">Alătură-te</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="mailto:contact@avansproiect.online">E-mail</a></li>
-                    <li><a href="tel:+40770276406">Telefon</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-legal">
-            <p>© 2026 Asociația Avans Proiect · CIF: 54392841 · ONG nr. 18/I/A/2026
-        </div>
-    </div>
-    <div class="footer-green-strip"></div>
-</footer>
-
-
-<!-- ================================================
-     JAVASCRIPT
-     ================================================ -->
-<script>
-    /* ── Mobile Menu ── */
-    const menuBtn  = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-
-    menuBtn.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('open');
-        menuBtn.setAttribute('aria-expanded', isOpen);
-        menuBtn.textContent = isOpen ? '✕' : '☰';
-    });
-
-    /* Închide meniu la click pe link */
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('open');
-            menuBtn.setAttribute('aria-expanded', false);
-            menuBtn.textContent = '☰';
-        });
-    });
-
-    /* ── Active Nav Link pe scroll ── */
-    const sections = document.querySelectorAll('section[id], main[id]');
-    const links    = document.querySelectorAll('.nav-links a[href^="#"]');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                links.forEach(l => l.classList.remove('active'));
-                const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-                if (active) active.classList.add('active');
-            }
-        });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-
-    sections.forEach(s => observer.observe(s));
-
-    /* ── Scroll Reveal ── */
-    const revealObs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                revealObs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.08 });
-
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-    /* ── Smooth scroll pentru browsere mai vechi ── */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-</script>
+        /* Marchează vizual preferința anterioară — fără redirecționare automată */
+        (function() {
+            var saved;
+            try { saved = localStorage.getItem('avapro_lang'); } catch(e) {}
+            if (saved === 'ro') document.getElementById('btn-ro').classList.add('prev-choice');
+            if (saved === 'en') document.getElementById('btn-en').classList.add('prev-choice');
+        })();
+    </script>
 
 </body>
 </html>

@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+  <!-- Pagina de selecție limbă / Language selector -->
   <url>
     <loc>https://avansproiect.online/</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://avansproiect.online/index_RO.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://avansproiect.online/index_EN.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://avansproiect.online/"/>
+  </url>
+
+  <!-- Versiunea română -->
+  <url>
+    <loc>https://avansproiect.online/index_RO.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://avansproiect.online/index_RO.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://avansproiect.online/index_EN.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://avansproiect.online/"/>
+  </url>
+
+  <!-- English version -->
+  <url>
+    <loc>https://avansproiect.online/index_EN.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://avansproiect.online/index_EN.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://avansproiect.online/index_RO.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://avansproiect.online/"/>
   </url>
 
 </urlset>
