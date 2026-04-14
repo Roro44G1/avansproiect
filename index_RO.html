@@ -1637,10 +1637,12 @@ textarea.f-input { resize:vertical; min-height:100px; }
         }
     }
 
-    function closeModal() {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
+	function closeModal() {
+		modal.style.display = 'none';
+		document.body.style.overflow = '';
+		document.getElementById('formSuccess').style.display = 'none';
+		document.getElementById('formError').style.display   = 'none';
+	}
 
     /* Toate butoanele cu clasa open-modal-btn (inclusiv #openFormBtn) */
     document.querySelectorAll('.open-modal-btn, #openFormBtn').forEach(btn => {

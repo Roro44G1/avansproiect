@@ -1384,9 +1384,11 @@ textarea.f-input { resize:vertical; min-height:100px; }
     }
 
     function closeModal() {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
+		modal.style.display = 'none';
+		document.body.style.overflow = '';
+		document.getElementById('formSuccess').style.display = 'none';
+		document.getElementById('formError').style.display   = 'none';
+	}
 
     /* All buttons with class open-modal-btn (including #openFormBtn) */
     document.querySelectorAll('.open-modal-btn, #openFormBtn').forEach(btn => {
