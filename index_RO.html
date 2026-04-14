@@ -1743,7 +1743,8 @@ textarea.f-input { resize:vertical; min-height:100px; }
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-
+		errorBox.style.display = 'none';  // ← mută-o aici
+		successBox.style.display = 'none'; // ← și adaugă asta
         const gdpr = document.getElementById('gdprCheck');
         if (!gdpr.checked) {
             gdpr.closest('.f-gdpr').style.outline      = '2px solid #ef4444';
