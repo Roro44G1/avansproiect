@@ -1524,7 +1524,7 @@ textarea.f-input { resize:vertical; min-height:100px; }
                 successBox.style.display    = 'block';
 				// Tracking conversie formular
 				if (typeof window.trackFormSubmit === 'function') {
-					window.trackFormSubmit(val || 'contact_general');
+					window.trackFormSubmit(document.getElementById('motivSelect').value || 'contact_general');
 				}
                 successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
 			} else {
