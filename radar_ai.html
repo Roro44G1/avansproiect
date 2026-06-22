@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RADAR AI — Reziliență, Autocunoaștere, Discernământ, Abilități, Relații în Era AI</title>
+<meta name="description" content="RADAR AI este un program de psihoeducație și alfabetizare AI pentru elevii din liceele sibiene — 5 dimensiuni, 4 module, un cadru care face diferența.">
+<meta property="og:title" content="RADAR AI — Sibiu 2026">
+<meta property="og:description" content="Reziliență, Autocunoaștere, Discernământ, Abilități, Relații. Programul care îi ajută pe elevii sibieni să navigheze cu înțelepciune era AI.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── DESIGN TOKENS — RADAR AI ─────────────────────────────────────────────── */
+/*  Identitate vizuală distinctă față de ACTIV AI (cerulean) și AVAPRO (verde)
+    Paleta: violet-indigo cald + teal accent + gold highlights
+    Metafora: introspectiv, psihologic, adânc — nu tehnic                      */
+:root {
+  --indigo:       #3730A3;
+  --indigo-mid:   #4F46E5;
+  --indigo-lt:    #EEF2FF;
+  --indigo-bd:    #C7D2FE;
+  --teal:         #0D9488;
+  --teal-lt:      #CCFBF1;
+  --teal-bd:      #99F6E4;
+  --gold:         #D97706;
+  --gold-lt:      #FEF3C7;
+  --gold-bd:      #FCD34D;
+  --rose:         #E11D48;
+  --pearl:        #F8FAFC;
+  --dark:         #1f2937;
+  --medium:       #374151;
+  --light:        #4b5563;
+  --border:       #e5e7eb;
+  --white:        #ffffff;
+  --footer-bg:    #0F0E1A;
+
+  --grad-hero:    linear-gradient(160deg, #0C0B1D 0%, #1E1B4B 55%, #14403C 100%);
+  --grad-indigo:  linear-gradient(135deg, #3730A3 0%, #4F46E5 100%);
+  --grad-teal:    linear-gradient(135deg, #0D9488 0%, #14B8A6 100%);
+  --grad-warm:    linear-gradient(135deg, #1E1B4B 0%, #3730A3 50%, #0D9488 100%);
+
+  --shadow-card:  0 4px 6px -1px rgba(0,0,0,.10), 0 2px 4px -1px rgba(0,0,0,.06);
+  --shadow-hover: 0 10px 25px -5px rgba(0,0,0,.15), 0 4px 10px -3px rgba(0,0,0,.10);
+  --shadow-indigo:0 4px 15px rgba(79,70,229,.30);
+  --r-card: 12px;
+  --r-sm:   8px;
+
+  /* Culori per dimensiune RADAR */
+  --r-color:  #4F46E5;   /* Reziliență — indigo */
+  --a1-color: #0D9488;   /* Autocunoaștere — teal */
+  --d-color:  #D97706;   /* Discernământ — amber */
+  --a2-color: #7C3AED;   /* Abilități — violet */
+  --r2-color: #E11D48;   /* Relații — rose */
+}
+
+/* ── RESET ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; padding:0; background:var(--pearl); color:var(--dark); font-family:'Inter',sans-serif; line-height:1.6; }
+img  { max-width:100%; height:auto; display:block; }
+a    { text-decoration:none; }
+
+/* ── TYPOGRAPHY ───────────────────────────────────────────────────────────── */
+h1,.hero-title    { font-family:'Montserrat',sans-serif; }
+h2,h3,.section-title { font-family:'Montserrat',sans-serif; }
+.lora             { font-family:'Lora',serif; }
+
+/* ── CONTAINER ────────────────────────────────────────────────────────────── */
+.wrap { max-width:1200px; margin:0 auto; width:100%; padding:0 1.5rem; }
+
+/* ── NAVBAR ───────────────────────────────────────────────────────────────── */
+.nav-wrapper {
+  position:sticky; top:0; z-index:1000;
+  padding:.75rem 1.5rem;
+  background:rgba(248,250,252,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 10px rgba(0,0,0,.07);
+}
+.nav-bar { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.nav-brand { display:flex; align-items:center; gap:10px; color:var(--indigo); font-weight:800; font-family:'Montserrat',sans-serif; }
+.nav-acronym {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:10px;
+  background:var(--grad-indigo); color:white;
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:.88rem;
+  letter-spacing:.02em; box-shadow:var(--shadow-indigo);
+}
+.nav-brand-text  { display:flex; flex-direction:column; line-height:1.1; }
+.nav-brand-name  { font-size:1rem; font-weight:800; color:var(--indigo); letter-spacing:-.02em; }
+.nav-brand-sub   { font-size:.62rem; color:var(--teal); font-weight:600; text-transform:uppercase; letter-spacing:.08em; }
+.nav-links       { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.nav-links a     { color:var(--medium); font-weight:500; font-size:.87rem; padding:.38rem .7rem; border-radius:6px; transition:all .2s; }
+.nav-links a:hover { color:var(--indigo); background:var(--indigo-lt); font-weight:700; }
+.nav-cta {
+  background:var(--grad-indigo) !important; color:white !important;
+  padding:.48rem 1.15rem !important; border-radius:var(--r-sm) !important;
+  font-weight:700 !important; font-size:.84rem !important;
+  box-shadow:var(--shadow-indigo) !important; transition:all .2s !important;
+}
+.nav-cta:hover { transform:translateY(-1px) !important; box-shadow:0 6px 20px rgba(79,70,229,.45) !important; }
+.mobile-btn { display:none; background:none; border:1px solid var(--border); border-radius:6px; padding:.4rem .6rem; cursor:pointer; font-size:1.25rem; color:var(--indigo); }
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero {
+  background:var(--grad-hero);
+  position:relative; overflow:hidden;
+  padding:5rem 1.5rem 4rem;
+}
+.hero::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(79,70,229,.20) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 15% 80%, rgba(13,148,136,.14) 0%, transparent 65%),
+    radial-gradient(ellipse 30% 30% at 50% 10%, rgba(217,119,6,.08) 0%, transparent 60%);
+}
+.hero::after {
+  content:''; position:absolute; bottom:-2px; left:0; right:0; height:64px;
+  background:var(--pearl); clip-path:ellipse(55% 100% at 50% 100%);
+}
+.hero-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:3.5rem; position:relative; z-index:2; }
+.hero-content { flex:1; }
+.hero-visual  { flex-shrink:0; width:300px; display:flex; flex-direction:column; align-items:center; gap:1.25rem; }
+
+/* RADAR acronym wheel */
+.radar-wheel {
+  position:relative; width:240px; height:240px;
+}
+.radar-ring {
+  position:absolute; inset:0; border-radius:50%;
+  border:2px solid rgba(255,255,255,.06);
+  animation:pulse-ring 3s ease-in-out infinite;
+}
+.radar-ring:nth-child(2) { inset:20px; animation-delay:.5s; }
+.radar-ring:nth-child(3) { inset:40px; animation-delay:1s; }
+@keyframes pulse-ring {
+  0%,100% { opacity:.4; transform:scale(1); }
+  50%      { opacity:.8; transform:scale(1.02); }
+}
+.radar-center {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  flex-direction:column;
+}
+.radar-letters {
+  display:flex; gap:3px; margin-bottom:4px;
+}
+.radar-letter {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:32px; height:36px; border-radius:8px;
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.1rem;
+  color:white; position:relative;
+}
+.radar-letter:nth-child(1) { background:var(--r-color); }
+.radar-letter:nth-child(2) { background:var(--a1-color); }
+.radar-letter:nth-child(3) { background:var(--d-color); }
+.radar-letter:nth-child(4) { background:var(--a2-color); }
+.radar-letter:nth-child(5) { background:var(--r2-color); }
+.radar-title {
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.35rem;
+  color:white; letter-spacing:-.02em;
+}
+.radar-sub { font-size:.72rem; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.1em; }
+
+/* Orbit dots */
+.orbit-dot {
+  position:absolute; width:10px; height:10px; border-radius:50%;
+  animation:orbit 8s linear infinite;
+}
+.orbit-dot:nth-child(1) { background:var(--r-color); top:10%; left:50%; animation-duration:6s; }
+.orbit-dot:nth-child(2) { background:var(--a1-color); top:50%; right:8%; animation-duration:8s; animation-delay:-2s; }
+.orbit-dot:nth-child(3) { background:var(--d-color); bottom:10%; left:50%; animation-duration:7s; animation-delay:-4s; }
+@keyframes orbit {
+  0%   { transform:rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform:rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+.hero-badge {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:rgba(79,70,229,.18); border:1px solid rgba(79,70,229,.40);
+  border-radius:50px; padding:.32rem .95rem;
+  font-size:.72rem; font-weight:700; color:#A5B4FC; text-transform:uppercase; letter-spacing:.1em;
+  margin-bottom:1.25rem;
+}
+.hero-title { font-size:2.85rem; font-weight:900; color:white; line-height:1.1; margin:0 0 .4rem 0; letter-spacing:-.025em; }
+.hero-title .accent-teal   { color:#5EEAD4; }
+.hero-title .accent-gold   { color:var(--gold-bd); }
+.hero-tagline { font-family:'Lora',serif; font-style:italic; font-size:1.15rem; color:rgba(255,255,255,.60); margin:0 0 .9rem 0; }
+.hero-subtitle { font-size:.98rem; color:rgba(255,255,255,.78); line-height:1.75; max-width:560px; margin:0 0 2rem 0; }
+.hero-buttons  { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+.hero-stats    { display:flex; gap:2.5rem; flex-wrap:wrap; border-top:1px solid rgba(255,255,255,.12); padding-top:1.75rem; }
+.hero-stat-num { font-family:'Montserrat',sans-serif; font-size:2rem; color:#A5B4FC; font-weight:900; line-height:1; }
+.hero-stat-lbl { font-size:.67rem; color:rgba(255,255,255,.50); text-transform:uppercase; letter-spacing:.1em; font-weight:600; margin-top:.2rem; }
+
+.funded-badge {
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--r-sm); padding:.6rem 1rem;
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-size:.78rem; color:rgba(255,255,255,.70); text-align:center;
+}
+.funded-badge strong { color:white; }
+
+/* ── BUTTONS ──────────────────────────────────────────────────────────────── */
+.btn {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--grad-indigo); color:white !important;
+  border:none; border-radius:var(--r-sm); padding:.75rem 1.8rem;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:.95rem;
+  cursor:pointer; transition:all .2s;
+  box-shadow:0 3px 0 #1E1B4B, var(--shadow-indigo);
+}
+.btn:hover { transform:translateY(-2px); box-shadow:0 5px 0 #1E1B4B, 0 8px 20px rgba(79,70,229,.40); }
+
+.btn-teal {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--grad-teal); color:white !important;
+  border:none; border-radius:var(--r-sm); padding:.75rem 1.8rem;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:.95rem;
+  cursor:pointer; transition:all .2s;
+  box-shadow:0 3px 0 #0F766E;
+}
+.btn-teal:hover { transform:translateY(-2px); box-shadow:0 5px 0 #0F766E; }
+
+.btn-outline {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:transparent; color:white !important;
+  border:2px solid rgba(255,255,255,.38); border-radius:var(--r-sm); padding:.73rem 1.8rem;
+  font-family:'Inter',sans-serif; font-weight:600; font-size:.95rem;
+  cursor:pointer; transition:all .2s;
+}
+.btn-outline:hover { background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.7); }
+
+.btn-light {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--indigo-lt); color:var(--indigo) !important;
+  border:2px solid var(--indigo-bd); border-radius:var(--r-sm); padding:.68rem 1.5rem;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:.9rem;
+  cursor:pointer; transition:all .2s;
+}
+.btn-light:hover { background:var(--indigo-bd); }
+
+/* ── SECTIONS ─────────────────────────────────────────────────────────────── */
+.section     { padding:4.5rem 1.5rem; }
+.section-alt { background:var(--indigo-lt); }
+.section-dark{ background:var(--grad-hero); }
+.section-teal{ background:linear-gradient(135deg, #0C2B28 0%, #134E4A 100%); }
+
+.section-label {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--indigo-lt); color:var(--indigo); border:1px solid var(--indigo-bd);
+  border-radius:50px; padding:.28rem .9rem;
+  font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em;
+  margin-bottom:.75rem;
+}
+.section-title { font-size:2rem; font-weight:800; color:var(--indigo); margin:0 0 .75rem 0; line-height:1.2; letter-spacing:-.02em; }
+.section-title.white  { color:white; }
+.section-title.center { text-align:center; }
+.section-title.dark   { color:#1E1B4B; }
+.section-desc  { font-size:1rem; color:var(--light); line-height:1.75; max-width:680px; margin:0 0 2.5rem 0; }
+.section-desc.white  { color:rgba(255,255,255,.75); }
+.section-desc.center { text-align:center; margin-left:auto; margin-right:auto; }
+.section-center{ text-align:center; margin-bottom:3rem; }
+.title-bar     { width:56px; height:4px; background:var(--grad-indigo); border-radius:4px; margin:.75rem auto 0; }
+.title-bar.left{ margin-left:0; }
+.title-bar.teal{ background:var(--grad-teal); }
+
+/* ── RADAR ACRONYM EXPLAINER ──────────────────────────────────────────────── */
+.radar-grid { display:flex; flex-direction:column; gap:1rem; }
+.radar-dim {
+  display:grid; grid-template-columns:56px 1fr;
+  gap:1.25rem; align-items:start;
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  padding:1.5rem; transition:all .3s;
+  border-left:5px solid transparent;
+  cursor:default;
+}
+.radar-dim:hover { transform:translateX(6px); box-shadow:var(--shadow-hover); }
+.radar-dim:nth-child(1) { border-left-color:var(--r-color); }
+.radar-dim:nth-child(2) { border-left-color:var(--a1-color); }
+.radar-dim:nth-child(3) { border-left-color:var(--d-color); }
+.radar-dim:nth-child(4) { border-left-color:var(--a2-color); }
+.radar-dim:nth-child(5) { border-left-color:var(--r2-color); }
+
+.dim-badge {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:48px; height:48px; border-radius:12px;
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.4rem;
+  color:white; box-shadow:var(--shadow-indigo); flex-shrink:0; margin-top:2px;
+}
+.dim-badge.r1 { background:var(--r-color); }
+.dim-badge.a1 { background:var(--a1-color); }
+.dim-badge.d  { background:var(--d-color); }
+.dim-badge.a2 { background:var(--a2-color); }
+.dim-badge.r2 { background:var(--r2-color); }
+
+.dim-title { font-family:'Montserrat',sans-serif; font-size:1.05rem; font-weight:800; color:#1E1B4B; margin:0 0 .35rem 0; }
+.dim-letter-name { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--light); margin-bottom:.35rem; }
+.dim-desc  { font-size:.9rem; color:var(--light); line-height:1.65; margin:0; }
+
+/* ── MODULE CARDS ─────────────────────────────────────────────────────────── */
+.module-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.75rem; }
+.module-card {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  overflow:hidden; display:flex; flex-direction:column; transition:all .3s;
+}
+.module-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-hover); }
+.module-head {
+  padding:1.5rem; display:flex; align-items:center; gap:1rem;
+}
+.module-num {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:52px; height:52px; flex-shrink:0; border-radius:14px;
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; color:white;
+}
+.module-num.d1 { background:var(--r-color); }
+.module-num.d2 { background:var(--a1-color); }
+.module-num.d3 { background:var(--r2-color); }
+.module-num.d4 { background:var(--a2-color); }
+.module-dim-tag { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--light); margin-bottom:.2rem; }
+.module-head h3 { font-family:'Montserrat',sans-serif; font-size:1.05rem; font-weight:800; color:#1E1B4B; margin:0; }
+.module-body { padding:.5rem 1.5rem 1.5rem; flex:1; display:flex; flex-direction:column; }
+.module-body p { font-size:.9rem; color:var(--light); line-height:1.7; margin:0 0 1rem 0; flex:1; }
+.module-body ul { list-style:none; padding:0; margin:0 0 1rem 0; display:flex; flex-direction:column; gap:.4rem; }
+.module-body ul li { font-size:.86rem; color:var(--medium); display:flex; align-items:flex-start; gap:.5rem; }
+.module-body ul li::before { content:'◆'; font-size:.6rem; color:var(--indigo-mid); flex-shrink:0; margin-top:.25rem; }
+.module-meta { display:flex; gap:.6rem; flex-wrap:wrap; }
+.module-tag {
+  display:inline-flex; align-items:center; gap:.3rem;
+  background:var(--indigo-lt); color:var(--indigo); border:1px solid var(--indigo-bd);
+  border-radius:50px; padding:.2rem .7rem; font-size:.75rem; font-weight:600;
+}
+.module-tag.teal { background:var(--teal-lt); color:var(--teal); border-color:var(--teal-bd); }
+.module-tag.gold { background:var(--gold-lt); color:var(--gold); border-color:var(--gold-bd); }
+
+/* ── SRED CALLOUT ─────────────────────────────────────────────────────────── */
+.sred-box {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  border-top:5px solid var(--teal); padding:2rem 2.5rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center;
+}
+.sred-box h3 { font-family:'Montserrat',sans-serif; font-size:1.2rem; font-weight:800; color:#1E1B4B; margin:0 0 .75rem 0; }
+.sred-box p  { font-size:.93rem; color:var(--medium); line-height:1.7; margin:0; }
+.sred-visual { display:flex; flex-direction:column; gap:.75rem; }
+.sred-bar { display:flex; flex-direction:column; gap:.3rem; }
+.sred-bar-label { font-size:.78rem; font-weight:600; color:var(--light); text-transform:uppercase; letter-spacing:.06em; }
+.sred-bar-track { height:10px; background:var(--border); border-radius:10px; overflow:hidden; }
+.sred-bar-fill  { height:100%; border-radius:10px; }
+.sred-bar-fill.pre  { width:42%; background:var(--indigo-bd); }
+.sred-bar-fill.post { width:78%; background:var(--grad-teal); }
+.sred-caption { font-size:.8rem; color:var(--light); font-style:italic; text-align:center; }
+
+/* ── TANDEM SECTION ───────────────────────────────────────────────────────── */
+.tandem-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+.tandem-card {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  padding:2.25rem; text-align:center; transition:all .3s;
+}
+.tandem-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-hover); }
+.tandem-icon {
+  width:72px; height:72px; border-radius:50%; margin:0 auto 1.25rem;
+  display:flex; align-items:center; justify-content:center; font-size:2rem;
+}
+.tandem-icon.psih { background:var(--indigo-lt); border:2px solid var(--indigo-bd); }
+.tandem-icon.ai   { background:var(--teal-lt);   border:2px solid var(--teal-bd); }
+.tandem-card h3   { font-family:'Montserrat',sans-serif; font-size:1.15rem; font-weight:800; color:#1E1B4B; margin:0 0 .5rem 0; }
+.tandem-card .role{ font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:.75rem; }
+.tandem-card .role.psih { color:var(--indigo-mid); }
+.tandem-card .role.ai   { color:var(--teal); }
+.tandem-card p    { font-size:.9rem; color:var(--light); line-height:1.7; margin:0; }
+.tandem-bridge {
+  display:flex; align-items:center; justify-content:center;
+  background:var(--grad-warm); border-radius:var(--r-card);
+  padding:2rem; color:white; text-align:center;
+  grid-column:1/-1;
+}
+.tandem-bridge p { font-family:'Lora',serif; font-style:italic; font-size:1.1rem; line-height:1.7; color:rgba(255,255,255,.88); margin:0; max-width:680px; }
+
+/* ── BYOD BOX ─────────────────────────────────────────────────────────────── */
+.byod-box {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  border-left:6px solid var(--gold); padding:2rem 2.5rem;
+  display:flex; align-items:flex-start; gap:1.5rem;
+}
+.byod-icon { font-size:3rem; flex-shrink:0; line-height:1; }
+.byod-box h3 { font-family:'Montserrat',sans-serif; font-size:1.2rem; font-weight:800; color:#1E1B4B; margin:0 0 .5rem 0; }
+.byod-box p  { font-size:.95rem; color:var(--medium); line-height:1.7; margin:0 0 .5rem 0; }
+.byod-box p:last-child { margin:0; }
+.byod-note   { font-size:.87rem; color:var(--light); font-style:italic; }
+
+/* ── GHID DIRIGENTIE ─────────────────────────────────────────────────────── */
+.ghid-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.ghid-card {
+  background:rgba(255,255,255,.07); border-radius:var(--r-card);
+  border:1px solid rgba(255,255,255,.12); padding:1.5rem; text-align:center;
+  transition:all .3s;
+}
+.ghid-card:hover { background:rgba(255,255,255,.12); transform:translateY(-4px); }
+.ghid-card-icon {
+  width:54px; height:54px; border-radius:14px; margin:0 auto .75rem;
+  display:flex; align-items:center; justify-content:center; font-size:1.5rem;
+}
+.ghid-card:nth-child(1) .ghid-card-icon { background:rgba(79,70,229,.3); }
+.ghid-card:nth-child(2) .ghid-card-icon { background:rgba(13,148,136,.3); }
+.ghid-card:nth-child(3) .ghid-card-icon { background:rgba(225,29,72,.3); }
+.ghid-card:nth-child(4) .ghid-card-icon { background:rgba(124,58,237,.3); }
+.ghid-card-d { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; color:white; margin-bottom:.2rem; }
+.ghid-card h4 { font-family:'Montserrat',sans-serif; font-size:.95rem; font-weight:700; color:white; margin:0 0 .5rem 0; }
+.ghid-card p  { font-size:.84rem; color:rgba(255,255,255,.60); line-height:1.6; margin:0 0 .6rem 0; }
+.ghid-card-dur { font-size:.75rem; font-weight:600; color:#A5B4FC; text-transform:uppercase; letter-spacing:.06em; }
+
+/* ── STATS DARK ───────────────────────────────────────────────────────────── */
+.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; }
+.stat-card   { text-align:center; }
+.stat-num    { font-family:'Montserrat',sans-serif; font-size:3rem; font-weight:900; color:#A5B4FC; line-height:1; margin-bottom:.35rem; }
+.stat-lbl    { font-size:.78rem; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.1em; font-weight:600; }
+.stat-desc   { font-size:.88rem; color:rgba(255,255,255,.45); margin-top:.35rem; line-height:1.5; }
+
+/* ── LICEE GRID ───────────────────────────────────────────────────────────── */
+.licee-grid  { display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; }
+.liceu-tag {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.55rem 1.1rem; border-radius:50px; font-size:.87rem; font-weight:600;
+  background:var(--indigo-lt); color:var(--indigo); border:2px solid var(--indigo-bd);
+  transition:all .2s;
+}
+.liceu-tag:hover { background:var(--indigo-mid); color:white; border-color:var(--indigo-mid); }
+.liceu-tag.teal { background:var(--teal-lt); color:var(--teal); border-color:var(--teal-bd); }
+.liceu-tag.teal:hover { background:var(--teal); color:white; border-color:var(--teal); }
+
+/* ── FAQ ──────────────────────────────────────────────────────────────────── */
+.faq-list    { display:flex; flex-direction:column; gap:1rem; max-width:800px; margin:0 auto; }
+details {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  border-left:4px solid var(--indigo-mid); overflow:hidden;
+}
+details[open] { border-left-color:var(--teal); }
+summary {
+  padding:1.25rem 1.5rem; cursor:pointer; list-style:none;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:.97rem; color:#1E1B4B;
+  display:flex; align-items:center; justify-content:space-between; user-select:none;
+}
+summary::after { content:'＋'; font-size:1.2rem; color:var(--indigo-mid); transition:transform .25s; }
+details[open] summary::after { content:'－'; }
+summary::-webkit-details-marker { display:none; }
+.faq-body    { padding:0 1.5rem 1.25rem; font-size:.93rem; color:var(--medium); line-height:1.75; }
+
+/* ── CTA ──────────────────────────────────────────────────────────────────── */
+.cta-box {
+  background:var(--grad-hero); border-radius:var(--r-card);
+  padding:3.5rem 2.5rem; text-align:center; position:relative; overflow:hidden;
+  box-shadow:0 20px 60px rgba(30,27,75,.40);
+}
+.cta-box::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 65% 80% at 50% 50%, rgba(79,70,229,.18) 0%, transparent 70%);
+}
+.cta-box h2 { font-family:'Montserrat',sans-serif; font-size:2rem; font-weight:900; color:white; margin:0 0 .75rem 0; position:relative; }
+.cta-box p  { color:rgba(255,255,255,.75); font-size:1.05rem; margin:0 auto 2rem; max-width:580px; position:relative; }
+.cta-buttons{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; position:relative; }
+
+/* ── FOOTER ───────────────────────────────────────────────────────────────── */
+footer {
+  background:var(--footer-bg); color:rgba(255,255,255,.65);
+  padding:3.5rem 1.5rem 0;
+}
+.footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem; padding-bottom:3rem; }
+.footer-brand p { font-size:.87rem; line-height:1.65; color:rgba(255,255,255,.50); max-width:280px; margin:.75rem 0; }
+.footer-badge {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:rgba(79,70,229,.2); border:1px solid rgba(79,70,229,.35);
+  border-radius:50px; padding:.28rem .85rem; font-size:.72rem; font-weight:600; color:#A5B4FC;
+  text-transform:uppercase; letter-spacing:.08em; margin-top:.75rem;
+}
+.footer-col h5 { font-family:'Montserrat',sans-serif; font-size:.87rem; font-weight:700; color:white; text-transform:uppercase; letter-spacing:.1em; margin:0 0 1rem 0; }
+.footer-links  { list-style:none; padding:0; margin:0; }
+.footer-links li { margin-bottom:.55rem; }
+.footer-links a  { font-size:.87rem; color:rgba(255,255,255,.50); transition:color .2s; }
+.footer-links a:hover { color:#A5B4FC; }
+.footer-legal {
+  max-width:1200px; margin:0 auto;
+  border-top:1px solid rgba(255,255,255,.08); padding:1.25rem 0;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem;
+}
+.footer-legal p, .footer-legal span { font-size:.78rem; color:rgba(255,255,255,.28); margin:0; }
+.footer-strip { height:4px; background:var(--grad-indigo); }
+
+/* ── RESPONSIVE ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-inner   { flex-direction:column-reverse; gap:2rem; }
+  .radar-wheel  { width:180px; height:180px; }
+  .hero-title   { font-size:2.2rem; }
+  .module-grid, .tandem-grid, .sred-box, .diff-grid { grid-template-columns:1fr; }
+  .ghid-grid    { grid-template-columns:repeat(2,1fr); }
+  .stats-grid   { grid-template-columns:repeat(2,1fr); }
+  .footer-grid  { grid-template-columns:1fr; gap:2rem; }
+  .nav-links    { display:none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:white; border-bottom:1px solid var(--border); padding:1rem 1.5rem; box-shadow:0 8px 24px rgba(0,0,0,.1); }
+  .mobile-btn   { display:block; }
+}
+@media (max-width: 600px) {
+  .ghid-grid    { grid-template-columns:1fr; }
+  .stats-grid   { grid-template-columns:1fr 1fr; }
+  .hero-title   { font-size:1.8rem; }
+  .section      { padding:3rem 1rem; }
+  .byod-box     { flex-direction:column; }
+  .radar-letters { gap:2px; }
+  .radar-letter { width:26px; height:30px; font-size:.9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .radar-ring, .orbit-dot { animation:none; }
+  * { transition:none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ──────────────────────────────────────────────────────────────── -->
+<nav class="nav-wrapper">
+  <div class="nav-bar">
+    <a href="#" class="nav-brand">
+      <div class="nav-acronym">R·A·D<br>A·R</div>
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">RADAR AI</span>
+        <span class="nav-brand-sub">Agenda Educațională · Sibiu 2026</span>
+      </div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#despre">Despre</a>
+      <a href="#dimensiuni">Dimensiuni</a>
+      <a href="#module">Module</a>
+      <a href="#dirigentie">Dirigenție</a>
+      <a href="#parteneri">Parteneri</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Înscrie-te →</a>
+    </div>
+    <button class="mobile-btn" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">🎓 Finanțat Primăria Sibiu · Agenda Educațională 2026</div>
+      <h1 class="hero-title">
+        Elevii tăi navighează<br>
+        <span class="accent-teal">era AI</span> cu <span class="accent-gold">înțelepciune</span>
+      </h1>
+      <p class="hero-tagline lora">Reziliență · Autocunoaștere · Discernământ · Abilități · Relații</p>
+      <p class="hero-subtitle">
+        RADAR AI este programul de psihoeducație și alfabetizare AI pentru elevii din liceele sibiene. 5 dimensiuni ale cetățeniei digitale, 4 module de dirigenție, un instrument de evaluare validat și un tandem psiholog + specialist AI care face diferența.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">🎓 Înscrie liceul tău →</a>
+        <a href="#module" class="btn-outline">📋 Cum funcționează</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">5</div>
+          <div class="hero-stat-lbl">Dimensiuni RADAR</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">120</div>
+          <div class="hero-stat-lbl">Elevi beneficiari</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10</div>
+          <div class="hero-stat-lbl">Facilitatori formați</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4×</div>
+          <div class="hero-stat-lbl">Module de dirigenție</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="radar-wheel">
+        <div class="radar-ring"></div>
+        <div class="radar-ring"></div>
+        <div class="radar-ring"></div>
+        <div class="orbit-dot"></div>
+        <div class="orbit-dot"></div>
+        <div class="orbit-dot"></div>
+        <div class="radar-center">
+          <div class="radar-letters">
+            <div class="radar-letter">R</div>
+            <div class="radar-letter">A</div>
+            <div class="radar-letter">D</div>
+            <div class="radar-letter">A</div>
+            <div class="radar-letter">R</div>
+          </div>
+          <div class="radar-title">AI</div>
+          <div class="radar-sub">Sibiu · 2026</div>
+        </div>
+      </div>
+      <div class="funded-badge">
+        🏛️ Finanțat de <strong>Primăria Sibiu</strong><br>
+        Agenda Educațională 2026 · 30.000 lei
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DESPRE ──────────────────────────────────────────────────────────────── -->
+<section class="section" id="despre">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label">🧠 Despre program</span>
+      <h2 class="section-title center">Ce este RADAR AI</h2>
+      <div class="title-bar"></div>
+      <p class="section-desc center">
+        Elevii tăi petrec între 4 și 7 ore zilnic pe ecrane. Mulți știu să folosească AI-ul — puțini înțeleg ce le face și de ce. RADAR AI schimbă asta.
+      </p>
+    </div>
+
+    <!-- Tandem cards -->
+    <div class="tandem-grid" style="margin-bottom:1.75rem;">
+      <div class="tandem-card">
+        <div class="tandem-icon psih">🧠</div>
+        <div class="role psih">Psiholog</div>
+        <h3>Dimensiunea umană</h3>
+        <p>Psihologul adresează reziliența emoțională digitală, autocunoașterea online, dinamicile de grup și cadrul sigur pentru conversații dificile despre viața digitală a elevilor.</p>
+      </div>
+      <div class="tandem-card">
+        <div class="tandem-icon ai">💡</div>
+        <div class="role ai">Specialist AI</div>
+        <h3>Dimensiunea practică</h3>
+        <p>Specialistul AI livrează alfabetizarea instrumentelor AI generative: cum funcționează, de ce greșesc, cum construiești un prompt eficient și cum creezi un artefact autentic.</p>
+      </div>
+      <div class="tandem-bridge">
+        <p>„Cele două dimensiuni sunt inseparabile. Nu poți forma un utilizator critic de AI fără să înțelegi ce face AI-ul cu emoțiile oamenilor. Și nu poți forma reziliență digitală fără să oferi instrumente concrete de expresie și de acțiune."</p>
+      </div>
+    </div>
+
+    <!-- SRED evalution -->
+    <div class="sred-box">
+      <div>
+        <h3>📊 SRED-15 — Impact măsurabil</h3>
+        <p>Programul RADAR AI folosește instrumentul SRED-15 (Scala de Reziliență Emoțională Digitală, 15 itemi), administrat de psiholog la începutul și la finalul programului. Astfel, nu presupunem că funcționează — măsurăm că funcționează.</p>
+        <div style="margin-top:1rem;">
+          <span class="module-tag teal">✅ Instrument validat</span>
+          <span class="module-tag" style="margin-left:.5rem;">📋 Pre + Post program</span>
+        </div>
+      </div>
+      <div class="sred-visual">
+        <div class="sred-bar">
+          <div class="sred-bar-label">PRE program</div>
+          <div class="sred-bar-track"><div class="sred-bar-fill pre"></div></div>
+        </div>
+        <div class="sred-bar">
+          <div class="sred-bar-label">POST program</div>
+          <div class="sred-bar-track"><div class="sred-bar-fill post"></div></div>
+        </div>
+        <div class="sred-caption">Evoluție ilustrativă a scorului SRED-15<br>pe parcursul programului</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DIMENSIUNILE RADAR ───────────────────────────────────────────────────── -->
+<section class="section section-alt" id="dimensiuni">
+  <div class="wrap">
+    <span class="section-label">🔡 Acronimul RADAR</span>
+    <h2 class="section-title dark">Ce înseamnă fiecare literă</h2>
+    <div class="title-bar left"></div>
+    <p class="section-desc" style="margin-bottom:2rem;">Fiecare literă din RADAR reprezintă o dimensiune a relației sănătoase cu tehnologia. Nu sunt concepte abstracte — sunt competențe concrete, educabile, măsurabile.</p>
+    <div class="radar-grid">
+      <div class="radar-dim">
+        <div class="dim-badge r1">R</div>
+        <div>
+          <div class="dim-letter-name">Prima literă · Reziliență</div>
+          <div class="dim-title">Reziliență emoțională digitală</div>
+          <p class="dim-desc">Capacitatea de a-ți reveni după experiențe digitale negative, de a alege cum reacționezi la presiunea algoritmilor și de a nu lăsa feed-ul să definească cine ești. Nu rezistență — reziliență.</p>
+        </div>
+      </div>
+      <div class="radar-dim">
+        <div class="dim-badge a1">A</div>
+        <div>
+          <div class="dim-letter-name">A doua literă · Autocunoaștere</div>
+          <div class="dim-title">Autocunoaștere în spațiul digital</div>
+          <p class="dim-desc">Să știi cine ești online față de cine ești offline. Să înțelegi cât timp și în ce stare emoțională consumi tehnologia. Să recunoști diferența dintre identitatea ta reală și profilul tău performat.</p>
+        </div>
+      </div>
+      <div class="radar-dim">
+        <div class="dim-badge d">D</div>
+        <div>
+          <div class="dim-letter-name">A treia literă · Discernământ</div>
+          <div class="dim-title">Discernământ critic în era AI</div>
+          <p class="dim-desc">Capacitatea de a distinge ce este real de ce este fabricat, ce este autentic de ce este generat AI, ce este ales de tine de ce îți este servit de algoritm. În era deepfake-urilor, discernământul nu mai este opțional.</p>
+        </div>
+      </div>
+      <div class="radar-dim">
+        <div class="dim-badge a2">A</div>
+        <div>
+          <div class="dim-letter-name">A patra literă · Abilități</div>
+          <div class="dim-title">Abilități de utilizare intentionată</div>
+          <p class="dim-desc">Nu abilități tehnice de utilizare a platformelor — ci capacitatea de utilizare intentionată și critică a AI-ului. Să folosești AI ca să poți face ceva ce altfel nu ai putea, nu ca să nu mai trebuiești să gândești.</p>
+        </div>
+      </div>
+      <div class="radar-dim">
+        <div class="dim-badge r2">R</div>
+        <div>
+          <div class="dim-letter-name">A cincea literă · Relații</div>
+          <div class="dim-title">Relații sănătoase în spațiul digital</div>
+          <p class="dim-desc">Cum influențează spațiul digital relațiile dintre elevi: cyberbullying, comparație socială, FOMO — dar și conectare, comunitate și sprijin. Rolul martorului în scenariile digitale dificile.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MODULE D1-D4 ────────────────────────────────────────────────────────── -->
+<section class="section" id="module">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label">📚 Programul de formare</span>
+      <h2 class="section-title center">Cele 4 module pentru facilitatori</h2>
+      <div class="title-bar"></div>
+      <p class="section-desc center">
+        10 cadre didactice din liceele sibiene partenere sunt formate ca facilitatori RADAR AI. Ei implementează apoi cele 4 module cu minimum o clasă fiecare.
+      </p>
+    </div>
+    <div class="module-grid">
+
+      <div class="module-card">
+        <div class="module-head">
+          <div class="module-num d1">D1</div>
+          <div>
+            <div class="module-dim-tag">Dimensiunea R — Reziliență</div>
+            <h3>Mintea mea în era digitală</h3>
+          </div>
+        </div>
+        <div class="module-body">
+          <p>Algoritmul de recomandare explicat fără jargon. Harta emoțională digitală a elevilor. Prima diferențiere clară: algoritmul de recomandare vs. AI generativ.</p>
+          <ul>
+            <li>De ce rămânem pe ecran mai mult decât vrem</li>
+            <li>Cum emoțiile negative generează engagement</li>
+            <li>Fișa R-01 — harta emoțională personală</li>
+            <li>SRED-15 PRE (cu psiholog în tandem)</li>
+          </ul>
+          <div class="module-meta">
+            <span class="module-tag">⏱ 50 min</span>
+            <span class="module-tag teal">Fără echipamente</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-head">
+          <div class="module-num d2">D2</div>
+          <div>
+            <div class="module-dim-tag">Dimensiunea A — Autocunoaștere</div>
+            <h3>Algoritmul și eu: cine conduce?</h3>
+          </div>
+        </div>
+        <div class="module-body">
+          <p>Amprenta digitală personală — estimare vs. realitate. Profilul digital personal. Prima sarcină ACTIV AI: locul sibianean ca materie primă pentru artefact.</p>
+          <ul>
+            <li>Ghicește cât timp pe telefon — apoi verifică</li>
+            <li>Tabel amprenta digitală per platformă</li>
+            <li>Cine sunt eu online vs. offline?</li>
+            <li>Sarcina puntea spre ACTIV AI</li>
+          </ul>
+          <div class="module-meta">
+            <span class="module-tag">⏱ 50 min</span>
+            <span class="module-tag teal">Fără echipamente</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-head">
+          <div class="module-num d3">D3</div>
+          <div>
+            <div class="module-dim-tag">Dimensiunea R — Relații</div>
+            <h3>Eu și ceilalți pe ecran</h3>
+          </div>
+        </div>
+        <div class="module-body">
+          <p>Scenariile de cyberbullying analizate în grup. Rolul esențial al martorului. Expresia emoțională digitală cu AI ca instrument de exteriorizare sigură.</p>
+          <ul>
+            <li>Cele 4 roluri: agresor, victimă, martor, spectator</li>
+            <li>Analiza scenariilor în grupe mici</li>
+            <li>Rolul martorului — cel mai important personaj</li>
+            <li>Protocol cadru sigur obligatoriu</li>
+          </ul>
+          <div class="module-meta">
+            <span class="module-tag">⏱ 50 min</span>
+            <span class="module-tag gold">⚠️ Protocol special</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-head">
+          <div class="module-num d4">D4</div>
+          <div>
+            <div class="module-dim-tag">Dimensiunile D + A</div>
+            <h3>Creez cu AI, simt cu mine</h3>
+          </div>
+        </div>
+        <div class="module-body">
+          <p>Crearea unui artefact digital personal cu AI. Galeria instantanee a clasei. Reflecția finală și SRED-15 POST. Cercul se închide: de la înțelegere la expresie.</p>
+          <ul>
+            <li>Discernământul ca practică, nu concept</li>
+            <li>Creare artefact în 25 de minute</li>
+            <li>Galerie instantanee voluntară</li>
+            <li>SRED-15 POST (cu psiholog în tandem)</li>
+          </ul>
+          <div class="module-meta">
+            <span class="module-tag">⏱ 50 min</span>
+            <span class="module-tag teal">💻 BYOD recomandat</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── BYOD ────────────────────────────────────────────────────────────────── -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="byod-box">
+      <div class="byod-icon">💻</div>
+      <div>
+        <h3>Formarea facilitatorilor — format BYOD</h3>
+        <p>Atelierele de formare a facilitatorilor se desfășoară în format <strong>BYOD (Bring Your Own Device)</strong> — fiecare participant vine cu propriul laptop sau tabletă. Nu este nevoie de un dispozitiv performant: orice laptop funcțional cu conexiune la internet și browser actualizat este suficient.</p>
+        <p>Toate instrumentele AI utilizate în formare sunt <strong>gratuite și accesibile online</strong> — nu se instalează nimic local. Primele două module de dirigenție (D1 și D2) funcționează fără niciun echipament digital.</p>
+        <p class="byod-note">💡 Modulul D4 beneficiază de acces la un dispozitiv per 2-3 elevi. Dacă echipamentele nu sunt disponibile, există o variantă analogă completă.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GHID DIRIGENTIE ─────────────────────────────────────────────────────── -->
+<section class="section section-dark" id="dirigentie">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label" style="background:rgba(79,70,229,.2);border-color:rgba(79,70,229,.4);color:#A5B4FC;">📋 Ghidul de dirigenție</span>
+      <h2 class="section-title white center">4 ore care contează cu adevărat</h2>
+      <div class="title-bar"></div>
+      <p class="section-desc white center">Ghidul de Dirigenție RADAR AI este un document open-source, disponibil gratuit. Fiecare modul este complet autonom — poți începe cu oricare.</p>
+    </div>
+    <div class="ghid-grid">
+      <div class="ghid-card">
+        <div class="ghid-card-icon">🧠</div>
+        <div class="ghid-card-d">D1</div>
+        <h4>Mintea mea în era digitală</h4>
+        <p>Algoritmul explicat fără jargon. Harta emoțiilor digitale. Prima punte spre AI creativ.</p>
+        <div class="ghid-card-dur">R — Reziliență · 50 min</div>
+      </div>
+      <div class="ghid-card">
+        <div class="ghid-card-icon">🪞</div>
+        <div class="ghid-card-d">D2</div>
+        <h4>Algoritmul și eu: cine conduce?</h4>
+        <p>Amprenta digitală reală vs. estimată. Profilul digital personal. Fără echipamente.</p>
+        <div class="ghid-card-dur">A — Autocunoaștere · 50 min</div>
+      </div>
+      <div class="ghid-card">
+        <div class="ghid-card-icon">🤝</div>
+        <div class="ghid-card-d">D3</div>
+        <h4>Eu și ceilalți pe ecran</h4>
+        <p>Scenarii de cyberbullying. Rolul martorului. Protocol cadru sigur obligatoriu.</p>
+        <div class="ghid-card-dur">R — Relații · 50 min</div>
+      </div>
+      <div class="ghid-card">
+        <div class="ghid-card-icon">🎨</div>
+        <div class="ghid-card-d">D4</div>
+        <h4>Creez cu AI, simt cu mine</h4>
+        <p>Artefact digital personal. Galerie instantanee. Reflecție finală. Cercul se închide.</p>
+        <div class="ghid-card-dur">D + A · 50 min</div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="mailto:asociatia.avapro@gmail.com" class="btn">📥 Solicită Ghidul gratuit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── IMPACT STATS ────────────────────────────────────────────────────────── -->
+<section class="section section-teal">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label" style="background:rgba(13,148,136,.2);border-color:rgba(13,148,136,.4);color:#5EEAD4;">📊 Impact estimat</span>
+      <h2 class="section-title white center">Ce rămâne după RADAR AI</h2>
+      <div class="title-bar teal"></div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num" style="color:#5EEAD4;">10</div>
+        <div class="stat-lbl">Facilitatori formați</div>
+        <div class="stat-desc">Cadre didactice cu competențe reale de psihoeducație digitală</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:#5EEAD4;">120</div>
+        <div class="stat-lbl">Elevi beneficiari</div>
+        <div class="stat-desc">Elevi care parcurg programul complet cu măsurare SRED-15</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:#5EEAD4;">4×50</div>
+        <div class="stat-lbl">Minute per clasă</div>
+        <div class="stat-desc">4 module autonome integrate în orele de dirigenție existente</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:#5EEAD4;">∞</div>
+        <div class="stat-lbl">Open-source</div>
+        <div class="stat-desc">Ghidul de Dirigenție RADAR AI — publicat gratuit, replicabil</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPLEMENTARITATE ───────────────────────────────────────────────────── -->
+<section class="section" style="background:#F0FDF4;">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label" style="background:#DCFCE7;color:#166534;border-color:#86EFAC;">🔄 Ecosistem integrat</span>
+      <h2 class="section-title center" style="color:#14532D;">RADAR AI + ACTIV AI = mai mult decât suma lor</h2>
+      <div class="title-bar" style="background:linear-gradient(135deg,#3730A3,#0D9488);"></div>
+      <p class="section-desc center">
+        Cele două programe au fost concepute împreună. Un cadru didactic format în ambele devine un multiplicator complet — atât psihoeducațional, cât și creativ. O singură clasă poate parcurge ambele.
+      </p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:1.5rem; align-items:center; max-width:900px; margin:0 auto;">
+      <div style="background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card); padding:1.75rem; border-top:4px solid var(--indigo-mid);">
+        <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.2rem; color:var(--indigo); margin-bottom:.5rem;">RADAR AI</div>
+        <p style="font-size:.9rem; color:var(--light); line-height:1.7; margin:0;">Cadrul psihoeducațional: reziliență, autocunoaștere, discernământ. Face procesul creativ sigur și autentic pentru elevi.</p>
+      </div>
+      <div style="font-size:2rem; text-align:center; color:var(--teal);">⇄</div>
+      <div style="background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card); padding:1.75rem; border-top:4px solid #1A7EA3;">
+        <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.2rem; color:#1A7EA3; margin-bottom:.5rem;">ACTIV AI</div>
+        <p style="font-size:.9rem; color:var(--light); line-height:1.7; margin:0;">Cadrul creativ și tehnic: instrumente AI, artefacte digitale, expozitie publică. Dă expresie a ceea ce RADAR AI construiește interior.</p>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:.9rem; color:var(--light); margin-top:1.5rem; font-style:italic;">Participarea la ambele programe nu implică efort dublu — activitățile pot fi integrate în aceeași clasă.</p>
+  </div>
+</section>
+
+<!-- ── PARTENERI ───────────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="parteneri">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label">🤝 Parteneri instituționali</span>
+      <h2 class="section-title center">Liceele sibiene partenere</h2>
+      <div class="title-bar"></div>
+      <p class="section-desc center">Fiecare liceu partener nominalizează 2–3 cadre didactice (dirigenți, psihologi, consilieri) pentru formare și implementează programul cu minimum o clasă.</p>
+    </div>
+    <div class="licee-grid">
+      <span class="liceu-tag">🏫 Liceul cu Program Sportiv Independența</span>
+      <span class="liceu-tag">🏫 Colegiul Național Pedagogic Andrei Șaguna</span>
+      <span class="liceu-tag">🏫 Liceul Teoretic Constantin Noica</span>
+      <span class="liceu-tag">🏫 Liceul Teoretic Onisifor Ghibu</span>
+      <span class="liceu-tag teal">🏛️ Casa de Cultură a Studenților Sibiu</span>
+      <span class="liceu-tag teal">🏛️ Primăria Municipiului Sibiu</span>
+    </div>
+    <div style="margin-top:2.5rem; text-align:center;">
+      <p style="font-size:.95rem; color:var(--light); max-width:600px; margin:0 auto 1.25rem;">
+        Ești director de liceu și vrei să participi? Înscrie-te până la <strong>30 iunie 2026</strong>.
+      </p>
+      <a href="#contact" class="btn">📧 Contactați-ne pentru detalii</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ─────────────────────────────────────────────────────────────────── -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label">❓ Întrebări frecvente</span>
+      <h2 class="section-title center">Ce mai vrei să știi</h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Ce cadre didactice pot deveni facilitatori RADAR AI?</summary>
+        <div class="faq-body">În primul rând dirigenții, dar și profesorii de psihologie, educație socială, consilierii școlari și orice cadru didactic interesat de dimensiunea emoțională a vieții digitale a elevilor. Nu este necesară experiența anterioară cu AI.</div>
+      </details>
+      <details>
+        <summary>Sunt sigure temele abordate în D3 (cyberbullying)?</summary>
+        <div class="faq-body">Modulul D3 este cel mai sensibil emoțional din program și include un protocol obligatoriu de cadru sigur. Facilitatorul anunță explicit la început că participarea la anumite activități este voluntară. Dacă un elev dezvăluie că este sau a fost victimă a cyberbullyingului, protocolul de trimitere la psihologul școlar se activează imediat. Niciun facilitator nu improvizează terapeutic.</div>
+      </details>
+      <details>
+        <summary>Pot implementa RADAR AI fără un psiholog în tandem?</summary>
+        <div class="faq-body">Da. Cele 4 module de dirigenție din Ghidul RADAR AI sunt concepute pentru orice cadru didactic format, nu doar pentru psihologi. SRED-15 este singurul instrument care necesită psiholog — și poate fi omis dacă nu ai unul disponibil, folosind în schimb fișele de reflecție calitativă incluse în ghid.</div>
+      </details>
+      <details>
+        <summary>Ce dispozitive sunt necesare?</summary>
+        <div class="faq-body">D1 și D2 funcționează complet fără niciun echipament digital — pe hârtie și conversație. D3 nu necesită echipamente. D4 beneficiază de acces la un dispozitiv per 2-3 elevi (telefon cu browser e suficient), dar există și o variantă analogă completă pentru situațiile în care tehnica nu este disponibilă.</div>
+      </details>
+      <details>
+        <summary>RADAR AI și ACTIV AI se suprapun? Pot participa la ambele?</summary>
+        <div class="faq-body">Nu se suprapun — sunt complementare. RADAR AI oferă cadrul psihoeducațional, ACTIV AI oferă cadrul creativ. Un cadru didactic poate participa la ambele programe, iar activitățile cu elevii pot fi integrate în aceeași clasă fără efort dublu. Ghidul de Dirigenție RADAR AI include explicit conexiunile cu ACTIV AI la fiecare modul.</div>
+      </details>
+      <details>
+        <summary>Ghidul de Dirigenție este disponibil public?</summary>
+        <div class="faq-body">Da. Ghidul de Dirigenție RADAR AI este un document open-source, publicat gratuit la finalul programului pe platforma CCS Sibiu și pe avansproiect.online. Orice cadru didactic din România îl poate descărca și folosi în scop educațional non-comercial, cu menționarea sursei.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ─────────────────────────────────────────────────────────────────── -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Elevii tăi merită mai mult decât scroll</h2>
+      <p>Înscrie-te sau înscrie liceul tău în programul RADAR AI. Termen limită pentru nominalizarea cadrelor didactice: <strong style="color:#A5B4FC">30 iunie 2026</strong>.</p>
+      <div class="cta-buttons">
+        <a href="mailto:ccs.sibiu@gmail.com" class="btn">📧 ccs.sibiu@gmail.com</a>
+        <a href="mailto:asociatia.avapro@gmail.com" class="btn-teal">📧 asociatia.avapro@gmail.com</a>
+        <a href="tel:+40770276406" class="btn-outline">📞 0770 276 406</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; color:white;">RADAR AI</div>
+      <p>Reziliență, Autocunoaștere, Discernământ, Abilități, Relații în Era Inteligenței Artificiale. Program de psihoeducație pentru liceenii sibieni.</p>
+      <p style="font-size:.82rem; color:rgba(255,255,255,.35);">Finanțat de Primăria Municipiului Sibiu · Agenda Educațională 2026</p>
+      <div class="footer-badge">Sept.–Dec. 2026 · Sibiu</div>
+    </div>
+    <div class="footer-col">
+      <h5>Program</h5>
+      <ul class="footer-links">
+        <li><a href="#dimensiuni">5 Dimensiuni RADAR</a></li>
+        <li><a href="#module">Cele 4 module</a></li>
+        <li><a href="#dirigentie">Ghid Dirigenție</a></li>
+        <li><a href="#parteneri">Licee partenere</a></li>
+        <li><a href="#faq">Întrebări frecvente</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul class="footer-links">
+        <li><a href="https://ccssibiu.ro">CCS Sibiu</a></li>
+        <li><a href="https://avansproiect.online">AVANS PROIECT</a></li>
+        <li><a href="mailto:ccs.sibiu@gmail.com">ccs.sibiu@gmail.com</a></li>
+        <li><a href="mailto:asociatia.avapro@gmail.com">asociatia.avapro@gmail.com</a></li>
+        <li><a href="tel:+40770276406">0770 276 406</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p>© 2026 Asociația AVANS PROIECT Sibiu · CIF 54392841 · în parteneriat cu Casa de Cultură a Studenților Sibiu</p>
+    <span>Finanțat de Primăria Municipiului Sibiu · Agenda Educațională 2026</span>
+  </div>
+  <div class="footer-strip"></div>
+</footer>
+
+</body>
+</html>
