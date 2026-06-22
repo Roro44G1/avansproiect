@@ -110,29 +110,66 @@ h2,h3 { font-family:'Lora',serif; }
 .hero-content { flex:1; }
 .hero-visual { flex-shrink:0; width:280px; display:flex; flex-direction:column; align-items:center; gap:1.5rem; }
 
-/* Animated AI orb */
-.ai-orb {
-  width:220px; height:220px; border-radius:50%;
-  background: conic-gradient(from 0deg, #05334B, #1A7EA3, #C5940A, #1592C0, #05334B);
-  display:flex; align-items:center; justify-content:center;
-  position:relative;
-  animation:spin-slow 12s linear infinite;
-  box-shadow:0 0 60px rgba(26,126,163,.45), 0 0 120px rgba(26,126,163,.15);
+/* ACTIV wheel — identic ca structură cu RADAR wheel */
+.activ-wheel {
+  position:relative; width:240px; height:240px;
 }
-.ai-orb::after {
-  content:''; position:absolute; inset:8px; border-radius:50%;
-  background:linear-gradient(135deg, #052840 0%, #083B5E 100%);
+.activ-ring {
+  position:absolute; inset:0; border-radius:50%;
+  border:2px solid rgba(255,255,255,.07);
+  animation:pulse-ring 3s ease-in-out infinite;
 }
-.ai-orb-text {
-  position:relative; z-index:1;
-  font-family:'Montserrat',sans-serif; font-weight:900; font-size:2.2rem;
-  color:white; letter-spacing:-.03em; line-height:1;
-  text-align:center;
+.activ-ring:nth-child(2) { inset:22px; animation-delay:.5s; }
+.activ-ring:nth-child(3) { inset:44px; animation-delay:1s; }
+@keyframes pulse-ring {
+  0%,100% { opacity:.4; transform:scale(1); }
+  50%      { opacity:.85; transform:scale(1.02); }
 }
-.ai-orb-text span { display:block; font-size:.95rem; font-weight:600; color:var(--gold-bd); letter-spacing:.05em; margin-top:.2rem; }
-@keyframes spin-slow { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
-/* Inner orb stays still */
-.ai-orb-inner { animation:spin-slow 12s linear infinite reverse; }
+.activ-center {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  flex-direction:column;
+}
+.activ-letters {
+  display:flex; gap:3px; margin-bottom:5px;
+}
+.activ-letter {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:32px; height:36px; border-radius:8px;
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.1rem;
+  color:white;
+}
+/* Câte o culoare per literă — paleta ACTIV AI cerulean + gold */
+.activ-letter:nth-child(1) { background:#1A7EA3; }   /* A */
+.activ-letter:nth-child(2) { background:#05334B; }   /* C */
+.activ-letter:nth-child(3) { background:#1592C0; }   /* T */
+.activ-letter:nth-child(4) { background:#C5940A; }   /* I */
+.activ-letter:nth-child(5) { background:#0A6688; }   /* V */
+.activ-title {
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.35rem;
+  color:white; letter-spacing:-.02em;
+}
+.activ-sub { font-size:.72rem; color:rgba(255,255,255,.50); text-transform:uppercase; letter-spacing:.1em; }
+
+/* Orbit dots — culorile ACTIV */
+.activ-orbit-dot {
+  position:absolute; width:10px; height:10px; border-radius:50%;
+}
+.activ-orbit-dot:nth-child(1) {
+  background:#C5940A; top:10%; left:50%;
+  animation:orbit-activ 6s linear infinite;
+}
+.activ-orbit-dot:nth-child(2) {
+  background:#1A7EA3; top:50%; right:8%;
+  animation:orbit-activ 8s linear infinite; animation-delay:-2s;
+}
+.activ-orbit-dot:nth-child(3) {
+  background:#1592C0; bottom:10%; left:50%;
+  animation:orbit-activ 7s linear infinite; animation-delay:-4s;
+}
+@keyframes orbit-activ {
+  0%   { transform:rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform:rotate(360deg) translateX(100px) rotate(-360deg); }
+}
 
 .hero-badge {
   display:inline-flex; align-items:center; gap:.5rem;
@@ -414,8 +451,9 @@ footer {
 /* ── RESPONSIVE ───────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero-inner { flex-direction:column-reverse; gap:2rem; }
-  .ai-orb { width:160px; height:160px; }
-  .ai-orb-text { font-size:1.6rem; }
+  .activ-wheel { width:180px; height:180px; }
+  .activ-letters { gap:2px; }
+  .activ-letter { width:26px; height:30px; font-size:.9rem; }
   .hero-title { font-size:2.2rem; }
   .diff-grid, .comp-grid { grid-template-columns:1fr; }
   .ateliere-grid { grid-template-columns:repeat(2,1fr); }
@@ -436,7 +474,7 @@ footer {
   .byod-box { flex-direction:column; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ai-orb, .ai-orb-inner { animation:none; }
+  .activ-ring, .activ-orbit-dot { animation:none; }
   * { transition:none !important; }
 }
 </style>
@@ -502,9 +540,23 @@ footer {
       </div>
     </div>
     <div class="hero-visual">
-      <div class="ai-orb">
-        <div class="ai-orb-inner">
-          <div class="ai-orb-text">AI<span>ACTIV</span></div>
+      <div class="activ-wheel">
+        <div class="activ-ring"></div>
+        <div class="activ-ring"></div>
+        <div class="activ-ring"></div>
+        <div class="activ-orbit-dot"></div>
+        <div class="activ-orbit-dot"></div>
+        <div class="activ-orbit-dot"></div>
+        <div class="activ-center">
+          <div class="activ-letters">
+            <div class="activ-letter">A</div>
+            <div class="activ-letter">C</div>
+            <div class="activ-letter">T</div>
+            <div class="activ-letter">I</div>
+            <div class="activ-letter">V</div>
+          </div>
+          <div class="activ-title">AI</div>
+          <div class="activ-sub">Sibiu · 2026</div>
         </div>
       </div>
       <div class="funded-badge">
