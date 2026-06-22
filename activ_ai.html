@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACTIV AI — Artefacte digitale, Creativitate comunitară, Identitate sibiană</title>
+<meta name="description" content="Programul ACTIV AI formează 25 de cadre didactice din liceele sibiene ca facilitatori de creativitate digitală asistată de AI, finalizat cu o expoziție publică de artefacte cu identitate sibiană.">
+<meta property="og:title" content="ACTIV AI — Sibiul se exprimă prin Inteligență Artificială">
+<meta property="og:description" content="Un program comunitar care transformă profesorii sibieni în facilitatori de creativitate digitală și Sibiul într-o galerie de artefacte unice.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── DESIGN TOKENS — ACTIV AI ─────────────────────────────────────────────── */
+:root {
+  --navy:        #05334B;
+  --cerulean:    #1A7EA3;
+  --cerulean-mid:#1592C0;
+  --cerulean-lt: #EAF4FB;
+  --cerulean-bd: #B3D9EC;
+  --gold:        #C5940A;
+  --gold-lt:     #FFF8E1;
+  --gold-bd:     #F0C94A;
+  --pearl:       #F8FAFC;
+  --dark:        #1f2937;
+  --medium:      #374151;
+  --light:       #4b5563;
+  --border:      #e5e7eb;
+  --white:       #ffffff;
+  --footer-bg:   #0A1F2E;
+
+  --grad-hero:   linear-gradient(160deg, #021824 0%, #05334B 55%, #083D5E 100%);
+  --grad-cerulean: linear-gradient(135deg, #05334B 0%, #1A7EA3 100%);
+  --grad-gold:   linear-gradient(135deg, #B8820A 0%, #E8B422 100%);
+
+  --shadow-card: 0 4px 6px -1px rgba(0,0,0,.10), 0 2px 4px -1px rgba(0,0,0,.06);
+  --shadow-hover:0 10px 25px -5px rgba(0,0,0,.15), 0 4px 10px -3px rgba(0,0,0,.10);
+  --shadow-blue: 0 4px 15px rgba(26,126,163,.30);
+  --r-card: 12px;
+  --r-sm:   8px;
+}
+
+/* ── RESET ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; padding:0; background:var(--pearl); color:var(--dark); font-family:'Inter',sans-serif; line-height:1.6; }
+img  { max-width:100%; height:auto; display:block; }
+a    { text-decoration:none; }
+
+/* ── TYPOGRAPHY ───────────────────────────────────────────────────────────── */
+h1,.hero-title { font-family:'Montserrat',sans-serif; }
+h2,h3 { font-family:'Lora',serif; }
+
+/* ── CONTAINER ────────────────────────────────────────────────────────────── */
+.wrap { max-width:1200px; margin:0 auto; width:100%; padding:0 1.5rem; }
+
+/* ── NAVBAR ───────────────────────────────────────────────────────────────── */
+.nav-wrapper {
+  position:sticky; top:0; z-index:1000;
+  padding:.75rem 1.5rem;
+  background:rgba(248,250,252,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 10px rgba(0,0,0,.07);
+}
+.nav-bar { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.nav-brand { display:flex; align-items:center; gap:10px; color:var(--navy); font-weight:800; font-family:'Montserrat',sans-serif; }
+.nav-brand-badge {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:10px;
+  background:var(--grad-cerulean);
+  color:white; font-family:'Montserrat',sans-serif; font-weight:900; font-size:.95rem;
+  letter-spacing:-.02em; box-shadow:var(--shadow-blue);
+}
+.nav-brand-text { display:flex; flex-direction:column; line-height:1.1; }
+.nav-brand-name { font-size:1rem; font-weight:800; color:var(--navy); letter-spacing:-.02em; }
+.nav-brand-sub  { font-size:.62rem; color:var(--cerulean); font-weight:600; text-transform:uppercase; letter-spacing:.08em; }
+.nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.nav-links a { color:var(--medium); font-weight:500; font-size:.87rem; padding:.38rem .7rem; border-radius:6px; transition:all .2s; }
+.nav-links a:hover { color:var(--cerulean); background:var(--cerulean-lt); font-weight:700; }
+.nav-cta {
+  background:var(--grad-cerulean) !important; color:white !important;
+  padding:.48rem 1.15rem !important; border-radius:var(--r-sm) !important;
+  font-weight:700 !important; font-size:.84rem !important;
+  box-shadow:var(--shadow-blue) !important; transition:all .2s !important;
+}
+.nav-cta:hover { transform:translateY(-1px) !important; box-shadow:0 6px 20px rgba(26,126,163,.4) !important; }
+.mobile-btn { display:none; background:none; border:1px solid var(--border); border-radius:6px; padding:.4rem .6rem; cursor:pointer; font-size:1.25rem; color:var(--navy); }
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero {
+  background:var(--grad-hero);
+  position:relative; overflow:hidden;
+  padding:5rem 1.5rem 4rem;
+}
+.hero::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 50% at 85% 40%, rgba(26,126,163,.22) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 55% at 5%  90%, rgba(197,148,10,.10) 0%, transparent 60%);
+}
+/* Wavy bottom divider */
+.hero::after {
+  content:''; position:absolute; bottom:-2px; left:0; right:0; height:64px;
+  background:var(--pearl);
+  clip-path:ellipse(55% 100% at 50% 100%);
+}
+.hero-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:3.5rem; position:relative; z-index:2; }
+.hero-content { flex:1; }
+.hero-visual { flex-shrink:0; width:280px; display:flex; flex-direction:column; align-items:center; gap:1.5rem; }
+
+/* Animated AI orb */
+.ai-orb {
+  width:220px; height:220px; border-radius:50%;
+  background: conic-gradient(from 0deg, #05334B, #1A7EA3, #C5940A, #1592C0, #05334B);
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  animation:spin-slow 12s linear infinite;
+  box-shadow:0 0 60px rgba(26,126,163,.45), 0 0 120px rgba(26,126,163,.15);
+}
+.ai-orb::after {
+  content:''; position:absolute; inset:8px; border-radius:50%;
+  background:linear-gradient(135deg, #052840 0%, #083B5E 100%);
+}
+.ai-orb-text {
+  position:relative; z-index:1;
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:2.2rem;
+  color:white; letter-spacing:-.03em; line-height:1;
+  text-align:center;
+}
+.ai-orb-text span { display:block; font-size:.95rem; font-weight:600; color:var(--gold-bd); letter-spacing:.05em; margin-top:.2rem; }
+@keyframes spin-slow { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+/* Inner orb stays still */
+.ai-orb-inner { animation:spin-slow 12s linear infinite reverse; }
+
+.hero-badge {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:rgba(26,126,163,.18); border:1px solid rgba(26,126,163,.40);
+  border-radius:50px; padding:.32rem .95rem;
+  font-size:.72rem; font-weight:700; color:#7DD4F0; text-transform:uppercase; letter-spacing:.1em;
+  margin-bottom:1.25rem;
+}
+.hero-title { font-size:3rem; font-weight:900; color:white; line-height:1.1; margin:0 0 .4rem 0; letter-spacing:-.025em; }
+.hero-title .accent { color:var(--gold-bd); }
+.hero-tagline { font-family:'Lora',serif; font-style:italic; font-size:1.2rem; color:rgba(255,255,255,.65); margin:0 0 .8rem 0; }
+.hero-subtitle { font-size:.98rem; color:rgba(255,255,255,.78); line-height:1.75; max-width:560px; margin:0 0 2rem 0; }
+.hero-buttons { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+.hero-stats { display:flex; gap:2.5rem; flex-wrap:wrap; border-top:1px solid rgba(255,255,255,.12); padding-top:1.75rem; }
+.hero-stat-num { font-family:'Montserrat',sans-serif; font-size:2rem; color:var(--gold-bd); font-weight:900; line-height:1; }
+.hero-stat-lbl { font-size:.67rem; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.1em; font-weight:600; margin-top:.2rem; }
+
+/* Finantat badge */
+.funded-badge {
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--r-sm); padding:.6rem 1rem;
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-size:.78rem; color:rgba(255,255,255,.75);
+}
+.funded-badge strong { color:white; }
+
+/* ── BUTTONS ──────────────────────────────────────────────────────────────── */
+.btn {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--grad-cerulean); color:white !important;
+  border:none; border-radius:var(--r-sm); padding:.75rem 1.8rem;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:.95rem;
+  cursor:pointer; transition:all .2s;
+  box-shadow:0 3px 0 #03202F, var(--shadow-blue);
+}
+.btn:hover { transform:translateY(-2px); box-shadow:0 5px 0 #03202F, 0 8px 20px rgba(26,126,163,.35); }
+
+.btn-outline {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:transparent; color:white !important;
+  border:2px solid rgba(255,255,255,.4); border-radius:var(--r-sm); padding:.73rem 1.8rem;
+  font-family:'Inter',sans-serif; font-weight:600; font-size:.95rem;
+  cursor:pointer; transition:all .2s;
+}
+.btn-outline:hover { background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.7); }
+
+.btn-gold {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--grad-gold); color:white !important;
+  border:none; border-radius:var(--r-sm); padding:.7rem 1.6rem;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:.9rem;
+  cursor:pointer; transition:all .2s;
+  box-shadow:0 3px 0 #8A6008;
+}
+.btn-gold:hover { transform:translateY(-1px); box-shadow:0 5px 0 #8A6008; }
+
+.btn-light {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--cerulean-lt); color:var(--navy) !important;
+  border:2px solid var(--cerulean-bd); border-radius:var(--r-sm); padding:.68rem 1.5rem;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:.9rem;
+  cursor:pointer; transition:all .2s;
+}
+.btn-light:hover { background:var(--cerulean-bd); }
+
+/* ── SECTIONS ─────────────────────────────────────────────────────────────── */
+.section { padding:4.5rem 1.5rem; }
+.section-alt { background:var(--cerulean-lt); }
+.section-navy { background:var(--navy); }
+.section-dark { background:var(--grad-hero); }
+
+.section-label {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--cerulean-lt); color:var(--navy); border:1px solid var(--cerulean-bd);
+  border-radius:50px; padding:.28rem .9rem;
+  font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em;
+  margin-bottom:.75rem;
+}
+.section-title { font-family:'Montserrat',sans-serif; font-size:2rem; font-weight:800; color:var(--navy); margin:0 0 .75rem 0; line-height:1.2; letter-spacing:-.02em; }
+.section-title.white { color:white; }
+.section-title.center { text-align:center; }
+.section-desc { font-size:1rem; color:var(--light); line-height:1.75; max-width:680px; margin:0 0 2.5rem 0; }
+.section-desc.white { color:rgba(255,255,255,.75); }
+.section-desc.center { text-align:center; margin-left:auto; margin-right:auto; }
+.section-center { text-align:center; margin-bottom:3rem; }
+.title-bar { width:56px; height:4px; background:var(--grad-cerulean); border-radius:4px; margin:.75rem auto 0; }
+.title-bar.left { margin-left:0; }
+
+/* ── DIFFERENTIATOR (intro) ───────────────────────────────────────────────── */
+.diff-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+.diff-card {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  padding:2.25rem; border-top:5px solid var(--cerulean); position:relative; overflow:hidden;
+}
+.diff-card.gold { border-top-color:var(--gold); }
+.diff-card::before {
+  content:''; position:absolute; top:-25px; right:-25px; width:100px; height:100px;
+  border-radius:50%; background:var(--cerulean-lt); opacity:.5;
+}
+.diff-card h3 { font-family:'Montserrat',sans-serif; font-size:1.3rem; font-weight:800; color:var(--navy); margin:0 0 1rem 0; }
+.diff-icon { font-size:2.2rem; margin-bottom:1rem; }
+.diff-card p { color:var(--medium); line-height:1.75; font-size:.96rem; margin:0; }
+
+/* ── COMPONENTE (4 cards) ─────────────────────────────────────────────────── */
+.comp-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.75rem; }
+.comp-card {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  overflow:hidden; display:flex; flex-direction:column; transition:all .3s;
+  border-left:5px solid var(--cerulean);
+}
+.comp-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-hover); }
+.comp-card-head {
+  padding:1.5rem 1.5rem 0;
+  display:flex; align-items:center; gap:1rem;
+}
+.comp-num {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:48px; height:48px; flex-shrink:0;
+  background:var(--grad-cerulean); color:white;
+  font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem;
+  border-radius:12px; box-shadow:var(--shadow-blue);
+}
+.comp-card h3 { font-family:'Montserrat',sans-serif; font-size:1.1rem; font-weight:800; color:var(--navy); margin:0; }
+.comp-card-label { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--cerulean); }
+.comp-card-body { padding:1rem 1.5rem 1.5rem; flex:1; display:flex; flex-direction:column; }
+.comp-card p { font-size:.9rem; color:var(--light); line-height:1.7; margin:0 0 1rem 0; flex:1; }
+.comp-card ul { list-style:none; padding:0; margin:0 0 1rem 0; display:flex; flex-direction:column; gap:.4rem; }
+.comp-card ul li { font-size:.86rem; color:var(--medium); display:flex; align-items:flex-start; gap:.5rem; }
+.comp-card ul li::before { content:'→'; color:var(--cerulean); font-weight:700; flex-shrink:0; }
+.comp-meta { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:.5rem; }
+.comp-tag {
+  display:inline-flex; align-items:center; gap:.3rem;
+  background:var(--cerulean-lt); color:var(--navy); border:1px solid var(--cerulean-bd);
+  border-radius:50px; padding:.22rem .75rem; font-size:.76rem; font-weight:600;
+}
+
+/* ── ATELIERE (4 steps) ───────────────────────────────────────────────────── */
+.ateliere-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.atelier-card {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  padding:1.75rem; text-align:center;
+  transition:all .3s; position:relative; overflow:hidden;
+}
+.atelier-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-hover); }
+.atelier-card::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:4px;
+  background:var(--grad-cerulean);
+}
+.atelier-num {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:52px; height:52px; margin:0 auto 1rem;
+  background:var(--cerulean-lt); border:2px solid var(--cerulean-bd);
+  border-radius:50%; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem;
+  color:var(--cerulean);
+}
+.atelier-card h4 { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:700; color:var(--navy); margin:0 0 .6rem 0; }
+.atelier-card p { font-size:.87rem; color:var(--light); line-height:1.65; margin:0 0 .75rem 0; }
+.atelier-dur { font-size:.75rem; font-weight:600; color:var(--cerulean); }
+
+/* ── BYOD SECTION ─────────────────────────────────────────────────────────── */
+.byod-box {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  border-left:6px solid var(--gold); padding:2rem 2.5rem;
+  display:flex; align-items:flex-start; gap:1.5rem;
+}
+.byod-icon { font-size:3rem; flex-shrink:0; line-height:1; }
+.byod-box h3 { font-family:'Montserrat',sans-serif; font-size:1.2rem; font-weight:800; color:var(--navy); margin:0 0 .5rem 0; }
+.byod-box p { font-size:.95rem; color:var(--medium); line-height:1.7; margin:0 0 .5rem 0; }
+.byod-box p:last-child { margin:0; }
+.byod-note { font-size:.87rem; color:var(--light); font-style:italic; }
+
+/* ── EXPOZITIE TIMELINE ───────────────────────────────────────────────────── */
+.expo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; position:relative; }
+.expo-grid::before {
+  content:''; position:absolute; top:2.6rem; left:10%; right:10%; height:2px;
+  background:linear-gradient(90deg, var(--cerulean) 0%, var(--gold) 100%); z-index:0;
+}
+.expo-card {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  padding:1.5rem; text-align:center; position:relative; z-index:1;
+  transition:all .3s;
+}
+.expo-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-hover); }
+.expo-card.final { border:2px solid var(--cerulean); }
+.expo-dot {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:52px; height:52px; margin:0 auto 1rem;
+  border-radius:50%; font-size:1.5rem;
+  background:var(--cerulean-lt); border:2px solid var(--cerulean-bd);
+}
+.expo-card.final .expo-dot { background:var(--grad-cerulean); border-color:var(--cerulean); font-size:1.2rem; }
+.expo-card h4 { font-family:'Montserrat',sans-serif; font-size:.97rem; font-weight:800; color:var(--navy); margin:0 0 .4rem 0; }
+.expo-card p { font-size:.85rem; color:var(--light); line-height:1.6; margin:0 0 .5rem 0; }
+.expo-date { font-size:.75rem; font-weight:700; color:var(--cerulean); text-transform:uppercase; letter-spacing:.06em; }
+.expo-badge {
+  display:inline-block; margin-top:.5rem;
+  background:var(--grad-cerulean); color:white;
+  font-size:.68rem; font-weight:700; padding:.2rem .65rem; border-radius:50px;
+}
+
+/* ── IMPACT STATS ─────────────────────────────────────────────────────────── */
+.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; }
+.stat-card { text-align:center; }
+.stat-num { font-family:'Montserrat',sans-serif; font-size:3rem; font-weight:900; color:var(--gold-bd); line-height:1; margin-bottom:.35rem; }
+.stat-lbl { font-size:.78rem; color:rgba(255,255,255,.65); text-transform:uppercase; letter-spacing:.1em; font-weight:600; }
+.stat-desc { font-size:.88rem; color:rgba(255,255,255,.55); margin-top:.35rem; line-height:1.5; }
+
+/* ── PARTENERI ────────────────────────────────────────────────────────────── */
+.licee-grid { display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; }
+.liceu-tag {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.55rem 1.1rem; border-radius:50px; font-size:.87rem; font-weight:600;
+  background:var(--cerulean-lt); color:var(--navy);
+  border:2px solid var(--cerulean-bd); transition:all .2s;
+}
+.liceu-tag:hover { background:var(--cerulean); color:white; border-color:var(--cerulean); }
+.liceu-tag.special { background:var(--navy); color:white; border-color:var(--navy); }
+.liceu-tag.special:hover { background:var(--cerulean); border-color:var(--cerulean); }
+
+/* ── FAQ ──────────────────────────────────────────────────────────────────── */
+.faq-list { display:flex; flex-direction:column; gap:1rem; max-width:800px; margin:0 auto; }
+details {
+  background:white; border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  border-left:4px solid var(--cerulean); overflow:hidden;
+}
+details[open] { border-left-color:var(--gold); }
+summary {
+  padding:1.25rem 1.5rem; cursor:pointer; list-style:none;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:.97rem; color:var(--navy);
+  display:flex; align-items:center; justify-content:space-between;
+  user-select:none;
+}
+summary::after { content:'＋'; font-size:1.2rem; color:var(--cerulean); transition:transform .25s; }
+details[open] summary::after { content:'－'; transform:rotate(180deg); }
+summary::-webkit-details-marker { display:none; }
+.faq-body { padding:0 1.5rem 1.25rem; font-size:.93rem; color:var(--medium); line-height:1.75; }
+
+/* ── CTA SECTION ──────────────────────────────────────────────────────────── */
+.cta-box {
+  background:var(--grad-hero); border-radius:var(--r-card);
+  padding:3.5rem 2.5rem; text-align:center; position:relative; overflow:hidden;
+  box-shadow:0 20px 60px rgba(5,51,75,.35);
+}
+.cta-box::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(26,126,163,.15) 0%, transparent 70%);
+}
+.cta-box h2 { font-family:'Montserrat',sans-serif; font-size:2rem; font-weight:900; color:white; margin:0 0 .75rem 0; position:relative; }
+.cta-box p { color:rgba(255,255,255,.75); font-size:1.05rem; margin:0 auto 2rem; max-width:580px; position:relative; }
+.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; position:relative; }
+
+/* ── FOOTER ───────────────────────────────────────────────────────────────── */
+footer {
+  background:var(--footer-bg); color:rgba(255,255,255,.7);
+  padding:3.5rem 1.5rem 0;
+}
+.footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem; padding-bottom:3rem; }
+.footer-brand p { font-size:.87rem; line-height:1.65; color:rgba(255,255,255,.55); max-width:280px; margin:.75rem 0; }
+.footer-badge {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:rgba(26,126,163,.2); border:1px solid rgba(26,126,163,.35);
+  border-radius:50px; padding:.28rem .85rem; font-size:.72rem; font-weight:600; color:var(--cerulean-mid);
+  text-transform:uppercase; letter-spacing:.08em; margin-top:.75rem;
+}
+.footer-col h5 { font-family:'Montserrat',sans-serif; font-size:.87rem; font-weight:700; color:white; text-transform:uppercase; letter-spacing:.1em; margin:0 0 1rem 0; }
+.footer-links { list-style:none; padding:0; margin:0; }
+.footer-links li { margin-bottom:.55rem; }
+.footer-links a { font-size:.87rem; color:rgba(255,255,255,.55); transition:color .2s; }
+.footer-links a:hover { color:var(--cerulean-mid); }
+.footer-legal {
+  max-width:1200px; margin:0 auto;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:1.25rem 0;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem;
+}
+.footer-legal p, .footer-legal span { font-size:.78rem; color:rgba(255,255,255,.3); margin:0; }
+.footer-strip { height:4px; background:var(--grad-cerulean); }
+
+/* ── RESPONSIVE ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-inner { flex-direction:column-reverse; gap:2rem; }
+  .ai-orb { width:160px; height:160px; }
+  .ai-orb-text { font-size:1.6rem; }
+  .hero-title { font-size:2.2rem; }
+  .diff-grid, .comp-grid { grid-template-columns:1fr; }
+  .ateliere-grid { grid-template-columns:repeat(2,1fr); }
+  .expo-grid { grid-template-columns:repeat(2,1fr); }
+  .expo-grid::before { display:none; }
+  .stats-grid { grid-template-columns:repeat(2,1fr); }
+  .footer-grid { grid-template-columns:1fr; gap:2rem; }
+  .nav-links { display:none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:white; border-bottom:1px solid var(--border); padding:1rem 1.5rem; box-shadow:0 8px 24px rgba(0,0,0,.1); }
+  .mobile-btn { display:block; }
+}
+@media (max-width: 600px) {
+  .ateliere-grid { grid-template-columns:1fr; }
+  .expo-grid { grid-template-columns:1fr; }
+  .stats-grid { grid-template-columns:1fr 1fr; }
+  .hero-title { font-size:1.8rem; }
+  .section { padding:3rem 1rem; }
+  .byod-box { flex-direction:column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-orb, .ai-orb-inner { animation:none; }
+  * { transition:none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ──────────────────────────────────────────────────────────────── -->
+<nav class="nav-wrapper">
+  <div class="nav-bar">
+    <a href="#" class="nav-brand">
+      <div class="nav-brand-badge">AI</div>
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">ACTIV AI</span>
+        <span class="nav-brand-sub">Agenda Comunității · Sibiu 2026</span>
+      </div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#despre">Despre</a>
+      <a href="#componente">Componente</a>
+      <a href="#ateliere">Ateliere</a>
+      <a href="#expozitie">Expoziție</a>
+      <a href="#parteneri">Parteneri</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Înscrie-te →</a>
+    </div>
+    <button class="mobile-btn" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">🏆 Finanțat Primăria Sibiu · Agenda Comunității 2026</div>
+      <h1 class="hero-title">
+        Sibiul se exprimă<br>prin <span class="accent">Inteligență Artificială</span>
+      </h1>
+      <p class="hero-tagline">Artefacte digitale, Creativitate comunitară, Identitate sibiană</p>
+      <p class="hero-subtitle">
+        ACTIV AI formează 25 de cadre didactice din liceele sibiene ca facilitatori de creativitate digitală. Împreună cu elevii lor, transformă Sibiul — cartierele, poveștile, oamenii — într-o galerie publică de artefacte digitale unice, create cu AI.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">🎓 Vreau să particip →</a>
+        <a href="#componente" class="btn-outline">📋 Cum funcționează</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">25</div>
+          <div class="hero-stat-lbl">Facilitatori formați</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">200+</div>
+          <div class="hero-stat-lbl">Artefacte create</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-lbl">Ediții expoziție</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">∞</div>
+          <div class="hero-stat-lbl">Arhivă permanentă</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ai-orb">
+        <div class="ai-orb-inner">
+          <div class="ai-orb-text">AI<span>ACTIV</span></div>
+        </div>
+      </div>
+      <div class="funded-badge">
+        🏛️ Cofinanțat de <strong>Primăria Sibiu</strong> · 10.000 lei
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DESPRE / DIFERENTIATOR ─────────────────────────────────────────────── -->
+<section class="section" id="despre">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label">🏛️ Despre program</span>
+      <h2 class="section-title center">Ce face ACTIV AI diferit</h2>
+      <div class="title-bar"></div>
+      <p class="section-desc center">
+        Programele tipice de alfabetizare AI formează indivizi care pleacă acasă cu competențe individuale. ACTIV AI formează multiplicatori comunitari.
+      </p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-icon">🔁</div>
+        <h3>Multiplicare, nu formare punctuală</h3>
+        <p>Fiecare cadru didactic format devine un nod activ în rețeaua de creativitate digitală a comunității sibiene. Competența nu pleacă acasă — se activează imediat în clasă, cu elevii. 25 de facilitatori = minim 500 de elevi atinși direct.</p>
+      </div>
+      <div class="diff-card gold">
+        <div class="diff-icon">🏙️</div>
+        <h3>Sibiul ca subiect, nu ca decor</h3>
+        <p>Artefactele create nu sunt exerciții tehnice generice. Sunt portretul digital al unui oraș exprimat de oamenii lui — cu cartierele, cu poveștile, cu ritmul vieții sibiene. AI-ul este unealta. Identitatea locală este materia primă.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPONENTE ──────────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="componente">
+  <div class="wrap">
+    <span class="section-label">⚙️ Structura programului</span>
+    <h2 class="section-title">Cele 4 componente ACTIV AI</h2>
+    <div class="title-bar left"></div>
+    <p class="section-desc">Un program în patru mișcări coerente: formare, co-creare, expunere publică, arhivare permanentă.</p>
+    <div class="comp-grid">
+
+      <div class="comp-card">
+        <div class="comp-card-head">
+          <div class="comp-num">A1</div>
+          <div>
+            <div class="comp-card-label">Componenta 1</div>
+            <h3>ACTIV Formator</h3>
+          </div>
+        </div>
+        <div class="comp-card-body">
+          <p>4 ateliere intensive × 3 ore la Casa de Cultură a Studenților Sibiu, livrate în tandem de un psiholog și un specialist AI. 25 de cadre didactice din licee sibiene devin Facilitatori ACTIV AI.</p>
+          <ul>
+            <li>Atelier 1 — AI: instrument, nu amenințare</li>
+            <li>Atelier 2 — Identitatea sibiană în era digitală</li>
+            <li>Atelier 3 — Cum facilitezi o clasă creatoare</li>
+            <li>Atelier 4 — Curatorul și Povestitorul</li>
+          </ul>
+          <div class="comp-meta">
+            <span class="comp-tag">📅 Iunie 2026</span>
+            <span class="comp-tag">🏛️ CCS Sibiu</span>
+            <span class="comp-tag">👤 BYOD</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-head">
+          <div class="comp-num">A2</div>
+          <div>
+            <div class="comp-card-label">Componenta 2</div>
+            <h3>ACTIV Creator</h3>
+          </div>
+        </div>
+        <div class="comp-card-body">
+          <p>Facilitatorii coordonează în propriile clase crearea de artefacte digitale cu AI pe tema identității sibiene. 8 săptămâni de co-creare asumată de comunitățile școlare.</p>
+          <ul>
+            <li>Minim 200 de artefacte colectate</li>
+            <li>Suport metodologic asincron de la AVAPRO</li>
+            <li>Sesiuni Q&amp;A bilunare online</li>
+            <li>Libertatea clasei de a alege subtema</li>
+          </ul>
+          <div class="comp-meta">
+            <span class="comp-tag">📅 Iulie–Sept. 2026</span>
+            <span class="comp-tag">🏫 În clase</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-head">
+          <div class="comp-num">A3</div>
+          <div>
+            <div class="comp-card-label">Componenta 3</div>
+            <h3>ACTIV Expoziție</h3>
+          </div>
+        </div>
+        <div class="comp-card-body">
+          <p>Expoziție itinerantă în 4 ediții, cu vernisaj public și acces gratuit. Toate artefactele afișate exclusiv în format digital, pe ecrane.</p>
+          <ul>
+            <li>3 ediții în spațiile liceelor partenere</li>
+            <li>Ediția finală la CCS Sibiu (7 zile)</li>
+            <li>Panel public cu facilitatori și elevi</li>
+            <li>Diplome pentru elevii expuși</li>
+          </ul>
+          <div class="comp-meta">
+            <span class="comp-tag">📅 Oct.–Nov. 2026</span>
+            <span class="comp-tag">🆓 Acces gratuit</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-card-head">
+          <div class="comp-num">A4</div>
+          <div>
+            <div class="comp-card-label">Componenta 4</div>
+            <h3>ACTIV Management</h3>
+          </div>
+        </div>
+        <div class="comp-card-body">
+          <p>Coordonare transversală pe întreaga durată a proiectului. Monitorizare, evaluare, raportare și lansarea Arhivei Digitale ACTIV AI Sibiu 2026.</p>
+          <ul>
+            <li>Gestiune financiară și raportare</li>
+            <li>Arhivă digitală permanentă online</li>
+            <li>Respectarea obligațiilor față de finanțator</li>
+            <li>Raport final: 30 noiembrie 2026</li>
+          </ul>
+          <div class="comp-meta">
+            <span class="comp-tag">📅 Iun.–Nov. 2026</span>
+            <span class="comp-tag">🏢 AVAPRO</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ATELIERE ────────────────────────────────────────────────────────────── -->
+<section class="section" id="ateliere">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label">🎓 Programul de formare</span>
+      <h2 class="section-title center">Cele 4 ateliere — ce înveți</h2>
+      <div class="title-bar"></div>
+      <p class="section-desc center">Fiecare atelier durează 3 ore și este livrat de un tandem psiholog + specialist AI la CCS Sibiu. Formare practică, fără teorie inutilă.</p>
+    </div>
+    <div class="ateliere-grid">
+      <div class="atelier-card">
+        <div class="atelier-num">1</div>
+        <h4>AI: Instrument, Nu Oracol</h4>
+        <p>Cum funcționează un LLM, de ce halucinează, Termometrul Etic, harta instrumentelor AI gratuite și primul tău prompt funcțional.</p>
+        <div class="atelier-dur">⏱ 3 ore</div>
+      </div>
+      <div class="atelier-card">
+        <div class="atelier-num">2</div>
+        <h4>Identitate Sibiană în Era Digitală</h4>
+        <p>Metodologia RCSFC completă. Cum transformi un cartier, o stradă, o amintire în materie primă pentru un artefact digital autentic. Creezi primul tău artefact personal.</p>
+        <div class="atelier-dur">⏱ 3 ore</div>
+      </div>
+      <div class="atelier-card">
+        <div class="atelier-num">3</div>
+        <h4>Din Utilizator în Facilitator</h4>
+        <p>Cum conduci o clasă de 25–30 de elevi prin procesul de creație digitală. Profilurile de elevi, dinamica grupului, workflow-ul celor 8 săptămâni.</p>
+        <div class="atelier-dur">⏱ 3 ore</div>
+      </div>
+      <div class="atelier-card">
+        <div class="atelier-num">4</div>
+        <h4>Curatorul și Povestitorul</h4>
+        <p>Curatoriat digital, etică avansată, drepturi de autor AI, nararea publică în 2 minute. Pleaci cu Kitul Digital al Facilitatorului ACTIV AI și certificatul de participare.</p>
+        <div class="atelier-dur">⏱ 3 ore</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BYOD ────────────────────────────────────────────────────────────────── -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="byod-box">
+      <div class="byod-icon">💻</div>
+      <div>
+        <h3>Formare BYOD — Adu propriul dispozitiv</h3>
+        <p>Programul de formare se desfășoară în format <strong>BYOD (Bring Your Own Device)</strong> — fiecare participant vine la atelier cu propriul laptop sau tabletă. Nu este nevoie de un dispozitiv performant: orice laptop funcțional cu conexiune la internet și browser actualizat este suficient.</p>
+        <p>Toate instrumentele AI folosite în formare sunt <strong>gratuite și accesibile online</strong> — nu se instalează nimic local. Vă rugăm să comunicați această cerință cadrelor didactice nominalizate înainte de data primului atelier.</p>
+        <p class="byod-note">💡 Dacă nu aveți laptop personal disponibil, contactați-ne — vom găsi o soluție împreună.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPOZITIE ───────────────────────────────────────────────────────────── -->
+<section class="section" id="expozitie">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label">🖼️ Expoziția ACTIV AI</span>
+      <h2 class="section-title center">4 ediții itinerante în Sibiu</h2>
+      <div class="title-bar"></div>
+      <p class="section-desc center">O expoziție de artă digitală comunitară — creată de elevi sibieni, prezentată publicului sibianean. Acces gratuit la toate edițiile.</p>
+    </div>
+    <div class="expo-grid">
+      <div class="expo-card">
+        <div class="expo-dot">🏫</div>
+        <h4>Ediția 1</h4>
+        <p>Liceu sibian gazdă — vernisaj deschis comunității locale, părinților și publicului general.</p>
+        <div class="expo-date">Octombrie 2026 · 5 zile</div>
+      </div>
+      <div class="expo-card">
+        <div class="expo-dot">🏫</div>
+        <h4>Ediția 2</h4>
+        <p>Al doilea liceu sibian gazdă — expoziție cu vernisaj deschis comunității din cartier.</p>
+        <div class="expo-date">Octombrie 2026 · 5 zile</div>
+      </div>
+      <div class="expo-card">
+        <div class="expo-dot">🏫</div>
+        <h4>Ediția 3</h4>
+        <p>Al treilea liceu sibian gazdă — publicul larg din comunitate, elevi din alte școli.</p>
+        <div class="expo-date">Oct.–Nov. 2026 · 5 zile</div>
+      </div>
+      <div class="expo-card final">
+        <div class="expo-dot">⭐</div>
+        <h4>Marea Expoziție Finală</h4>
+        <p>CCS Sibiu — toate artefactele tuturor claselor. Panel public, lansare Arhivă Digitală, diplome pentru elevi.</p>
+        <div class="expo-date">Noiembrie 2026 · 7 zile</div>
+        <div class="expo-badge">Ediție specială</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── IMPACT STATS ────────────────────────────────────────────────────────── -->
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label" style="background:rgba(26,126,163,.2);border-color:rgba(26,126,163,.4);color:#7DD4F0;">📊 Impact estimat</span>
+      <h2 class="section-title white center">Ce rămâne după ACTIV AI</h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">25</div>
+        <div class="stat-lbl">Facilitatori activi</div>
+        <div class="stat-desc">Cadre didactice cu competențe reale de facilitare AI în comunitate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">500+</div>
+        <div class="stat-lbl">Elevi atinși</div>
+        <div class="stat-desc">Prin activitățile de co-creare din clasele facilitatorilor</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">200+</div>
+        <div class="stat-lbl">Artefacte digitale</div>
+        <div class="stat-desc">Colecție permanentă în Arhiva Digitală ACTIV AI Sibiu 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-lbl">Luni · 22 zile expo</div>
+        <div class="stat-desc">Prezență publică în 4 spații din Sibiu, acces gratuit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTENERI ───────────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="parteneri">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label">🤝 Parteneri instituționali</span>
+      <h2 class="section-title center">Liceele sibiene participante</h2>
+      <div class="title-bar"></div>
+      <p class="section-desc center">Fiecare liceu partener nominalizează cadre didactice pentru formare și devine generator de artefacte prin proprii elevi.</p>
+    </div>
+    <div class="licee-grid">
+      <span class="liceu-tag">🏫 Liceul Teoretic Gheorghe Lazăr</span>
+      <span class="liceu-tag">🏫 Colegiul Național Octavian Goga</span>
+      <span class="liceu-tag">🏫 Liceul Teoretic Constantin Noica</span>
+      <span class="liceu-tag">🏫 Colegiul Național Samuel von Brukenthal</span>
+      <span class="liceu-tag">🏫 Colegiul Național Pedagogic Andrei Șaguna</span>
+      <span class="liceu-tag">🏫 Liceul cu Program Sportiv Independența</span>
+      <span class="liceu-tag">🏫 Liceul Teoretic Onisifor Ghibu</span>
+      <span class="liceu-tag special">🏛️ Casa de Cultură a Studenților Sibiu</span>
+      <span class="liceu-tag special">🏛️ Primăria Municipiului Sibiu</span>
+    </div>
+    <div style="margin-top:2.5rem; text-align:center;">
+      <p style="font-size:.95rem; color:var(--light); max-width:600px; margin:0 auto 1.25rem;">
+        Ești director de liceu și vrei să participi? Înscrie-te până la <strong>30 iunie 2026</strong>.
+      </p>
+      <a href="#contact" class="btn">📧 Contactați-ne pentru detalii</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ─────────────────────────────────────────────────────────────────── -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-center">
+      <span class="section-label">❓ Întrebări frecvente</span>
+      <h2 class="section-title center">Ce mai vrei să știi</h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Cine poate participa la formare?</summary>
+        <div class="faq-body">Orice cadru didactic dintr-un liceu sibianean, indiferent de disciplina predată. Nu este necesară experiența anterioară cu AI. Formare gratuită, acces nediscriminatoriu.</div>
+      </details>
+      <details>
+        <summary>Trebuie să știu să folosesc AI ca să mă înscriu?</summary>
+        <div class="faq-body">Nu. Programul pornește de la zero și construiește pas cu pas. Tot ce ai nevoie este curiozitate și un laptop cu conexiune la internet. Toate instrumentele sunt gratuite și accesibile online.</div>
+      </details>
+      <details>
+        <summary>Ce dispozitiv trebuie să aduc la ateliere?</summary>
+        <div class="faq-body">Programul de formare este BYOD (Bring Your Own Device) — aduci propriul laptop sau tabletă. Nu trebuie să fie performant: orice browser actualizat și conexiune la internet sunt suficiente. Nu se instalează nimic local. Dacă nu ai laptop personal disponibil, contactează-ne — vom găsi o soluție.</div>
+      </details>
+      <details>
+        <summary>Cât timp durează implicarea după formare?</summary>
+        <div class="faq-body">8 săptămâni de activitate cu propria clasă (iulie–septembrie 2026), la un ritm pe care îl stabilești tu. AVAPRO asigură suport metodologic asincron tot timpul. Nu există program fix impus.</div>
+      </details>
+      <details>
+        <summary>Artefactele elevilor sunt publice?</summary>
+        <div class="faq-body">Artefactele selectate pentru expoziție sunt publice, cu acordul scris al elevilor (și al părinților pentru minori). Niciun artefact nu este publicat fără acord explicit. Participarea la activitățile creative este voluntară.</div>
+      </details>
+      <details>
+        <summary>Pot participa și ca public la expoziție dacă nu sunt cadru didactic?</summary>
+        <div class="faq-body">Absolut. Toate edițiile expoziției ACTIV AI sunt deschise publicului larg, gratuit, fără rezervare. Urmărește datele pe paginile de social media ale CCS Sibiu și AVANS PROIECT.</div>
+      </details>
+      <details>
+        <summary>Există o limită de cadre didactice per liceu?</summary>
+        <div class="faq-body">Recomandăm nominalizarea a 4–5 cadre didactice din discipline diverse (informatică, română, arte, geografie, biologie, educație socială). Diversitatea disciplinară asigură diversitatea artefactelor produse de elevi.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ─────────────────────────────────────────────────────────────────── -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Sibiul tău merită să fie văzut</h2>
+      <p>Înscrie-te sau înscrie liceul tău în programul ACTIV AI. Termen limită pentru nominalizarea cadrelor didactice: <strong style="color:var(--gold-bd)">30 iunie 2026</strong>.</p>
+      <div class="cta-buttons">
+        <a href="mailto:ccs.sibiu@gmail.com" class="btn">📧 ccs.sibiu@gmail.com</a>
+        <a href="mailto:asociatia.avapro@gmail.com" class="btn-gold">📧 asociatia.avapro@gmail.com</a>
+        <a href="tel:+40770276406" class="btn-outline">📞 0770 276 406</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; color:white;">ACTIV AI</div>
+      <p>Artefacte digitale, Creativitate comunitară, Tehnologie accesibilă, Identitate sibiană și Vizibilitate prin Inteligența Artificială.</p>
+      <p style="font-size:.82rem; color:rgba(255,255,255,.4);">Finanțat de Primăria Municipiului Sibiu · Agenda Comunității 2026</p>
+      <div class="footer-badge">Iun.–Nov. 2026 · Sibiu</div>
+    </div>
+    <div class="footer-col">
+      <h5>Program</h5>
+      <ul class="footer-links">
+        <li><a href="#componente">A1 — Formare</a></li>
+        <li><a href="#componente">A2 — Creator</a></li>
+        <li><a href="#expozitie">A3 — Expoziție</a></li>
+        <li><a href="#ateliere">Cele 4 ateliere</a></li>
+        <li><a href="#faq">Întrebări frecvente</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul class="footer-links">
+        <li><a href="https://ccssibiu.ro">CCS Sibiu</a></li>
+        <li><a href="https://avansproiect.online">AVANS PROIECT</a></li>
+        <li><a href="mailto:ccs.sibiu@gmail.com">ccs.sibiu@gmail.com</a></li>
+        <li><a href="mailto:asociatia.avapro@gmail.com">asociatia.avapro@gmail.com</a></li>
+        <li><a href="tel:+40770276406">0770 276 406</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p>© 2026 Asociația AVANS PROIECT Sibiu · CIF 54392841 · în parteneriat cu Casa de Cultură a Studenților Sibiu</p>
+    <span>Finanțat de Primăria Municipiului Sibiu · H.C.L. nr. 195/2026</span>
+  </div>
+  <div class="footer-strip"></div>
+</footer>
+
+</body>
+</html>
