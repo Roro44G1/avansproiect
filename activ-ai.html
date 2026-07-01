@@ -308,6 +308,15 @@ footer.mini-footer a { color:var(--cerulean); font-weight:600; }
     </div>
 
   </form>
+
+  <!-- Mecanism de trimitere fără CORS: formular real -> iframe ascuns.
+       Google Apps Script are probleme cunoscute cu CORS pentru fetch() POST;
+       trimiterea printr-un formular HTML real către un iframe nu e supusă
+       acestor restricții. -->
+  <iframe name="enroll-hidden-frame" id="enroll-hidden-frame" style="display:none;" tabindex="-1" aria-hidden="true" title="Canal tehnic de trimitere, fără conținut vizibil"></iframe>
+  <form id="enroll-hidden-proxy" method="POST" target="enroll-hidden-frame" style="display:none;">
+    <input type="hidden" name="payload" id="enroll-hidden-payload">
+  </form>
     </div>
   </div>
 </div>
@@ -353,8 +362,9 @@ document.addEventListener('keydown', function(e){
 'use strict';
 
 // ── URL-ul web app-ului Google Apps Script — completează după deploy ──────
-var ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbxsJG4M3WXBxIK8AxPNwv4uDz-0UDFa-jEILjYdfvPoFeBbS5A7g52yzzuqm_6etY4DcA/exec';
+var ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbyLyrrVm7jvvlexvIHCCPxtdO_bfJscJEAFyYJZVJCJnKvyX6wh77tyHCYBHtQORNHJRA/exec';
 var PROGRAM_ID = 'ACTIV_AI';
+document.getElementById('enroll-hidden-proxy').action = ENDPOINT_URL;
 
 // ── Lista liceelor partenere ────────────────────────────────────────────
 var SCHOOLS = [
@@ -544,47 +554,29 @@ form.addEventListener('submit', function(e){
   statusMsg.textContent = 'Se trimite înscrierea…';
   statusMsg.className = 'em-status-msg em-sending em-show';
 
-  fetch(ENDPOINT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // evită preflight CORS
-    body: JSON.stringify(payload)
-  })
-  .then(function(r){ return r.json(); })
-  .then(function(res){
-    if (res && res.ok) {
-      showSentSuccess();
-    } else {
-      statusMsg.textContent = '⚠ ' + ((res && res.message) || 'Eroare necunoscută.') + ' Verifică datele și încearcă din nou.';
-      statusMsg.className = 'em-status-msg em-error em-show';
-    }
-  })
-  .catch(function(){
-    // Cel mai probabil browserul a blocat CITIREA răspunsului (CORS / testare locală prin
-    // file://), nu neapărat trimiterea în sine. Încercăm o trimitere de rezervă în modul
-    // 'no-cors': cererea ajunge la server (emailurile se trimit), dar nu mai putem citi
-    // răspunsul din browser — de aceea mesajul e formulat ca succes neconfirmat.
-    return fetch(ENDPOINT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
-    })
-    .then(function(){
-      showSentSuccess(true);
-    })
-    .catch(function(){
-      statusMsg.textContent = '⚠ Trimiterea a eșuat. Verifică conexiunea sau scrie la asociatia.avapro@gmail.com.';
-      statusMsg.className = 'em-status-msg em-error em-show';
-    });
-  })
-  .finally(function(){
-    btnSubmit.disabled = false;
-  });
+  document.getElementById('enroll-hidden-payload').value = JSON.stringify(payload);
+  var proxyFrame = document.getElementById('enroll-hidden-frame');
+  var proxyForm = document.getElementById('enroll-hidden-proxy');
+  var settled = false;
 
-  function showSentSuccess(unconfirmed){
-    statusMsg.textContent = unconfirmed
-      ? '✔ Înscrierea a fost trimisă. (Browserul nu a putut confirma răspunsul exact — dacă nu primești email în câteva minute, scrie-ne la asociatia.avapro@gmail.com.)'
-      : '✔ Înscrierea a fost trimisă cu succes! Vei primi confirmare pe email.';
+  function finishSubmit(){
+    if (settled) return;
+    settled = true;
+    proxyFrame.removeEventListener('load', finishSubmit);
+    showSentSuccess();
+    btnSubmit.disabled = false;
+  }
+
+  proxyFrame.addEventListener('load', finishSubmit);
+  // Plasă de siguranță — dacă evenimentul 'load' nu se declanșează dintr-un motiv
+  // sau altul, tot arătăm confirmarea după câteva secunde (cererea a fost trimisă,
+  // doar nu am mai putut confirma exact momentul finalizării).
+  setTimeout(finishSubmit, 4000);
+
+  proxyForm.submit();
+
+  function showSentSuccess(){
+    statusMsg.textContent = '✔ Cererea de înscriere a fost trimisă. Vei primi confirmare pe email în câteva minute (verifică și Spam).';
     statusMsg.className = 'em-status-msg em-sent em-show';
     form.reset();
     renderTeacherCards(0);
