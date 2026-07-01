@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>TEST MINIMAL — diagnostic Apps Script</title>
+</head>
+<body>
+
+<h1>Test minimal — fără JS, fără CSS</h1>
+<p>Apasă butonul. Pagina va naviga direct către răspunsul serverului Google.
+Spune-mi <strong>exact ce text/pagină apare</strong> după aceea (poți face și un screenshot).</p>
+
+<form method="POST" action="https://script.google.com/macros/s/AKfycbyPwL6sJRTQuTfp-d-gcquP9ECTFqryzQ1b_HlS6MiZ4ZqqqgBMF4a9suKavZ00UFxK8w/exec">
+  <input type="hidden" name="payload" value='{"program":"ACTIV_AI","hp":"","liceu":"TEST LICEU","director":"TEST DIRECTOR","emailLiceu":"asociatia.avapro@gmail.com","contactNume":"Test Diagnostic","contactEmail":"asociatia.avapro@gmail.com","contactTelefon":"0770000000","teachers":[{"nume":"Profesor Test","email":"asociatia.avapro@gmail.com","telefon":"0740000000"}]}'>
+  <button type="submit" style="font-size:20px;padding:15px 30px;">TRIMITE TESTUL (fără iframe, navigare directă)</button>
+</form>
+
+<hr>
+
+<p>Variantă 2 — testează doar accesul GET simplu (ar trebui să dea eroarea "doGet" pe care ai văzut-o și înainte, ca semn că request-ul ajunge la Google):</p>
+<a href="https://script.google.com/macros/s/AKfycbyPwL6sJRTQuTfp-d-gcquP9ECTFqryzQ1b_HlS6MiZ4ZqqqgBMF4a9suKavZ00UFxK8w/exec" target="_blank">
+  Deschide URL-ul direct (GET, într-un tab nou)
+</a>
+
+</body>
+</html>
