@@ -708,7 +708,7 @@ footer.mini-footer a { color:var(--indigo-mid); font-weight:600; }
       <a href="#dirigentie">Dirigenție</a>
       <a href="#parteneri">Parteneri</a>
       <a href="#faq">FAQ</a>
-      <a href="#inscriere" class="nav-cta js-enroll-open">Înscrie-te →</a>
+      <a href="inscriere-radar-ai.html" class="nav-cta">Înscrie-te →</a>
     </div>
     <button class="mobile-btn" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
   </div>
@@ -728,7 +728,7 @@ footer.mini-footer a { color:var(--indigo-mid); font-weight:600; }
         RADAR AI este programul de psihoeducație și alfabetizare AI pentru elevii din liceele sibiene. 5 dimensiuni ale cetățeniei digitale, 4 module de dirigenție, un instrument de evaluare validat și un tandem psiholog + specialist AI care face diferența.
       </p>
       <div class="hero-buttons">
-        <a href="#inscriere" class="btn js-enroll-open">🎓 Înscrie liceul tău →</a>
+        <a href="inscriere-radar-ai.html" class="btn">🎓 Înscrie liceul tău →</a>
         <a href="#module" class="btn-outline">📋 Cum funcționează</a>
       </div>
       <div class="hero-stats">
@@ -1134,7 +1134,7 @@ footer.mini-footer a { color:var(--indigo-mid); font-weight:600; }
       <p style="font-size:.95rem; color:var(--light); max-width:600px; margin:0 auto 1.25rem;">
         Ești director de liceu și vrei să participi? Înscrie-te până la <strong>30 iunie 2026</strong>.
       </p>
-      <a href="#inscriere" class="btn js-enroll-open">📝 Înscrie-te acum</a>
+      <a href="inscriere-radar-ai.html" class="btn">📝 Înscrie-te acum</a>
     </div>
   </div>
 </section>
@@ -1183,7 +1183,7 @@ footer.mini-footer a { color:var(--indigo-mid); font-weight:600; }
       <h2>Elevii tăi merită mai mult decât scroll</h2>
       <p>Înscrie-te sau înscrie liceul tău în programul RADAR AI. Termen limită pentru nominalizarea cadrelor didactice: <strong style="color:#A5B4FC">30 iunie 2026</strong>.</p>
       <div class="cta-buttons">
-        <a href="#inscriere" class="btn-teal js-enroll-open">📝 Înscrie-te acum</a>
+        <a href="inscriere-radar-ai.html" class="btn-teal">📝 Înscrie-te acum</a>
         <a href="mailto:asociatia.avapro@gmail.com" class="btn-outline">📧 asociatia.avapro@gmail.com</a>
         <a href="tel:+40770276406" class="btn-outline">📞 0770 276 406</a>
       </div>
@@ -1394,10 +1394,19 @@ document.addEventListener('keydown', function(e){
 
 'use strict';
 
+// ── Plasă de siguranță — se atașează ÎNAINTE de orice altă inițializare,
+// ca formularul să nu facă niciodată submit nativ (reîncărcare de pagină),
+// indiferent dacă restul scriptului de mai jos eșuează dintr-un motiv sau altul.
+var safetyForm = document.getElementById('inscriere-form');
+if (safetyForm) {
+  safetyForm.addEventListener('submit', function(e){ e.preventDefault(); });
+}
+
 // ── URL-ul web app-ului Google Apps Script — ACELAȘI script folosit și de ACTIV AI ──
-var ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbyLyrrVm7jvvlexvIHCCPxtdO_bfJscJEAFyYJZVJCJnKvyX6wh77tyHCYBHtQORNHJRA/exec';
+var ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbyPwL6sJRTQuTfp-d-gcquP9ECTFqryzQ1b_HlS6MiZ4ZqqqgBMF4a9suKavZ00UFxK8w/exec';
 var PROGRAM_ID = 'RADAR_AI';
-document.getElementById('enroll-hidden-proxy').action = ENDPOINT_URL;
+var proxyFormEl = document.getElementById('enroll-hidden-proxy');
+if (proxyFormEl) { proxyFormEl.action = ENDPOINT_URL; }
 
 // ── Lista liceelor partenere RADAR AI (subset din liceele orașului) ────────
 var SCHOOLS = [
