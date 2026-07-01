@@ -105,7 +105,6 @@
 
         <div class="nav-links" id="navLinks" role="menubar">
             <a href="#despre" role="menuitem">Despre noi</a>
-            <a href="#proiecte" role="menuitem">Proiecte AI</a>
             <a href="#valori" role="menuitem">Valori</a>
             <a href="#scop" role="menuitem">Scop</a>
             <a href="#activitati" role="menuitem">Activități</a>
@@ -144,9 +143,6 @@
                 inovatoare, parteneriate și intervenții cu impact real.
             </p>
             <div class="hero-buttons">
-                <a href="#proiecte" class="btn-flash" aria-label="Vezi proiectele AI ale asociației">
-                    🤖 Proiecte AI active <span class="flash-badge">Înscrieri</span>
-                </a>
                 <a href="#activitati" class="btn" aria-label="Descoperă activitățile AVAPRO">
                     🔍 Descoperă activitățile
                 </a>
@@ -184,63 +180,6 @@
             </p>
         </div>
 
-    </div>
-</section>
-
-
-<!-- ================================================
-     PROIECTE AI — RADAR AI & ACTIV AI
-     ================================================ -->
-<section class="section" id="proiecte" aria-labelledby="proiecteTitle">
-    <div class="container-main">
-        <header class="section-header-center reveal">
-            <div class="section-label" style="background:var(--color-gold-lt,#FFF8E1); color:var(--color-gold); border-color:#F0C94A;">🚀 Proiecte curente</div>
-            <h2 class="section-title center" id="proiecteTitle">Proiecte AVAPRO cu Inteligență Artificială</h2>
-            <div class="title-underline"></div>
-            <p class="section-desc center">
-                Două programe educaționale finanțate de Primăria Municipiului Sibiu, deschise
-                liceelor partenere din oraș. Înscrierile cadrelor didactice se fac direct pe
-                pagina fiecărui proiect.
-            </p>
-        </header>
-
-        <div class="programs-grid">
-
-            <article class="program-card reveal reveal-delay-1">
-                <div class="program-card-img">
-                    <img src="imagini/radar.png"
-                         alt="Elevi explorând instrumente de inteligență artificială" loading="lazy" />
-                </div>
-                <div class="program-card-body">
-                    <span class="program-badge" style="background:#EEF2FF; color:#3730A3; border-color:#C7D2FE;">Agenda Educațională 2026</span>
-                    <h4>RADAR AI</h4>
-                    <p>
-                        Reziliență, Autocunoaștere, Discernământ, Abilități, Relații — program de
-                        psihoeducație și alfabetizare AI pentru elevii liceelor sibiene, cu un tandem
-                        psiholog + specialist AI.
-                    </p>
-                    <a href="radar-ai.html" class="btn-card">Descoperă programul și înscrie-te →</a>
-                </div>
-            </article>
-
-            <article class="program-card reveal reveal-delay-2">
-                <div class="program-card-img">
-                    <img src="imagini/activ.png"
-                         alt="Elevi explorând instrumente de inteligență artificială" loading="lazy" />
-                </div>
-                <div class="program-card-body">
-                    <span class="program-badge">Agenda Comunității 2026</span>
-                    <h4>ACTIV AI</h4>
-                    <p>
-                        Artefacte digitale, Creativitate comunitară, Tehnologie accesibilă — cadrele
-                        didactice sibiene devin facilitatori de creativitate digitală, alături de
-                        elevii lor.
-                    </p>
-                    <a href="activ-ai.html" class="btn-card">Descoperă programul și înscrie-te →</a>
-                </div>
-            </article>
-
-        </div>
     </div>
 </section>
 
@@ -1217,33 +1156,6 @@ textarea.f-input { resize:vertical; min-height:100px; }
 @media (max-width:480px) {
     .f-row { grid-template-columns:1fr; }
     #contactModal .modal-inner { padding:1.5rem 1.25rem; }
-}
-
-/* ── Buton strident — Proiecte AI (hero) ── */
-.btn-flash {
-    display:inline-flex; align-items:center; gap:0.5rem;
-    background:linear-gradient(135deg, #C5A021 0%, #E8C660 100%);
-    color:#1B2A4A !important;
-    border:none; border-radius:10px;
-    padding:0.85rem 1.5rem;
-    font-family:'Inter',sans-serif; font-weight:800; font-size:0.95rem;
-    cursor:pointer; text-decoration:none;
-    box-shadow:0 4px 20px rgba(197,160,33,0.45);
-    animation:flash-pulse 2.4s ease-in-out infinite;
-    transition:transform 0.2s, box-shadow 0.2s;
-}
-.btn-flash:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(197,160,33,0.65); }
-.btn-flash .flash-badge {
-    background:#c0392b; color:#fff; font-size:0.62rem; font-weight:800;
-    padding:0.18rem 0.5rem; border-radius:20px; text-transform:uppercase;
-    letter-spacing:0.04em; margin-left:0.2rem;
-}
-@keyframes flash-pulse {
-    0%, 100% { box-shadow:0 4px 20px rgba(197,160,33,0.45); }
-    50%      { box-shadow:0 4px 30px rgba(197,160,33,0.8); }
-}
-@media (prefers-reduced-motion: reduce) {
-    .btn-flash { animation:none; }
 }
 </style>
 
