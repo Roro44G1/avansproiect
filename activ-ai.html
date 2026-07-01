@@ -552,25 +552,47 @@ form.addEventListener('submit', function(e){
   .then(function(r){ return r.json(); })
   .then(function(res){
     if (res && res.ok) {
-      statusMsg.textContent = '✔ Înscrierea a fost trimisă cu succes! Vei primi confirmare pe email.';
-      statusMsg.className = 'em-status-msg em-sent em-show';
-      form.reset();
-      renderTeacherCards(0);
-      numSel.value = '';
-      directorHint.style.display = 'none';
-      emailHint.style.display = 'none';
-      customLiceuField.style.display = 'none';
+      showSentSuccess();
     } else {
-      throw new Error((res && res.message) || 'Eroare necunoscută.');
+      statusMsg.textContent = '⚠ ' + ((res && res.message) || 'Eroare necunoscută.') + ' Verifică datele și încearcă din nou.';
+      statusMsg.className = 'em-status-msg em-error em-show';
     }
   })
-  .catch(function(err){
-    statusMsg.textContent = '⚠ Trimiterea a eșuat (' + err.message + '). Încearcă din nou sau scrie la asociatia.avapro@gmail.com.';
-    statusMsg.className = 'em-status-msg em-error em-show';
+  .catch(function(){
+    // Cel mai probabil browserul a blocat CITIREA răspunsului (CORS / testare locală prin
+    // file://), nu neapărat trimiterea în sine. Încercăm o trimitere de rezervă în modul
+    // 'no-cors': cererea ajunge la server (emailurile se trimit), dar nu mai putem citi
+    // răspunsul din browser — de aceea mesajul e formulat ca succes neconfirmat.
+    return fetch(ENDPOINT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(){
+      showSentSuccess(true);
+    })
+    .catch(function(){
+      statusMsg.textContent = '⚠ Trimiterea a eșuat. Verifică conexiunea sau scrie la asociatia.avapro@gmail.com.';
+      statusMsg.className = 'em-status-msg em-error em-show';
+    });
   })
   .finally(function(){
     btnSubmit.disabled = false;
   });
+
+  function showSentSuccess(unconfirmed){
+    statusMsg.textContent = unconfirmed
+      ? '✔ Înscrierea a fost trimisă. (Browserul nu a putut confirma răspunsul exact — dacă nu primești email în câteva minute, scrie-ne la asociatia.avapro@gmail.com.)'
+      : '✔ Înscrierea a fost trimisă cu succes! Vei primi confirmare pe email.';
+    statusMsg.className = 'em-status-msg em-sent em-show';
+    form.reset();
+    renderTeacherCards(0);
+    numSel.value = '';
+    directorHint.style.display = 'none';
+    emailHint.style.display = 'none';
+    customLiceuField.style.display = 'none';
+  }
 });
 
 
