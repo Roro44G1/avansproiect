@@ -512,6 +512,182 @@ footer {
   * { transition:none !important; }
 }
 </style>
+<style>
+/* ══════════════ MODAL DE ÎNSCRIERE (generat automat) ══════════════ */
+.enroll-modal-overlay {
+  position:fixed; inset:0; z-index:9999; background:rgba(3,10,16,.72);
+  display:none; align-items:flex-start; justify-content:center;
+  padding:2.5rem 1rem; overflow-y:auto;
+}
+.enroll-modal-overlay.open { display:flex; }
+body.enroll-modal-lock { overflow:hidden; }
+.enroll-modal {
+  background:var(--pearl); max-width:740px; width:100%; border-radius:16px;
+  position:relative; box-shadow:0 30px 80px rgba(0,0,0,.45);
+  max-height:92vh; display:flex; flex-direction:column; margin:auto 0;
+}
+.enroll-modal-close {
+  position:absolute; top:12px; right:12px; width:36px; height:36px; border-radius:50%;
+  border:none; background:rgba(0,0,0,.07); font-size:1.05rem; cursor:pointer; z-index:5;
+  display:flex; align-items:center; justify-content:center; color:var(--dark);
+  transition:background .15s;
+}
+.enroll-modal-close:hover { background:rgba(0,0,0,.14); }
+.enroll-modal-scroll { overflow-y:auto; padding:2.25rem 2rem 2.5rem; }
+.enroll-modal-eyebrow {
+  display:inline-flex; align-items:center; gap:6px; font-size:.74rem; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--gold);
+  background:var(--gold-lt); border:1px solid var(--gold-bd);
+  padding:.35rem .85rem; border-radius:999px; margin-bottom:.9rem;
+}
+.enroll-modal-scroll h2 {
+  font-family:'Montserrat',sans-serif; font-size:1.3rem; font-weight:800; margin:0 0 .4rem;
+}
+.enroll-modal-scroll > p { font-size:.9rem; color:var(--light); margin:0 0 1.5rem; }
+
+:root {
+  --indigo:       #3730A3;
+  --indigo-mid:   #4F46E5;
+  --indigo-lt:    #EEF2FF;
+  --indigo-bd:    #C7D2FE;
+  --teal:         #0D9488;
+  --teal-lt:      #CCFBF1;
+  --teal-bd:      #99F6E4;
+  --gold:         #D97706;
+  --gold-lt:      #FEF3C7;
+  --gold-bd:      #FCD34D;
+  --pearl:        #F8FAFC;
+  --dark:         #1f2937;
+  --medium:       #374151;
+  --light:        #4b5563;
+  --border:       #e5e7eb;
+  --white:        #ffffff;
+  --red:          #c0392b;
+  --red-lt:       #FDECEA;
+
+  --grad-hero:    linear-gradient(160deg, #0C0B1D 0%, #1E1B4B 55%, #14403C 100%);
+  --grad-indigo:  linear-gradient(135deg, #3730A3 0%, #4F46E5 100%);
+
+  --shadow-card: 0 4px 6px -1px rgba(0,0,0,.10), 0 2px 4px -1px rgba(0,0,0,.06);
+  --r-card: 12px;
+  --r-sm:   8px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; padding:0; background:var(--pearl); color:var(--dark); font-family:'Inter',sans-serif; line-height:1.6; }
+h1,h2 { font-family:'Montserrat',sans-serif; }
+h3 { font-family:'Lora',serif; }
+a { color:var(--indigo-mid); }
+
+.top-banner {
+  background:var(--grad-hero); color:white; padding:2.75rem 1.5rem 3.25rem; text-align:center;
+  position:relative; overflow:hidden;
+}
+.top-banner::after {
+  content:''; position:absolute; bottom:-1px; left:0; right:0; height:40px;
+  background:var(--pearl); clip-path:ellipse(60% 100% at 50% 100%);
+}
+.top-eyebrow {
+  display:inline-flex; align-items:center; gap:6px; font-size:.78rem; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--gold-bd);
+  background:rgba(255,255,255,.08); border:1px solid rgba(252,211,77,.35);
+  padding:.4rem .9rem; border-radius:999px; margin-bottom:1rem;
+}
+.top-banner h1 { font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; margin:0 0 .5rem; letter-spacing:-.01em; }
+.top-banner p { font-size:1rem; color:rgba(255,255,255,.75); max-width:560px; margin:0 auto; }
+
+.wrap { max-width:760px; margin:-1.25rem auto 0; padding:0 1.25rem 4rem; position:relative; z-index:2; }
+
+.em-card {
+  background:var(--white); border:1px solid var(--border); border-radius:var(--r-card);
+  box-shadow:var(--shadow-card); padding:1.75rem 1.75rem 2rem; margin-bottom:1.5rem;
+}
+.em-card h2 {
+  font-size:1.05rem; font-weight:700; color:var(--indigo); margin:0 0 .3rem;
+  display:flex; align-items:center; gap:.5rem;
+}
+.em-card .em-step-num {
+  display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px;
+  border-radius:50%; background:var(--grad-indigo); color:white; font-size:.8rem; font-weight:800;
+  flex-shrink:0;
+}
+.em-card .em-card-sub { font-size:.86rem; color:var(--light); margin:0 0 1.25rem; padding-left:34px; }
+
+.em-field { margin-bottom:1.1rem; }
+.em-field label {
+  display:block; font-size:.82rem; font-weight:700; color:var(--medium); margin-bottom:.35rem;
+}
+.em-field label .em-req { color:var(--red); }
+.em-field .em-hint { font-size:.76rem; color:var(--light); margin-top:.3rem; }
+.em-field input, .em-field select {
+  width:100%; padding:.65rem .8rem; border:1.5px solid var(--border); border-radius:var(--r-sm);
+  font-size:.92rem; font-family:'Inter',sans-serif; color:var(--dark); background:var(--white);
+  transition:border-color .15s, box-shadow .15s;
+}
+.em-field input:focus, .em-field select:focus {
+  outline:none; border-color:var(--indigo-mid); box-shadow:0 0 0 3px rgba(79,70,229,.14);
+}
+.em-field input.err, .em-field select.err { border-color:var(--red); background:var(--red-lt); }
+.em-row2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+@media (max-width:560px){ .em-row2 { grid-template-columns:1fr; } }
+
+.em-suggest-tag {
+  display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:600;
+  color:var(--indigo-mid); background:var(--indigo-lt); border:1px solid var(--indigo-bd);
+  padding:.2rem .55rem; border-radius:999px; margin-top:.4rem;
+}
+
+.em-teacher-card {
+  border:1.5px solid var(--teal-bd); background:var(--teal-lt); border-radius:var(--r-card);
+  padding:1.15rem 1.15rem 1.3rem; margin-bottom:1rem; position:relative;
+}
+.em-teacher-card-title {
+  font-family:'Montserrat',sans-serif; font-weight:800; font-size:.85rem; color:var(--indigo);
+  margin:0 0 .85rem; display:flex; align-items:center; gap:.5rem;
+}
+.em-teacher-num {
+  display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px;
+  border-radius:6px; background:var(--gold); color:white; font-size:.72rem; font-weight:800;
+}
+.em-teacher-grid { display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:.75rem; }
+@media (max-width:640px){ .em-teacher-grid { grid-template-columns:1fr; } }
+.em-teacher-grid .em-field { margin-bottom:0; }
+
+.em-consent-box {
+  display:flex; align-items:flex-start; gap:.7rem; background:var(--gold-lt);
+  border:1px solid var(--gold-bd); border-radius:var(--r-sm); padding:1rem 1.1rem; margin-top:.5rem;
+}
+.em-consent-box input[type="checkbox"] { margin-top:.2rem; width:18px; height:18px; flex-shrink:0; accent-color:var(--indigo-mid); }
+.em-consent-box label { font-size:.83rem; color:var(--medium); line-height:1.5; }
+
+.em-btn-submit {
+  width:100%; background:var(--grad-indigo); color:white; border:none; padding:1rem;
+  font-size:1rem; font-weight:700; border-radius:var(--r-sm); cursor:pointer;
+  box-shadow:0 4px 15px rgba(79,70,229,.3); transition:transform .15s, box-shadow .15s;
+  font-family:'Inter',sans-serif;
+}
+.em-btn-submit:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(79,70,229,.4); }
+.em-btn-submit:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+
+.em-status-msg {
+  margin-top:1rem; padding:.9rem 1.1rem; border-radius:var(--r-sm); font-size:.88rem; font-weight:600;
+  display:none;
+}
+.em-status-msg.em-show { display:block; }
+.em-status-msg.em-sending { background:var(--indigo-lt); color:var(--indigo-mid); border:1px solid var(--indigo-bd); }
+.em-status-msg.em-sent { background:#E8F5E9; color:#2E7D32; border:1px solid #A5D6A7; }
+.em-status-msg.em-error { background:var(--red-lt); color:var(--red); border:1px solid #F5C6C2; }
+
+.em-form-err-banner {
+  background:var(--red-lt); border:1px solid #F5C6C2; color:var(--red); border-radius:var(--r-sm);
+  padding:.85rem 1rem; font-size:.85rem; margin-bottom:1.25rem; display:none;
+}
+.em-form-err-banner.em-show { display:block; }
+
+footer.mini-footer { text-align:center; padding:2rem 1rem; font-size:.8rem; color:var(--light); }
+footer.mini-footer a { color:var(--indigo-mid); font-weight:600; }
+
+</style>
 </head>
 <body>
 
@@ -532,7 +708,7 @@ footer {
       <a href="#dirigentie">Dirigenție</a>
       <a href="#parteneri">Parteneri</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact" class="nav-cta">Înscrie-te →</a>
+      <a href="#inscriere" class="nav-cta js-enroll-open">Înscrie-te →</a>
     </div>
     <button class="mobile-btn" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
   </div>
@@ -552,7 +728,7 @@ footer {
         RADAR AI este programul de psihoeducație și alfabetizare AI pentru elevii din liceele sibiene. 5 dimensiuni ale cetățeniei digitale, 4 module de dirigenție, un instrument de evaluare validat și un tandem psiholog + specialist AI care face diferența.
       </p>
       <div class="hero-buttons">
-        <a href="#contact" class="btn">🎓 Înscrie liceul tău →</a>
+        <a href="#inscriere" class="btn js-enroll-open">🎓 Înscrie liceul tău →</a>
         <a href="#module" class="btn-outline">📋 Cum funcționează</a>
       </div>
       <div class="hero-stats">
@@ -958,7 +1134,7 @@ footer {
       <p style="font-size:.95rem; color:var(--light); max-width:600px; margin:0 auto 1.25rem;">
         Ești director de liceu și vrei să participi? Înscrie-te până la <strong>30 iunie 2026</strong>.
       </p>
-      <a href="#contact" class="btn">📧 Contactați-ne pentru detalii</a>
+      <a href="#inscriere" class="btn js-enroll-open">📝 Înscrie-te acum</a>
     </div>
   </div>
 </section>
@@ -1007,7 +1183,8 @@ footer {
       <h2>Elevii tăi merită mai mult decât scroll</h2>
       <p>Înscrie-te sau înscrie liceul tău în programul RADAR AI. Termen limită pentru nominalizarea cadrelor didactice: <strong style="color:#A5B4FC">30 iunie 2026</strong>.</p>
       <div class="cta-buttons">
-        <a href="mailto:asociatia.avapro@gmail.com" class="btn-teal">📧 asociatia.avapro@gmail.com</a>
+        <a href="#inscriere" class="btn-teal js-enroll-open">📝 Înscrie-te acum</a>
+        <a href="mailto:asociatia.avapro@gmail.com" class="btn-outline">📧 asociatia.avapro@gmail.com</a>
         <a href="tel:+40770276406" class="btn-outline">📞 0770 276 406</a>
       </div>
     </div>
@@ -1048,6 +1225,382 @@ footer {
   </div>
   <div class="footer-strip"></div>
 </footer>
+
+
+<!-- ══════════════ MODAL DE ÎNSCRIERE (generat automat) ══════════════ -->
+<div class="enroll-modal-overlay" id="enroll-modal-overlay" aria-hidden="true">
+  <div class="enroll-modal" role="dialog" aria-modal="true" aria-labelledby="enroll-modal-title">
+    <button type="button" class="enroll-modal-close" id="enroll-modal-close" aria-label="Închide">✕</button>
+    <div class="enroll-modal-scroll">
+      <span class="enroll-modal-eyebrow">🎓 Agenda Educațională · Sibiu 2026</span>
+      <h2 id="enroll-modal-title">Înscrie cadrele didactice ale liceului tău</h2>
+      <p>Completează formularul pentru a înscrie 1–4 cadre didactice din liceul tău în programul RADAR AI.</p>
+      <form id="inscriere-form" autocomplete="off">
+
+    <!-- Honeypot anti-spam — invizibil pentru oameni -->
+    <input type="text" name="website" id="hp-field" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+
+    <div class="em-form-err-banner" id="em-form-err-banner"></div>
+
+    <!-- STEP 1 — LICEU -->
+    <div class="em-card">
+      <h2><span class="em-step-num">1</span> Liceul partener</h2>
+      <p class="em-card-sub">Alege liceul din listă — numele directorului și emailul de contact se completează automat, dar le poți corecta oricând.</p>
+
+      <div class="em-field">
+        <label for="f-liceu">Liceu <span class="em-req">*</span></label>
+        <select id="f-liceu">
+          <option value="">— Selectează liceul —</option>
+        </select>
+      </div>
+
+      <div class="em-field" id="custom-liceu-field" style="display:none;">
+        <label for="f-liceu-custom">Numele liceului (completează manual) <span class="em-req">*</span></label>
+        <input type="text" id="f-liceu-custom" placeholder="ex. Liceul Teoretic ...">
+        <span class="em-hint">Liceu nou, nemenționat în lista de mai sus — completează numele exact.</span>
+      </div>
+
+      <div class="em-row2">
+        <div class="em-field">
+          <label for="f-director">Nume director/ă <span class="em-req">*</span></label>
+          <input type="text" id="f-director" placeholder="Se completează după alegerea liceului">
+          <span class="em-hint" id="director-hint" style="display:none;"><span class="em-suggest-tag">💡 sugestie — poți corecta</span></span>
+        </div>
+        <div class="em-field">
+          <label for="f-email-liceu">Email liceu (secretariat/direcțiune) <span class="em-req">*</span></label>
+          <input type="email" id="f-email-liceu" placeholder="Se completează după alegerea liceului">
+          <span class="em-hint" id="email-hint" style="display:none;"><span class="em-suggest-tag">💡 sugestie — poți corecta</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 — PERSOANA DE CONTACT -->
+    <div class="em-card">
+      <h2><span class="em-step-num">2</span> Persoana care completează formularul</h2>
+      <p class="em-card-sub">Vom folosi aceste date pentru confirmare și eventuale clarificări.</p>
+
+      <div class="em-field">
+        <label for="f-contact-nume">Nume complet <span class="em-req">*</span></label>
+        <input type="text" id="f-contact-nume" placeholder="Nume și prenume">
+      </div>
+      <div class="em-row2">
+        <div class="em-field">
+          <label for="f-contact-email">Email <span class="em-req">*</span></label>
+          <input type="email" id="f-contact-email" placeholder="exemplu@email.com">
+        </div>
+        <div class="em-field">
+          <label for="f-contact-telefon">Telefon <span class="em-req">*</span></label>
+          <input type="tel" id="f-contact-telefon" placeholder="07xx xxx xxx">
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 — NUMAR CADRE DIDACTICE -->
+    <div class="em-card">
+      <h2><span class="em-step-num">3</span> Câte cadre didactice înscrieți?</h2>
+      <p class="em-card-sub">Maximum 4 cadre didactice per liceu — sesiunea de formare RADAR AI are capacitate limitată (10 locuri, în cele 3 licee partenere).</p>
+
+      <div class="em-field" style="max-width:220px;">
+        <label for="f-numar">Număr cadre didactice <span class="em-req">*</span></label>
+        <select id="f-numar">
+          <option value="">— Alege —</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- STEP 4 — CARDURI DINAMICE CADRE DIDACTICE -->
+    <div class="em-card" id="teachers-card" style="display:none;">
+      <h2><span class="em-step-num">4</span> Datele cadrelor didactice</h2>
+      <p class="em-card-sub">Completează numele, emailul și telefonul pentru fiecare persoană înscrisă.</p>
+      <div id="teachers-container"></div>
+    </div>
+
+    <!-- STEP 5 — CONSIMTAMANT -->
+    <div class="em-card">
+      <h2><span class="em-step-num">5</span> Confirmare</h2>
+      <div class="em-consent-box">
+        <input type="checkbox" id="f-consent">
+        <label for="f-consent">
+          Confirm că am mandatul din partea persoanelor nominalizate mai sus să le transmit datele
+          (nume, email, telefon) către Asociația AVANS PROIECT și liceul partener, în scopul
+          înscrierii în programul RADAR AI, și sunt de acord ca datele mele proprii să fie
+          folosite în același scop. Cadrele didactice nominalizate vor fi informate direct, prin
+          email, despre modul de utilizare a datelor lor. Am citit
+          <a href="politica-confidentialitate.html" target="_blank" rel="noopener">Politica de confidențialitate AVAPRO</a>.
+        </label>
+      </div>
+
+      <button type="submit" class="em-btn-submit" id="em-btn-submit" style="margin-top:1.4rem;">
+        Trimite înscrierea
+      </button>
+      <div class="em-status-msg" id="em-status-msg"></div>
+    </div>
+
+  </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var overlay = document.getElementById('enroll-modal-overlay');
+var closeBtn = document.getElementById('enroll-modal-close');
+
+function openEnrollModal(){
+  overlay.classList.add('open');
+  overlay.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('enroll-modal-lock');
+}
+function closeEnrollModal(){
+  overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('enroll-modal-lock');
+}
+
+document.querySelectorAll('.js-enroll-open').forEach(function(el){
+  el.addEventListener('click', function(e){
+    e.preventDefault();
+    openEnrollModal();
+  });
+});
+
+closeBtn.addEventListener('click', closeEnrollModal);
+overlay.addEventListener('click', function(e){
+  if (e.target === overlay) closeEnrollModal();
+});
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape' && overlay.classList.contains('open')) closeEnrollModal();
+});
+
+})();
+</script>
+<script>
+(function(){
+
+'use strict';
+
+// ── URL-ul web app-ului Google Apps Script — ACELAȘI script folosit și de ACTIV AI ──
+var ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbyy0cRwQZZ9_w-pR99jDKgeZHqVzfvWJsvkAAR1Xyv0Mn3TSr3-Vq5Z0ZOWVEREzTYl7Q/exec';
+var PROGRAM_ID = 'RADAR_AI';
+
+// ── Lista liceelor partenere RADAR AI (subset din liceele orașului) ────────
+var SCHOOLS = [
+  { id:'independenta',  name:'Liceul Tehnologic "Independența"',            director:'',                               email:'ltindependentasibiu@gmail.com' },
+  { id:'saguna',        name:'Colegiul Național Pedagogic "Andrei Șaguna"', director:'prof. Mihaela Filip',            email:'cnpas_sb@yahoo.com' },
+  { id:'ghibu',         name:'Liceul Teoretic "Onisifor Ghibu"',            director:'prof. dr. Batâr Maria',          email:'office@onisifor-ghibu.ro' }
+];
+
+var selLiceu = document.getElementById('f-liceu');
+SCHOOLS.forEach(function(s){
+  var o = document.createElement('option');
+  o.value = s.id; o.textContent = s.name;
+  selLiceu.appendChild(o);
+});
+var otherOpt = document.createElement('option');
+otherOpt.value = 'altul';
+otherOpt.textContent = '— Alt liceu (nemenționat mai sus) —';
+selLiceu.appendChild(otherOpt);
+
+var customLiceuField = document.getElementById('custom-liceu-field');
+var fLiceuCustom = document.getElementById('f-liceu-custom');
+
+var fDirector = document.getElementById('f-director');
+var fEmailLiceu = document.getElementById('f-email-liceu');
+var directorHint = document.getElementById('director-hint');
+var emailHint = document.getElementById('email-hint');
+
+selLiceu.addEventListener('change', function(){
+  if (selLiceu.value === 'altul') {
+    customLiceuField.style.display = 'block';
+    fDirector.value = '';
+    fEmailLiceu.value = '';
+    directorHint.style.display = 'none';
+    emailHint.style.display = 'none';
+    fLiceuCustom.focus();
+    return;
+  }
+  customLiceuField.style.display = 'none';
+  fLiceuCustom.value = '';
+  var s = SCHOOLS.filter(function(x){ return x.id === selLiceu.value; })[0];
+  if (!s) { fDirector.value=''; fEmailLiceu.value=''; directorHint.style.display='none'; emailHint.style.display='none'; return; }
+  fDirector.value = s.director || '';
+  fEmailLiceu.value = s.email || '';
+  directorHint.style.display = s.director ? 'block' : 'none';
+  emailHint.style.display = s.email ? 'block' : 'none';
+});
+
+// ── Generare dinamică a cardurilor pentru cadre didactice ──────────────
+var numSel = document.getElementById('f-numar');
+var teachersCard = document.getElementById('teachers-card');
+var teachersContainer = document.getElementById('teachers-container');
+
+function readCurrentTeacherValues(){
+  var cards = teachersContainer.querySelectorAll('.em-teacher-card');
+  var vals = [];
+  cards.forEach(function(c){
+    vals.push({
+      nume: c.querySelector('.t-nume').value,
+      email: c.querySelector('.t-email').value,
+      telefon: c.querySelector('.t-telefon').value
+    });
+  });
+  return vals;
+}
+
+function renderTeacherCards(n){
+  var prev = readCurrentTeacherValues();
+  teachersContainer.innerHTML = '';
+  for (var i = 0; i < n; i++) {
+    var v = prev[i] || { nume:'', email:'', telefon:'' };
+    var teacherCardEl = document.createElement('div');
+    teacherCardEl.className = 'em-teacher-card';
+    teacherCardEl.innerHTML =
+      '<div class="em-teacher-card-title"><span class="em-teacher-num">' + (i+1) + '</span> Cadru didactic ' + (i+1) + '</div>' +
+      '<div class="em-teacher-grid">' +
+        '<div class="em-field"><label>Nume complet <span class="em-req">*</span></label>' +
+          '<input type="text" class="t-nume" placeholder="Nume și prenume" value="' + escapeHtml(v.nume) + '"></div>' +
+        '<div class="em-field"><label>Email <span class="em-req">*</span></label>' +
+          '<input type="email" class="t-email" placeholder="exemplu@email.com" value="' + escapeHtml(v.email) + '"></div>' +
+        '<div class="em-field"><label>Telefon <span class="em-req">*</span></label>' +
+          '<input type="tel" class="t-telefon" placeholder="07xx xxx xxx" value="' + escapeHtml(v.telefon) + '"></div>' +
+      '</div>';
+    teachersContainer.appendChild(teacherCardEl);
+  }
+  teachersCard.style.display = n > 0 ? 'block' : 'none';
+}
+
+function escapeHtml(s){
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+numSel.addEventListener('change', function(){
+  var n = parseInt(numSel.value, 10) || 0;
+  renderTeacherCards(n);
+});
+
+// ── Validare + trimitere ────────────────────────────────────────────────
+var form = document.getElementById('inscriere-form');
+var errBanner = document.getElementById('em-form-err-banner');
+var statusMsg = document.getElementById('em-status-msg');
+var btnSubmit = document.getElementById('em-btn-submit');
+
+var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+var PHONE_RE = /^[+]?[\d\s().-]{9,15}$/;
+
+function markErr(el, isErr){ if (el) el.classList.toggle('err', !!isErr); }
+
+function validate(){
+  var errors = [];
+  [fDirector, fEmailLiceu, document.getElementById('f-contact-nume'),
+   document.getElementById('f-contact-email'), document.getElementById('f-contact-telefon')]
+   .forEach(function(el){ markErr(el, false); });
+
+  if (!selLiceu.value) errors.push('Selectează liceul.');
+  if (selLiceu.value === 'altul' && !fLiceuCustom.value.trim()) {
+    errors.push('Completează numele liceului.');
+    markErr(fLiceuCustom, true);
+  } else {
+    markErr(fLiceuCustom, false);
+  }
+  if (!fDirector.value.trim()) { errors.push('Numele directorului este obligatoriu.'); markErr(fDirector, true); }
+  if (!fEmailLiceu.value.trim() || !EMAIL_RE.test(fEmailLiceu.value.trim())) { errors.push('Emailul liceului nu este valid.'); markErr(fEmailLiceu, true); }
+
+  var cn = document.getElementById('f-contact-nume');
+  var ce = document.getElementById('f-contact-email');
+  var ct = document.getElementById('f-contact-telefon');
+  if (!cn.value.trim()) { errors.push('Numele persoanei de contact este obligatoriu.'); markErr(cn, true); }
+  if (!ce.value.trim() || !EMAIL_RE.test(ce.value.trim())) { errors.push('Emailul persoanei de contact nu este valid.'); markErr(ce, true); }
+  if (!ct.value.trim() || !PHONE_RE.test(ct.value.trim())) { errors.push('Telefonul persoanei de contact nu este valid.'); markErr(ct, true); }
+
+  var n = parseInt(numSel.value, 10) || 0;
+  if (n < 1 || n > 4) errors.push('Alege numărul de cadre didactice (1–4).');
+
+  var teacherCards = teachersContainer.querySelectorAll('.em-teacher-card');
+  var teachers = [];
+  teacherCards.forEach(function(c, idx){
+    var nEl = c.querySelector('.t-nume'), eEl = c.querySelector('.t-email'), tEl = c.querySelector('.t-telefon');
+    markErr(nEl,false); markErr(eEl,false); markErr(tEl,false);
+    var nume = nEl.value.trim(), email = eEl.value.trim(), telefon = tEl.value.trim();
+    if (!nume) { errors.push('Numele cadrului didactic ' + (idx+1) + ' este obligatoriu.'); markErr(nEl, true); }
+    if (!email || !EMAIL_RE.test(email)) { errors.push('Emailul cadrului didactic ' + (idx+1) + ' nu este valid.'); markErr(eEl, true); }
+    if (!telefon || !PHONE_RE.test(telefon)) { errors.push('Telefonul cadrului didactic ' + (idx+1) + ' nu este valid.'); markErr(tEl, true); }
+    teachers.push({ nume:nume, email:email, telefon:telefon });
+  });
+
+  if (!document.getElementById('f-consent').checked) errors.push('Este necesar acordul din secțiunea de confirmare.');
+
+  return { errors: errors, teachers: teachers };
+}
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  errBanner.classList.remove('em-show'); errBanner.innerHTML = '';
+  statusMsg.className = 'em-status-msg';
+
+  var result = validate();
+  if (result.errors.length > 0) {
+    errBanner.innerHTML = '<strong>Verifică formularul:</strong><br>' + result.errors.join('<br>');
+    errBanner.classList.add('em-show');
+    errBanner.scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+
+  var payload = {
+    hp: document.getElementById('hp-field').value, // honeypot — trebuie să rămână gol
+    program: PROGRAM_ID,
+    liceu: selLiceu.value === 'altul'
+      ? fLiceuCustom.value.trim()
+      : SCHOOLS.filter(function(s){ return s.id === selLiceu.value; })[0].name,
+    director: fDirector.value.trim(),
+    emailLiceu: fEmailLiceu.value.trim(),
+    contactNume: document.getElementById('f-contact-nume').value.trim(),
+    contactEmail: document.getElementById('f-contact-email').value.trim(),
+    contactTelefon: document.getElementById('f-contact-telefon').value.trim(),
+    teachers: result.teachers
+  };
+
+  btnSubmit.disabled = true;
+  statusMsg.textContent = 'Se trimite înscrierea…';
+  statusMsg.className = 'em-status-msg em-sending em-show';
+
+  fetch(ENDPOINT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // evită preflight CORS
+    body: JSON.stringify(payload)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(res){
+    if (res && res.ok) {
+      statusMsg.textContent = '✔ Înscrierea a fost trimisă cu succes! Vei primi confirmare pe email.';
+      statusMsg.className = 'em-status-msg em-sent em-show';
+      form.reset();
+      renderTeacherCards(0);
+      numSel.value = '';
+      directorHint.style.display = 'none';
+      emailHint.style.display = 'none';
+      customLiceuField.style.display = 'none';
+    } else {
+      throw new Error((res && res.message) || 'Eroare necunoscută.');
+    }
+  })
+  .catch(function(err){
+    statusMsg.textContent = '⚠ Trimiterea a eșuat (' + err.message + '). Încearcă din nou sau scrie la asociatia.avapro@gmail.com.';
+    statusMsg.className = 'em-status-msg em-error em-show';
+  })
+  .finally(function(){
+    btnSubmit.disabled = false;
+  });
+});
+
+
+})();
+</script>
 
 </body>
 </html>
