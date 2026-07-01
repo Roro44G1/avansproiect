@@ -313,8 +313,7 @@ footer.mini-footer a { color:var(--cerulean); font-weight:600; }
        Google Apps Script are probleme cunoscute cu CORS pentru fetch() POST;
        trimiterea printr-un formular HTML real către un iframe nu e supusă
        acestor restricții. -->
-  <iframe name="enroll-hidden-frame" id="enroll-hidden-frame" style="display:none;" tabindex="-1" aria-hidden="true" title="Canal tehnic de trimitere, fără conținut vizibil"></iframe>
-  <form id="enroll-hidden-proxy" method="POST" target="enroll-hidden-frame" style="display:none;">
+  <form id="enroll-hidden-proxy" method="POST" target="_blank" style="display:none;">
     <input type="hidden" name="payload" id="enroll-hidden-payload">
   </form>
     </div>
@@ -564,28 +563,16 @@ form.addEventListener('submit', function(e){
   statusMsg.className = 'em-status-msg em-sending em-show';
 
   document.getElementById('enroll-hidden-payload').value = JSON.stringify(payload);
-  var proxyFrame = document.getElementById('enroll-hidden-frame');
   var proxyForm = document.getElementById('enroll-hidden-proxy');
-  var settled = false;
-
-  function finishSubmit(){
-    if (settled) return;
-    settled = true;
-    proxyFrame.removeEventListener('load', finishSubmit);
-    showSentSuccess();
-    btnSubmit.disabled = false;
-  }
-
-  proxyFrame.addEventListener('load', finishSubmit);
-  // Plasă de siguranță — dacă evenimentul 'load' nu se declanșează dintr-un motiv
-  // sau altul, tot arătăm confirmarea după câteva secunde (cererea a fost trimisă,
-  // doar nu am mai putut confirma exact momentul finalizării).
-  setTimeout(finishSubmit, 4000);
-
+  // Trimite formularul într-un TAB NOU (target="_blank") — o navigare de tab normală,
+  // nu una de iframe, deci nu e supusă restricțiilor CSP de tip frame-src pe care le
+  // pot impune unele găzduiri (Netlify, Cloudflare Pages etc.).
   proxyForm.submit();
+  showSentSuccess();
+  btnSubmit.disabled = false;
 
   function showSentSuccess(){
-    statusMsg.textContent = '✔ Cererea de înscriere a fost trimisă. Vei primi confirmare pe email în câteva minute (verifică și Spam).';
+    statusMsg.textContent = '✔ Cererea a fost trimisă — s-a deschis un tab nou cu confirmarea. Vei primi și email de confirmare în câteva minute (verifică și Spam).';
     statusMsg.className = 'em-status-msg em-sent em-show';
     form.reset();
     renderTeacherCards(0);
