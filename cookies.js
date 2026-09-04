@@ -6,6 +6,7 @@
    INSTALARE:
    1. Urcă acest fișier pe server: https://avansproiect.online/cookies.js
    2. Adaugă în FIECARE pagină HTML (index_RO.html, index_EN.html etc.),
+   
       imediat înainte de </body>:
       <script src="https://avansproiect.online/cookies.js"></script>
    3. ȘTERGE din <head> scripturile vechi de GA4 (dacă există):
